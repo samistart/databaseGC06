@@ -1,6 +1,4 @@
 <?php
-
-echo "start of the report code <br>";
 /**
 * Class to represent all report related information in a Report object
 */
@@ -13,12 +11,13 @@ class report {
 	var $groupId;
 
 	function __construct($title, $abstract, $content){
-		echo "started constructor code <br>";
+		
 		$this->title = $title;
 		$this->abstract = $abstract;
 		$this->content = $content;
 		//set the default value for groupId as 1 for now as a test (because there is only groupID 1 in the table)
 		//reportId and lastEdited will be automatically filled out (AI and timestamp)
+		echo "report object created <br>";
 	}
 
 
@@ -47,7 +46,7 @@ class report {
 		//have put the groupId as '1' for now (non-dynamic) just as a test because we only have 1 group in DB
 		$query = "INSERT INTO `peerReviewCentre`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) VALUES (NULL, '$this->title', '$this->abstract', '$this->content', CURRENT_TIMESTAMP, '1');";
 		//check the query for debugging purposes
-		echo "the insert query is: ".$query."<br>";
+		echo "the insert query is: ".$query."<br><br>";
 		return $query;
 
 //test simple query
