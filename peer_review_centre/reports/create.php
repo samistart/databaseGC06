@@ -10,9 +10,9 @@ The action determins which script to run once the form is submitted. -->
 <form method='post' action='process_create_form.php' name='new_user_form'>
 <!--Put in a label to show the user what to enter.-->
 <label>Title: </label>
-<!--An input field that takes text and saves it to a vairable called fName-->
 <!--A line break-->
 <br>
+<!--Input field of type text that has 30 characters and is saved as title-->
 <input type='text' name='title' size='30'>
 <br>
 <label>Abstract: </label>
@@ -23,7 +23,7 @@ The action determins which script to run once the form is submitted. -->
 <br>
 <input type='text' name='content' size='1000'>
 <br>
-<!--This is a button that submits the form and is labeled 'Create new user'-->
+<!--This is a button that submits the form and is labeled 'Create new report'-->
 <p><input type="submit" value="Create new report"></p>
 </form>
 </body>
