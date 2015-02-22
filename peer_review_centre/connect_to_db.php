@@ -9,9 +9,10 @@ $hostname="localhost";
 //default in WAMP would have no password for root but we're all using MAMP so that's fine
 $user="root";
 $password="root";
+$database = "GC06";
 
 //establish a connection using mysqli extension API method (improved version of mysql)
-$conn = new mysqli($hostname,$user,$password);
+$conn = new mysqli($hostname, $user, $password, $database);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
