@@ -16,7 +16,7 @@
 			$result = $conn->query($query);
 			$conn->close();
 		}
-
+		
 		echo "Registration successful.";
 
 	} else {

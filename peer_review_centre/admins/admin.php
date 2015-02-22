@@ -42,8 +42,6 @@ class Admin {
 	function createInsertQuery(){
 		// Create a string that is a MYSQL INSERT query
 		$query = "INSERT INTO admins (firstName, lastName, email, password) VALUES  ('$this->firstName', '$this->lastName', '$this->email', '$this->password');";
-		// Check the query for debugging purposes
-		echo "the insert query is: ".$query."<br><br>";
 		return $query;
 	}
 
