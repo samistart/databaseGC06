@@ -7,8 +7,8 @@
 
 		include 'student.php';
 
-		// Create a new Student object from information in the form
-		$newStudent = new Student($_POST["studentNumber"], $_POST["firstName"], $_POST["lastName"], $_POST["email"], $_POST["password"]);
+		// Create a new Student object from information in the form (groupID = 1 for now)
+		$newStudent = new Student($_POST["studentNumber"], $_POST["firstName"], $_POST["lastName"], $_POST["email"], $_POST["password"], 1);
 
 		// Create an insert query to send to mySQL and check that it isn't null
 		if (($query = $newStudent->createInsertQuery()) != null){

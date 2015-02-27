@@ -9,18 +9,18 @@ class Student {
 	var $lastName;
 	var $email;
 	var $password;
-	var $groupId;
+	var $groupID;
 	// Variables studentID and lastActive handled by sql
 
-	function __construct($studentNumber, $firstName, $lastName, $email, $password){
+	function __construct($studentNumber, $firstName, $lastName, $email, $password, $groupID){
 		
 		$this->studentNumber = $studentNumber;
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
 		$this->email = $email;
 		$this->password = $password;
+		$this->groupID = $groupID;
 	}
-
 
 	// Getter methods
 	function getStudentNumber(){
@@ -43,8 +43,8 @@ class Student {
 		return $this->password;
 	}
 
-	function getGroupId(){
-		return $this->groupId;
+	function getGroupID(){
+		return $this->groupID;
 	}
 
 	/**
@@ -52,11 +52,9 @@ class Student {
 	*/
 	function createInsertQuery(){
 		// Create a string that is a MYSQL INSERT query
-		// Have put the groupId as '1' for now (non-dynamic) just as a test because we only have 1 group in DB
-		$query = "INSERT INTO students (studentID, studentNumber, firstName, lastName, email, password, lastActive, groupID) VALUES  (NULL,'$this->studentNumber', '$this->firstName', '$this->lastName', '$this->email', '$this->password', CURRENT_TIMESTAMP, '1');";
+		$query = "INSERT INTO students (studentID, studentNumber, firstName, lastName, email, password, lastActive, groupID) VALUES  (NULL,'$this->studentNumber', '$this->firstName', '$this->lastName', '$this->email', '$this->password', CURRENT_TIMESTAMP, '$this->groupID');";
 		return $query;
 	}
-
 }
 
 ?>
