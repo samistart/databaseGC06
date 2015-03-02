@@ -5,8 +5,6 @@
 	<body>
 		<h2>Create a new Student Account</h2>
 		<form method='post' action='processNewStudent.php' name='newUser'>
-			<label>UCL Student Number:</label>
-			<input type='text' name='studentNumber' size='30'><br>
 			<label>First Name:</label>
 			<input type='text' name='firstName' size='30'><br>
 			<label>Last Name:</label>

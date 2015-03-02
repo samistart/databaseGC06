@@ -1,24 +1,19 @@
 <?php
-
+	require_once("student.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
 	if ($_POST["password"] == $_POST["confirmPassword"]) {
-
-		include 'student.php';
-
-		// Create a new Student object from information in the form (groupID = 1 for now)
-		$newStudent = new Student($_POST["studentNumber"], $_POST["firstName"], $_POST["lastName"], $_POST["email"], $_POST["password"], 1);
-
-		// Create an insert query to send to mySQL and check that it isn't null
-		if (($query = $newStudent->createInsertQuery()) != null){
-			include '../connect_to_db.php';
-			$result = $conn->query($query);
-			$conn->close();
-		}
-		echo "Registration successful.";
-
+	    // Create a new Student object from information in the form (groupID = 1 for now)
+	    $newStudent = new Student();
+	    $newStudent->firstName = $_POST["firstName"]; 
+	    $newStudent->lastName = $_POST["lastName"];
+	    $newStudent->email = $_POST["email"];
+	    $newStudent->password = $_POST["password"];
+	    $newStudent->groupID = 1;
+	    $newStudent->create();
+	    echo "Registration successful.";
 	} else {
-		echo "Passwords do not match, please try again.";
+	    echo "Passwords do not match, please try again.";
 	}
 ?>
