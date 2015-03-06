@@ -5,5 +5,7 @@ require_once("database.php");
 */
 class DatabaseObject {
 
+// This class will be extendable by every table class we create.
+	
 }
 ?>
