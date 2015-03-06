@@ -1,5 +1,5 @@
 <?php
-require_once("../database.php");
+require_once("database.php");
 /**
 * Class to represent all administrator related information in an Admin object
 */

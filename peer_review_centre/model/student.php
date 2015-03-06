@@ -1,5 +1,5 @@
 <?php
-require_once("../database.php");
+require_once("database.php");
 /**
 * Class to represent all student related information in a Student object
 */
@@ -85,7 +85,7 @@ class Student {
 		$sql .= ") VALUES  ('";
 		$sql .= join("', '", array_values($this->attributes()));
 		$sql .= "');";
-		// CURRENT_TIMESTAMP not working because it is passed between 's
+		$sql = str_replace("'CURRENT_TIMESTAMP'","CURRENT_TIMESTAMP", $sql);
 		if($database->query($sql)) {
 			$this->setPk($database->insert_id());
 			return true;

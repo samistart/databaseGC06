@@ -1,5 +1,5 @@
 <?php
-	require_once("student.php");
+	require_once("../model/student.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
@@ -13,9 +13,9 @@
 	    $newStudent->groupID = 1;
 	    $newStudent->create();
 
-	 	$user = Student::find_by_id(3);
-		$user->password = "12345wxyz";
-		$user->save();
+	 // 	$user = Student::find_by_id(3);
+		// $user->password = "12345wxyz";
+		// $user->save();
 		
 		//$user = Student::find_by_id(70);
 		//$user->delete();

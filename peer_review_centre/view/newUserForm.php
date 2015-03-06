@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<h2>Create a new Student Account</h2>
-		<form method='post' action='processNewStudent.php' name='newUser'>
+		<form method='post' action='../controller/processNewStudent.php' name='newUser'>
 			<label>First Name:</label>
 			<input type='text' name='firstName' size='30'><br>
 			<label>Last Name:</label>
