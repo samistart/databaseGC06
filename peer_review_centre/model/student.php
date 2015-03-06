@@ -1,9 +1,7 @@
 <?php
-// This class will hopefully extend the databaseObject class, and will only have to define the
-// getPk() and setPk() methods.
-
 require_once("database.php");
 require_once("databaseObject.php");
+
 /**
 * Class to represent all student related information in a Student object
 */

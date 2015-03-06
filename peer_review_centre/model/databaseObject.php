@@ -1,7 +1,7 @@
 <?php
 require_once("database.php");
 /**
-* Class to represent all student related information in a Student object
+* Class that holds the structure for all the "table classes"
 */
 abstract class DatabaseObject {
 
