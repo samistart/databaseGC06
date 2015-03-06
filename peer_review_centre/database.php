@@ -15,6 +15,8 @@ class MySQLDatabase {
 		// Check connection
 		if ($this->connection->connect_error) {
 		    die("Connection failed: " . $this->connection->connect_error);
+		//if (mysqli_connect_error()) {
+		//	trigger_error('Failed to connect to MySQL: ' . mysqli_connect_error(), E_USER_ERROR);
 		} else {
 			echo "Connection successful </br>";
 		}
@@ -52,7 +54,6 @@ class MySQLDatabase {
 	public function affected_rows() {
 		return mysqli_affected_rows($this->connection);
 	}
-
 }
 
 $database = new MySQLDatabase();

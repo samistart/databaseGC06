@@ -4,42 +4,47 @@ require_once("../database.php");
 * Class to represent all student related information in a Student object
 */
 class Student {
-	public $studentID;
+
+	protected static $table_name='students';
+	protected static $db_fields = array('studentID', 'firstName', 'lastName', 'email', 'password', 'lastActive', 'groupID');
+
+	public $studentID = "NULL";
 	public $firstName;
 	public $lastName;
 	public $email;
 	public $password;
-	public $lastActive;
+	public $lastActive = "CURRENT_TIMESTAMP";
 	public $groupID;
 	// Variables studentID and lastActive handled by sql
 
+	// Function that returns variable corresponding to the table's primary key 
+	// (so we can identify rows in table)
+	protected function getPk() {
+		return $this->studentID;
+	}
+
+	protected function setPk($value) {
+		$this->studentID = $value;
+	}
+
 	private static function instantiate($record) {
-		// Could check that $record exists and is an array
    		$object = new self;
-	
-     	$object->studentID = $record['studentID'];
-		$object->firstName = $record['firstName'];
-		$object->lastName = $record['lastName'];
-		$object->email = $record['email'];
-		$object->password = $record['password'];
-		$object->lastActive = $record['lastActive'];
-		$object->groupID = $record['groupID'];
-		
-		// More dynamic, short-form approach:
-		// foreach($record as $attribute=>$value){
-		//   if($object->has_attribute($attribute)) {
-		//     $object->$attribute = $value;
-		//   }
-		// }
+
+		// Instantiates all the attributes in the class
+		foreach($record as $attribute=>$value){
+		  if($object->has_attribute($attribute)) {
+		    $object->$attribute = $value;
+		  }
+		}
 		return $object;
 	}
 
 	public static function find_all() {
-		return self::find_by_sql("SELECT * FROM students");
+		return self::find_by_sql("SELECT * FROM ".self::$table_name."");
 	}
 
 	public static function find_by_id($id=0) {
-		$result_array = self::find_by_sql("SELECT * FROM students WHERE studentID={$id} LIMIT 1");
+		$result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE studentID={$id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
 	}
 
@@ -53,20 +58,36 @@ class Student {
     	return $object_array;
 	}
 
+	protected function has_attribute($attribute) {
+		$object_vars = $this->attributes();
+		return array_key_exists($attribute, $object_vars);
+	}
+
+	protected function attributes() {
+		$attributes = array();
+		foreach (self::$db_fields as $field) {
+			if(property_exists($this, $field)) {
+				$attributes[$field] = $this->$field;
+			}
+		}
+		return $attributes;
+	}
+
+	public function save() {
+		// Calls create() or update(), depening on whether database entry exists or not
+		return isset($this->studentID) ? $this->update() : $this->create();
+	}
+
 	public function create() {
 		global $database;
-		$sql = "INSERT INTO students (";
-		$sql .= "studentID, firstName, lastName, email, password, lastActive, groupID";
-		$sql .= ") VALUES  (";
-		$sql .= "NULL, '";
-		$sql .= "$this->firstName', '";
-		$sql .= "$this->lastName', '";
-		$sql .= "$this->email', '";
-		$sql .= "$this->password', ";
-		$sql .= "CURRENT_TIMESTAMP, '";
-		$sql .= "$this->groupID');";
+		$sql = "INSERT INTO ".self::$table_name." (";
+		$sql .= join(", ", array_keys($this->attributes()));
+		$sql .= ") VALUES  ('";
+		$sql .= join("', '", array_values($this->attributes()));
+		$sql .= "');";
+		// CURRENT_TIMESTAMP not working because it is passed between 's
 		if($database->query($sql)) {
-			$this->studentID = $database->insert_id();
+			$this->setPk($database->insert_id());
 			return true;
 		} else {
 			return false;
@@ -75,23 +96,23 @@ class Student {
 
 	public function update() {
 		global $database;
-		$sql = "UPDATE students SET ";
-		$sql .= "firstName='". $this->firstName . "', ";
-		$sql .= "lastName='". $this->lastName . "', ";
-		$sql .= "email='". $this->email . "', ";
-		$sql .= "password='". $this->password . "', ";
-		$sql .= "lastActive= CURRENT_TIMESTAMP, ";
-		$sql .= "groupID='". $this->groupID . "' ";
-		$sql .= "WHERE studentID=" . $this->studentID;
-		//$sql = "UPDATE `GC06`.`students` SET `firstName` = 'workkkkkk' WHERE `students`.`studentID` = 3;";
+		$sql = "UPDATE ".self::$table_name." SET ";
+
+		$attributes = $this->attributes();
+		$attribute_pairs = array();
+		foreach($attributes as $key => $value) {
+			$attribute_pairs[] = "{$key}='{$value}'";
+		}
+		$sql .= join(", ", $attribute_pairs);
+		$sql .= " WHERE ".self::$db_fields[0]."=" . $this->getPk();
 		$database->query($sql);
 		return ($database->affected_rows() == 1) ? true : false;
 	}
 
 	public function delete() {
 		global $database;
-		$sql = 	"DELETE FROM students ";
-		$sql .= "WHERE studentID=". $this->studentID;
+		$sql = 	"DELETE FROM ".self::$table_name." ";
+		$sql .= "WHERE ".self::$db_fields[0]."=". $this->getPk();
 		$sql .= " LIMIT 1";
 		$database->query($sql);
 		return ($database->affected_rows() == 1) ? true : false;

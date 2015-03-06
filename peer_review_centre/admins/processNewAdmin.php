@@ -1,25 +1,27 @@
 <?php
-
+	require_once("admin.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
 	if ($_POST["password"] == $_POST["confirmPassword"]) {
+	    // Create a new Student object from information in the form (groupID = 1 for now)
+	    $newAdmin = new Admin();
+	    $newAdmin->firstName = $_POST["firstName"]; 
+	    $newAdmin->lastName = $_POST["lastName"];
+	    $newAdmin->email = $_POST["email"];
+	    $newAdmin->password = $_POST["password"];
+	    $newAdmin->create();
 
-		include 'admin.php';
-
-		// Create a new Admin object from information in the form
-		$newAdmin = new Admin($_POST["firstName"], $_POST["lastName"], $_POST["email"], $_POST["password"]);
-
-		// Create an insert query to send to mySQL and check that it isn't null
-		if (($query = $newAdmin->createInsertQuery()) != null){
-			include '../connect_to_db.php';
-			$result = $conn->query($query);
-			$conn->close();
-		}
+	 // 	$user = Student::find_by_id(3);
+		// $user->password = "12345wxyz";
+		// $user->save();
 		
-		echo "Registration successful.";
+		//$user = Student::find_by_id(70);
+		//$user->delete();
+		//echo $user->firstName . " was deleted";
 
+	    echo "Registration successful.";
 	} else {
-		echo "Passwords do not match, please try again.";
+	    echo "Passwords do not match, please try again.";
 	}
 ?>
