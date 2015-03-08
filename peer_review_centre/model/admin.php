@@ -1,6 +1,6 @@
 <?php
 require_once("database.php");
-require_once("databaseObject.php");
+require_once("database_object.php");
 
 /**
 * Class to represent all aministrator related information in an Admin object

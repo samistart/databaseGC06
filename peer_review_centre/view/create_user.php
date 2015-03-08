@@ -3,8 +3,9 @@
 		<title>New Student Account</title>
 	</head>
 	<body>
+		<?php include 'navbar.php' ?>
 		<h2>Create a new Student Account</h2>
-		<form method='post' action='../controller/processNewStudent.php' name='newUser'>
+		<form method='post' action='../controller/process_new_student.php' name='newUser'>
 			<label>First Name:</label>
 			<input type='text' name='firstName' size='30'><br>
 			<label>Last Name:</label>

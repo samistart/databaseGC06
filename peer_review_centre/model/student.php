@@ -1,6 +1,6 @@
 <?php
 require_once("database.php");
-require_once("databaseObject.php");
+require_once("database_object.php");
 
 /**
 * Class to represent all student related information in a Student object

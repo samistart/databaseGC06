@@ -1,7 +1,9 @@
 <?php
-	require_once("admin.php");
+	require_once("../model/admin.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
+
+
 
 	if ($_POST["password"] == $_POST["confirmPassword"]) {
 	    // Create a new Student object from information in the form (groupID = 1 for now)

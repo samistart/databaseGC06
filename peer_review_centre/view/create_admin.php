@@ -3,8 +3,9 @@
 		<title>New Administrator Account</title>
 	</head>
 	<body>
+		<?php include 'navbar.php' ?>
 		<h2>Create a new Administrator Account</h2>
-		<form method='post' action='processNewAdmin.php' name='newAdmin'>
+		<form method='post' action='../controller/process_new_admin.php' name='newAdmin'>
 			<label>First Name:</label>
 			<input type='text' name='firstName' size='30'><br>
 			<label>Family Name:</label>

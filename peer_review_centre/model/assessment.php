@@ -1,46 +1,51 @@
 <?php
+require_once("database.php");
+require_once("database_object.php");
+
 /**
-* Class to represent all assessment related information in an Assessment object
+* Class to represent all assessment related information in a Assessment object
 */
-class Assessment {
+class Assessment extends DatabaseObject{
 
-	var $assessmentID;
-	var $criteria;
-	var $comment;
-	var $grade;
+	// Name of the corresponding database table and fields are stored in static variables.
+	// (will be common to every instance of the class)
+	protected static $table_name='assessments';
+	protected static $db_fields = array('assessmentID', 'criteria', 'comment', 'grade');
 
-	function __construct($assessmentID, $criteria, $comment, $grade){
-		$this->assessmentID = $assessmentID;
+	// Variables that correspond to the fields of the corresponding table, that will be given values
+	// for each object (creating the corresponding table entry)
+	public $assessmentID = "NULL";
+	public $criteria;
+	public $comment;
+	public $grade;
+
+
+	/**
+	*A constructor taking args for use in taking form data and create a new object.
+	*/
+	function __construct($criteria, $comment, $grade){
+		
 		$this->criteria = $criteria;
 		$this->comment = $comment;
 		$this->grade = $grade;
-	}
-
-	// Getter methods
-	function getAssessmentID(){
-		return $this->assessmentID;
-	}
-
-	function getCriteria(){
-		return $this->criteria;
-	}
-
-	function getComment(){
-		return $this->comment;
-	}
-
-	function getGrade(){
-		return $this->grade;
+		//set the default value for groupId as 1 for now as a test (because there is only groupID 1 in the table)
+		//assessmentId and lastEdited will be automatically filled out (AI and timestamp)
 	}
 
 	/**
-	* Generation of SQL query for adding assessment details to "assessments" table
+	* Method that returns the variable that corresponds to the primary key.
 	*/
-	function createInsertQuery(){
-		// Create a string that is a MYSQL INSERT query
-		$query = "INSERT INTO assessments (assessmentID, criteria, comment, grade) VALUES  ('$this->assessmentID', '$this->criteria', '$this->comment', '$this->grade');";
-		return $query;
+	protected function getPk() {
+		return $this->assessmentID;
 	}
-}
 
+	/**
+	* Method that updates the variable that corresponds to the primary key with
+	* the value that is passed as an argument.
+	*/
+	protected function setPk($value) {
+		$this->assessmentID = $value;
+	}
+
+}
 ?>
