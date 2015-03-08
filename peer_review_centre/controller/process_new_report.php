@@ -13,5 +13,4 @@ $newReport->create();
 
 echo "Great success - it's nice.";
 
-
 ?>
