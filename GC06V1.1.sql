@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `GC06`
+-- Database: `GC06V1.1`
 --
 
 -- --------------------------------------------------------
@@ -26,10 +26,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
---Only need the drop line if the database exists already
-DROP DATABASE `GC06`;
-CREATE DATABASE `GC06`;
-USE `GC06`; 
+
+CREATE DATABASE `GC06V1.1`;
+USE `GC06V1.1`; 
 
 CREATE TABLE `admins` (
 `adminID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,

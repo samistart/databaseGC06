@@ -1,41 +1,38 @@
 <?php
+require_once("database.php");
+require_once("database_object.php");
+
 /**
 * Class to represent all group related information in a Group object
 */
-class Group {
+class Group extends DatabaseObject{
 
-	var $groupName;
-	var $averageGrade;
-	var $ranking;
-	// Variable groupID is handled by sql
+	// Name of the corresponding database table and fields are stored in static variables.
+	// (will be common to every instance of the class)
+	protected static $table_name='groups';
+	protected static $db_fields = array('groupID', 'groupName', 'averageGrade', 'ranking');
 
-	function __construct($groupName, $averageGrade, $ranking){	
-		$this->groupName = $groupName;
-		$this->averageGrade = $averageGrade;
-		$this->ranking = $ranking;
-	}
+	// Variables that correspond to the fields of the corresponding table, that will be given values
+	// for each object (creating the corresponding table entry)
+	public $groupID = "NULL";
+	public $groupName;
+	public $averageGrade;
+	public $ranking;
 
-	// Getter methods
-	function getGroupName(){
-		return $this->groupName;
-	}
-
-	function getAverageGrade(){
-		return $this->averageGrade;
-	}
-
-	function getRanking(){
-		return $this->ranking;
+	/**
+	* Method that returns the variable that corresponds to the primary key.
+	*/
+	protected function getPk() {
+		return $this->groupID;
 	}
 
 	/**
-	* Generation of SQL query for adding student details to "groups" table
+	* Method that updates the variable that corresponds to the primary key with
+	* the value that is passed as an argument.
 	*/
-	function createInsertQuery(){
-		// Create a string that is a MYSQL INSERT query
-		$query = "INSERT INTO groups (groupID, groupName, averageGrade, ranking) VALUES  (NULL,'$this->groupName', '$this->averageGrade', '$this->ranking');";
-		return $query;
+	protected function setPk($value) {
+		$this->groupID = $value;
 	}
-}
 
+}
 ?>
