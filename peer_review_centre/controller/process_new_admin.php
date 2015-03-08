@@ -3,26 +3,27 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
-
+	//Sanitize to prevent naughty hackers from putting HTML tags
+	$firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+	$lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
 	if ($_POST["password"] == $_POST["confirmPassword"]) {
-	    // Create a new Student object from information in the form (groupID = 1 for now)
-	    $newAdmin = new Admin();
-	    $newAdmin->firstName = $_POST["firstName"]; 
-	    $newAdmin->lastName = $_POST["lastName"];
-	    $newAdmin->email = $_POST["email"];
-	    $newAdmin->password = $_POST["password"];
-	    $newAdmin->create();
+		//Check if the email is valid using built-in php function    
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		  // Create a new Admin object from information in the form (groupID = 1 for now)
+			    $newAdmin = new Admin();
+			    $newAdmin->firstName = $firstName; 
+			    $newAdmin->lastName = $lastName;
+			    $newAdmin->email = $email;
+			    $newAdmin->password = $_POST["password"];
+			    $newAdmin->create();
 
-	 // 	$user = Student::find_by_id(3);
-		// $user->password = "12345wxyz";
-		// $user->save();
-		
-		//$user = Student::find_by_id(70);
-		//$user->delete();
-		//echo $user->firstName . " was deleted";
-
-	    echo "Registration successful.";
+			    echo "Registration successful.";
+		}
+		else{
+			echo "Invalid email format";
+		}
 	} else {
 	    echo "Passwords do not match, please try again.";
 	}

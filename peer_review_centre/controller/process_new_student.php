@@ -3,29 +3,24 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
-	$validEmail = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b";
+	//Sanitize to prevent naughty hackers from putting HTML tags
+	//mysql_escape_string is tested here but needs to be replaced with mysqli_real_escape_string(connection,escapestring)
+	$firstName = mysql_escape_string(filter_var($_POST['firstName'], FILTER_SANITIZE_STRING));
+	$lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
 
 	if ($_POST["password"] == $_POST["confirmPassword"]) {
 		//Check if the email is valid using built-in php function    
-		if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		  // Create a new Student object from information in the form (groupID = 1 for now)
 			    $newStudent = new Student();
-			    $newStudent->firstName = $_POST["firstName"]; 
-			    $newStudent->lastName = $_POST["lastName"];
-			    $newStudent->email = $_POST["email"];
+			    $newStudent->firstName = $firstName; 
+			    $newStudent->lastName = $lastName;
+			    $newStudent->email = $email;
 			    $newStudent->password = $_POST["password"];
 			    $newStudent->groupID = 1;
 			    $newStudent->create();
-			    var_dump($newStudent);
-
-			 // 	$user = Student::find_by_id(3);
-				// $user->password = "12345wxyz";
-				// $user->save();
-				
-				//$user = Student::find_by_id(70);
-				//$user->delete();
-				//echo $user->firstName . " was deleted";
 
 			    echo "Registration successful.";
 		}
