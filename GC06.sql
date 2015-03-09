@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
---Only need the drop line if the database exists already
+/*Only need the drop line if the database exists already*/
 DROP DATABASE `GC06`;
 CREATE DATABASE `GC06`;
 USE `GC06`; 
@@ -46,11 +46,18 @@ CREATE TABLE `admins` (
 --
 
 CREATE TABLE `assessments` (
-  `assessmentID` int(11) NOT NULL,
-  `criteria` varchar(15) NOT NULL COMMENT '[readability, content, accuracy]',
-  `comment` text NOT NULL,
-  `grade` int(11) NOT NULL COMMENT '1 to 5',
-  PRIMARY KEY  (`assessmentID`,`criteria`)
+  `assessmentID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `groupID` int(11) NOT NULL,
+  `reportID` int(11) NOT NULL,
+  `criteria1` varchar(15) NOT NULL COMMENT '[readability]',
+  `comment1` text NOT NULL,
+  `grade1` int(11) NOT NULL COMMENT '1 to 5',
+  `criteria2` varchar(15) NOT NULL COMMENT '[content]',
+  `comment2` text NOT NULL,
+  `grade2` int(11) NOT NULL COMMENT '1 to 5',
+  `criteria3` varchar(15) NOT NULL COMMENT '[accuracy]',
+  `comment3` text NOT NULL,
+  `grade3` int(11) NOT NULL COMMENT '1 to 5'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -61,18 +68,6 @@ CREATE TABLE `assessments` (
 
 CREATE TABLE `forums` (
   `forumID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `groupID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `groupReportAssessment`
---
-
-CREATE TABLE `groupReportAssessment` (
-`assessmentID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `reportID` int(11) NOT NULL,
   `groupID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -152,7 +147,8 @@ CREATE TABLE `threads` (
 -- Constraints for table `assessments`
 --
 ALTER TABLE `assessments`
-ADD CONSTRAINT `assessments_ibfk_1` FOREIGN KEY (`assessmentID`) REFERENCES `groupReportAssessment` (`assessmentID`);
+ADD CONSTRAINT `assessments_ibfk_2` FOREIGN KEY (`reportID`) REFERENCES `reports` (`reportID`),
+ADD CONSTRAINT `assessments_ibfk_1` FOREIGN KEY (`groupID`) REFERENCES `groups` (`groupID`);
 
 --
 -- Constraints for table `forums`
