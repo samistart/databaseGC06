@@ -1,5 +1,7 @@
 <?php
 
+//Author: Sami Start
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
@@ -12,6 +14,5 @@ $newReport->groupID = "1";
 $newReport->create();
 
 echo "Great success - it's nice.";
-
 
 ?>

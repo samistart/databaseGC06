@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<title>New Student Account</title>
+		<!-- Change the icon to a picture of a little dinosaur -->
+    <link rel="shortcut icon" href="../icon.ico" />
 	</head>
 	<body>
 		<?php include 'navbar.php' ?>

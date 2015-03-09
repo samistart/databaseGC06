@@ -37,5 +37,22 @@ class Student extends DatabaseObject{
 		$this->studentID = $value;
 	}
 
+	//incomplete (almost pseudo-code) and needs changing
+	static function login($email, $password){
+		$query = "SELECT userID, username FROM User ";
+		$query .= "WHERE username = '$username' AND ";
+ 		$query .=	"password = SHA('$password')";
+		$data = mysqli_query($connection, $query);
+		if (mysqli_num_rows($data) == 1) {
+ 			$row = mysqli_fetch_array($data);
+ 			setcookie('userID', $row['userID']);
+ 			setcookie('username', $row['username']);
+ 			$indexURL = 'http://' . $_SERVER['HTTP_HOST'] .
+ 			dirname($_SERVER['PHP_SELF']) . '/index.php';
+ 			header('Location: ' . $indexURL);
+		} else {
+ 			echo ‘Invalid username or password, try again’;
+		}
+
 }
 ?>

@@ -1,42 +1,25 @@
 <?php
+require_once("database.php");
+require_once("database_object.php");
+
 /**
 * Class to represent all post related information in a Post object
 */
-class Post {
+class Post extends DatabaseObject{
 
-	var $content;
-	var $threadID;
-	var $studentID;
-	// Variable dateCreated handled by sql
+	// Name of the corresponding database table and fields are stored in static variables.
+	// (will be common to every instance of the class)
+	protected static $table_name='posts';
+	protected static $db_fields = array('content', 'dateCreated', 'threadID', 'studentID');
 
-	function __construct($content, $threadID, $studentID){
-		
-		$this->content = $content;
-		$this->threadID = $threadID;
-		$this->studentID = $studentID;
-	}
+	// Variables that correspond to the fields of the corresponding table, that will be given values
+	// for each object (creating the corresponding table entry)
+	public $content;
+	public $dateCreated = "CURRENT_TIMESTAMP";
+	public $threadID;
+	public $studentID;
 
-	// Getter methods
-	function getContent(){
-		return $this->content;
-	}
+	//No primary key for this class
 
-	function getThreadID(){
-		return $this->threadID;
-	}
-
-	function getStudentID(){
-		return $this->studentID;
-	}
-
-	/**
-	* Generation of SQL query for adding post details to "posts" table
-	*/
-	function createInsertQuery(){
-		// Create a string that is a MYSQL INSERT query
-		$query = "INSERT INTO posts (content, dateCreated, threadID, studentID) VALUES  ('$content', CURRENT_TIMESTAMP, '$this->threadID', '$this->studentID');";
-		return $query;
-	}
 }
-
 ?>

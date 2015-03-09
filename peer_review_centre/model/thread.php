@@ -1,36 +1,38 @@
 <?php
+require_once("database.php");
+require_once("database_object.php");
+
 /**
 * Class to represent all thread related information in a Thread object
 */
-class Thread {
+class Thread extends DatabaseObject{
 
-	var $title;
-	var $forumID;
-	// Variables threadID and dateCreated handled by sql
+	// Name of the corresponding database table and fields are stored in static variables.
+	// (will be common to every instance of the class)
+	protected static $table_name='threads';
+	protected static $db_fields = array('threadID', 'title', 'dateCreated', 'forumID');
 
-	function __construct($title, $forumID){
-		
-		$this->title = $title;
-		$this->forumID = $forumID;
-	}
+	// Variables that correspond to the fields of the corresponding table, that will be given values
+	// for each object (creating the corresponding table entry)
+	public $threadID = "NULL";
+	public $title;
+	public $dateCreated = "CURRENT_TIMESTAMP";
+	public $forumID;
 
-	// Getter methods
-	function getTitle(){
-		return $this->title;
-	}
-
-	function getForumID(){
-		return $this->forumID;
+	/**
+	* Method that returns the variable that corresponds to the primary key.
+	*/
+	protected function getPk() {
+		return $this->threadID;
 	}
 
 	/**
-	* Generation of SQL query for adding thread details to "threads" table
+	* Method that updates the variable that corresponds to the primary key with
+	* the value that is passed as an argument.
 	*/
-	function createInsertQuery(){
-		// Create a string that is a MYSQL INSERT query
-		$query = "INSERT INTO threads (threadID, title, dateCreated,forumID) VALUES  (NULL,'$this->title', CURRENT_TIMESTAMP, '$this->forumID');";
-		return $query;
+	protected function setPk($value) {
+		$this->threadID = $value;
 	}
-}
 
+}
 ?>
