@@ -78,7 +78,7 @@ class StudentSession {
   
 }
 
-$session = new Session();
+$session = new StudentSession;
 $message = $session->message();
 
 ?>

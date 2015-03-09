@@ -7,7 +7,7 @@
   <body>
     <?php include 'navbar.php' ?>
     <h2>Student Login</h2>
-    <form method='post' action='../controller/process_login_student.php' name='studentLogin'>
+    <form method='POST' action='../controller/process_login_student.php' name='studentLogin'>
       <label>Email:</label>
       <input type='text' name='email' size='30'><br>
       <label>Password:</label>

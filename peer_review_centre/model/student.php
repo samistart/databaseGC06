@@ -37,22 +37,23 @@ class Student extends DatabaseObject{
 		$this->studentID = $value;
 	}
 
-	//incomplete (almost pseudo-code) and needs changing
-	static function login($email, $password){
-		$query = "SELECT userID, username FROM User ";
-		$query .= "WHERE username = '$username' AND ";
- 		$query .=	"password = SHA('$password')";
-		$data = mysqli_query($connection, $query);
-		if (mysqli_num_rows($data) == 1) {
- 			$row = mysqli_fetch_array($data);
- 			setcookie('userID', $row['userID']);
- 			setcookie('username', $row['username']);
- 			$indexURL = 'http://' . $_SERVER['HTTP_HOST'] .
- 			dirname($_SERVER['PHP_SELF']) . '/index.php';
- 			header('Location: ' . $indexURL);
-		} else {
- 			echo ‘Invalid username or password, try again’;
-		}
+	public static function authenticate($email="", $password="") {
+    global $database;
+    //TO DO: UNCOMMENT THESE LINES ONCE AXEL HAS MADE ESCAPE_VALUE
+    // $email = escape_value($email);
+    // $password = escape_value($password);
+
+    $sql  = "SELECT * FROM students ";
+    $sql .= "WHERE email = '{$email}' ";
+    $sql .= "LIMIT 1";
+    $result_array = self::find_by_sql($sql);
+    echo "<br> email of result array is: ";
+    echo "<br>Var dump of the result array: ";
+    var_dump($result_array);
+    echo "<br>array shift of result array is: ";
+    var_dump(array_shift($result_array));
+		return !empty($result_array) ? array_shift($result_array) : false;
+	}
 
 }
 ?>
