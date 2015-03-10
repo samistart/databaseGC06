@@ -1,17 +1,13 @@
 <?php
 
-class Utilities {
+function isEmail($inputEmail) {
 	
-	function isEmail($inputEmail) {
-		
-	}
-
-	function redirect_to($location = NULL) {
-  		if ($location != NULL) {
-    		header("Location: {$location}");
-    		exit;
-  		}
-	}
 }
 
+function redirect_to($location = NULL) {
+		if ($location != NULL) {
+		header("Location: {$location}");
+		exit;
+		}
+}
 ?>
