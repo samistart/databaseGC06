@@ -1,10 +1,10 @@
 <?php
 
-//Author Sami Start
-//Reference: based on http://www.lynda.com/MySQL-tutorials/Creating-Session-class/653/47385-4.html
+// Author Sami Start
+// Reference: based on http://www.lynda.com/MySQL-tutorials/Creating-Session-class/653/47385-4.html
 
-//A class to help work with Sessions
-//In our case, primarily to manage logging students and admins in and out
+// A class to help work with Sessions
+// In our case, primarily to manage logging students and admins in and out
 
 // Keep in mind that it is generally inadvisable to store
 // DB - related objects in sessions (data might become outdated or take up too much space)
@@ -17,6 +17,7 @@ class StudentSession {
   
   function __construct() {
     session_start();
+    unset($_SESSION['studentID']);
     $this->checkMessage();
     $this->checkLogin();
     if($this->loggedIn) {
