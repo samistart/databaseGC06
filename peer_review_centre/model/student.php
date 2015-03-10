@@ -37,6 +37,7 @@ class Student extends DatabaseObject{
 		$this->studentID = $value;
 	}
 
+  //Author: Sami Start
 	public static function authenticate($email="", $password="") {
     global $database;
     //TO DO: UNCOMMENT THESE LINES ONCE AXEL HAS MADE ESCAPE_VALUE (written by Sami)
@@ -50,13 +51,12 @@ class Student extends DatabaseObject{
     $newStudent = $resultArray[0];
     //You need to take the first 61 chars of the hash and salt
     // see http://stackoverflow.com/questions/27610403/php-password-verify-not-working-with-database
-    // this is liable to change
+    // TODO this is liable to change so is a bad (tempoary) bug fix
     $newStudent->password = substr( $newStudent->password, 0, 60 );
     if (password_verify($password, $newStudent->password)) {
         return !empty($resultArray) ? array_shift($resultArray) : false;
     }
     else{
-      echo "verify did not work";
       return false;
     }
 
