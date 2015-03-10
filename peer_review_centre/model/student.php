@@ -45,14 +45,20 @@ class Student extends DatabaseObject{
 
     $sql  = "SELECT * FROM students ";
     $sql .= "WHERE email = '{$email}' ";
-    $sql .= "LIMIT 1";
-    $result_array = self::find_by_sql($sql);
-    echo "<br> email of result array is: ";
-    echo "<br>Var dump of the result array: ";
-    var_dump($result_array);
-    echo "<br>array shift of result array is: ";
-    var_dump(array_shift($result_array));
-		return !empty($result_array) ? array_shift($result_array) : false;
+    $sql .= "LIMIT 1;";
+    $resultArray = self::find_by_sql($sql);
+    $newStudent = $resultArray[0];
+    //if (password_verify($password, $newStudent->password)) {
+    //password verification not working. will add later
+    if (true){
+        return !empty($resultArray) ? array_shift($resultArray) : false;
+    }
+    else{
+      echo "verify did not work";
+      return false;
+    }
+
+		
 	}
 
 }

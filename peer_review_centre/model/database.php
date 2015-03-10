@@ -26,7 +26,9 @@ class MySQLDatabase {
 		if ($this->connection->connect_error) {
 		    die("Connection failed: " . $this->connection->connect_error);
 		} else {
-			echo "Connection successful </br>";
+			//I have taken out this line of code as it is setting a header
+			//and causing problems with my redirect. Sami
+			// echo "Connection successful </br>";
 		}
 	}
 

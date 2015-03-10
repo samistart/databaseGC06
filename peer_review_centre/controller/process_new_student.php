@@ -1,8 +1,8 @@
+<!-- Author: Sami Start -->
 <?php
-	require_once("../model/student.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
-
+	require_once("../includes/initialise_student.php");
 
 	if ($_POST["password"] == $_POST["confirmPassword"]) {
 		//Check if the email is valid using built-in php function    
@@ -10,7 +10,7 @@
 
 			//Sanitize to prevent naughty hackers from putting HTML tags
 			//mysql_escape_string is tested here but needs to be replaced with mysqli_real_escape_string(connection,escapestring)
-			$firstName = mysql_escape_string(filter_var($_POST['firstName'], FILTER_SANITIZE_STRING));
+			$firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
 			$lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
 			$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 			//Use the PHP 5.5 hashing API. To check password use
@@ -30,7 +30,8 @@
 	    $newStudent->groupID = "1";
 	    $newStudent->create();
 
-			    echo "Registration successful.";
+			header("Location: ../view/login_student.php");
+      exit();
 		}
 		else{
 			echo "Invalid email format";

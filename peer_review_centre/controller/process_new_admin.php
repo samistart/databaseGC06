@@ -1,3 +1,4 @@
+<!-- Author: Sami Start -->
 <?php
 	require_once("../model/admin.php");
 	ini_set('display_errors', 'On');
