@@ -9,17 +9,18 @@
 // Keep in mind that it is generally inadvisable to store
 // DB - related objects in sessions (data might become outdated or take up too much space)
 
-class StudentSession {
+class Session {
   
   private $loggedIn=false;
-  public $studentID;
+  private $isAdmin=false;
+  public $userID;
   public $message;
   
   function __construct() {
     session_start();
-    unset($_SESSION['studentID']);
     $this->checkMessage();
     $this->checkLogin();
+    $this->checkAdmin();
     if($this->loggedIn) {
       // actions to take right away if student is logged in
     } else {
@@ -31,17 +32,36 @@ class StudentSession {
     return $this->loggedIn;
   }
 
-  public function login($student) {
-    // database should find student based on studentname/password
-    if($student){
-      $this->studentID = $_SESSION['studentID'] = $student->studentID;
+  public function isAdmin(){
+    return $this->isAdmin;
+  }
+
+  //@args: student or admin object and a boolean for admin status
+  public function login($user, $isAdmin=false) {
+
+    //if it's an admin log in based on the $user's adminID
+    if ($isAdmin) {
+      if($user){
+      $this->userID = $_SESSION['userID'] = $user->adminID;
+      $this->isAdmin = $_SESSION['isAdmin'] = $isAdmin;
       $this->loggedIn = true;
+      }
     }
+    //else use studentID
+    else{
+      if($user){
+      $this->userID = $_SESSION['userID'] = $user->studentID;
+      $this->isAdmin = $_SESSION['isAdmin'] = $isAdmin;
+      $this->loggedIn = true;
+      }
+    }
+    // database should find student based on studentname/password
+    
   }
   
   public function logout() {
-    unset($_SESSION['studentID']);
-    unset($this->studentID);
+    unset($_SESSION['userID']);
+    unset($this->userID);
     $this->loggedIn = false;
   }
 
@@ -57,12 +77,20 @@ class StudentSession {
   }
 
   private function checkLogin() {
-    if(isset($_SESSION['studentID'])) {
-      $this->studentID = $_SESSION['studentID'];
+    if(isset($_SESSION['userID'])) {
+      $this->userID = $_SESSION['userID'];
       $this->loggedIn = true;
     } else {
-      unset($this->studentID);
+      unset($this->userID);
       $this->loggedIn = false;
+    }
+  }
+
+  private function checkAdmin() {
+    if(isset($_SESSION['isAdmin'])) {
+      $this->isAdmin = $_SESSION['isAdmin'];
+    } else {
+      unset($this->isAdmin);
     }
   }
   
@@ -79,7 +107,7 @@ class StudentSession {
   
 }
 
-$studentSession = new StudentSession;
-$message = $studentSession->message();
+$session = new Session;
+$message = $session->message();
 
 ?>

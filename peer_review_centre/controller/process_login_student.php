@@ -5,7 +5,7 @@ error_reporting(E_ALL | E_STRICT);
 
 require_once("../includes/initialise_student.php");
 
-if($studentSession->isLoggedIn()) {
+if($session->isLoggedIn()) {
   //var_dump($_SESSION);
   header("Location: ../view/unfinished_page.php");
   exit();
@@ -26,7 +26,7 @@ if (isset($_POST['email'])&isset($_POST['password'])) { // Form has been submitt
     if ($foundStudent) {
       //$studentSession is an object that is constructed at the end
       //of the student_session include
-      $studentSession->login($foundStudent);
+      $session->login($foundStudent, false);
       header("Location: ../view/index_student.php");
       exit();
     }
