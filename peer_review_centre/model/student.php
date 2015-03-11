@@ -33,7 +33,7 @@ class Student extends DatabaseObject {
 	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
-	protected function getPk() {
+	public function getPk() {
 		return $this->studentID;
 	}
 

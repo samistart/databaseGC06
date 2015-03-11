@@ -36,7 +36,7 @@ CREATE TABLE `admins` (
   `firstName` text NOT NULL,
   `lastName` text NOT NULL,
   `email` text NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -125,7 +125,7 @@ CREATE TABLE `students` (
   `firstName` text NOT NULL,
   `lastName` text NOT NULL,
   `email` text NOT NULL COMMENT 'is username',
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `lastActive` datetime NOT NULL,
   `groupID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -185,6 +185,10 @@ ALTER TABLE `threads`
 ADD CONSTRAINT `threads_ibfk_2` FOREIGN KEY (`studentID`) REFERENCES `students` (`studentID`),
 ADD CONSTRAINT `threads_ibfk_1` FOREIGN KEY (`forumID`) REFERENCES `forums` (`forumID`);
 
+-- Seed db with default group and forum
+
+INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', '0', '1');
+INSERT INTO `GC06`.`forums` (`forumID`, `groupID`) VALUES (NULL, '1');
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

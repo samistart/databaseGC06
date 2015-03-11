@@ -40,21 +40,12 @@ class Session {
   public function login($user, $isAdmin=false) {
 
     //if it's an admin log in based on the $user's adminID
-    if ($isAdmin) {
       if($user){
-      $this->userID = $_SESSION['userID'] = $user->adminID;
+      $this->userID = $_SESSION['userID'] = $user->getPk();
       $this->isAdmin = $_SESSION['isAdmin'] = $isAdmin;
       $this->loggedIn = true;
       }
-    }
-    //else use studentID
-    else{
-      if($user){
-      $this->userID = $_SESSION['userID'] = $user->studentID;
-      $this->isAdmin = $_SESSION['isAdmin'] = $isAdmin;
-      $this->loggedIn = true;
-      }
-    }
+
     // database should find student based on studentname/password
     
   }
