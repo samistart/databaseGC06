@@ -1,7 +1,7 @@
 <?php
 	require_once("../model/thread.php");
 	require_once("../model/comment.php");
-	require_once("utilities.php");
+	require_once("../includes/utilities.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
