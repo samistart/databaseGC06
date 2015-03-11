@@ -37,22 +37,31 @@ class Student extends DatabaseObject{
 		$this->studentID = $value;
 	}
 
-	//incomplete (almost pseudo-code) and needs changing
-	static function login($email, $password){
-		$query = "SELECT userID, username FROM User ";
-		$query .= "WHERE username = '$username' AND ";
- 		$query .=	"password = SHA('$password')";
-		$data = mysqli_query($connection, $query);
-		if (mysqli_num_rows($data) == 1) {
- 			$row = mysqli_fetch_array($data);
- 			setcookie('userID', $row['userID']);
- 			setcookie('username', $row['username']);
- 			$indexURL = 'http://' . $_SERVER['HTTP_HOST'] .
- 			dirname($_SERVER['PHP_SELF']) . '/index.php';
- 			header('Location: ' . $indexURL);
-		} else {
- 			echo ‘Invalid username or password, try again’;
-		}
+  //Author: Sami Start
+	public static function authenticate($email="", $password="") {
+    global $database;
+    //TO DO: UNCOMMENT THESE LINES ONCE AXEL HAS MADE ESCAPE_VALUE (written by Sami)
+    // $email = escape_value($email);
+    // $password = escape_value($password);
+
+    $sql  = "SELECT * FROM students ";
+    $sql .= "WHERE email = '{$email}' ";
+    $sql .= "LIMIT 1;";
+    $resultArray = self::find_by_sql($sql);
+    $newStudent = $resultArray[0];
+    //You need to take the first 61 chars of the hash and salt
+    // see http://stackoverflow.com/questions/27610403/php-password-verify-not-working-with-database
+    // TODO this is liable to change so is a bad (tempoary) bug fix
+    $newStudent->password = substr( $newStudent->password, 0, 60 );
+    if (password_verify($password, $newStudent->password)) {
+        return !empty($resultArray) ? array_shift($resultArray) : false;
+    }
+    else{
+      return false;
+    }
+
+		
+	}
 
 }
 ?>

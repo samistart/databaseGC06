@@ -1,47 +1,48 @@
 <?php
 
-//Author Sami Start
-//Reference: based on http://www.lynda.com/MySQL-tutorials/Creating-Session-class/653/47385-4.html
+// Author Sami Start
+// Reference: based on http://www.lynda.com/MySQL-tutorials/Creating-Session-class/653/47385-4.html
 
-//A class to help work with Sessions
-//In our case, primarily to manage logging students and admins in and out
+// A class to help work with Sessions
+// In our case, primarily to manage logging students and admins in and out
 
 // Keep in mind that it is generally inadvisable to store
 // DB - related objects in sessions (data might become outdated or take up too much space)
 
 class StudentSession {
   
-  private $logged_in=false;
-  public $student_id;
+  private $loggedIn=false;
+  public $studentID;
   public $message;
   
   function __construct() {
     session_start();
-    $this->check_message();
-    $this->check_login();
-    if($this->logged_in) {
+    unset($_SESSION['studentID']);
+    $this->checkMessage();
+    $this->checkLogin();
+    if($this->loggedIn) {
       // actions to take right away if student is logged in
     } else {
       // actions to take right away if student is not logged in
     }
   }
   
-  public function is_logged_in() {
-    return $this->logged_in;
+  public function isLoggedIn() {
+    return $this->loggedIn;
   }
 
   public function login($student) {
     // database should find student based on studentname/password
     if($student){
-      $this->student_id = $_SESSION['student_id'] = $student->id;
-      $this->logged_in = true;
+      $this->studentID = $_SESSION['studentID'] = $student->studentID;
+      $this->loggedIn = true;
     }
   }
   
   public function logout() {
-    unset($_SESSION['student_id']);
-    unset($this->student_id);
-    $this->logged_in = false;
+    unset($_SESSION['studentID']);
+    unset($this->studentID);
+    $this->loggedIn = false;
   }
 
   public function message($msg="") {
@@ -55,17 +56,17 @@ class StudentSession {
     }
   }
 
-  private function check_login() {
-    if(isset($_SESSION['student_id'])) {
-      $this->student_id = $_SESSION['student_id'];
-      $this->logged_in = true;
+  private function checkLogin() {
+    if(isset($_SESSION['studentID'])) {
+      $this->studentID = $_SESSION['studentID'];
+      $this->loggedIn = true;
     } else {
-      unset($this->student_id);
-      $this->logged_in = false;
+      unset($this->studentID);
+      $this->loggedIn = false;
     }
   }
   
-  private function check_message() {
+  private function checkMessage() {
     // Is there a message stored in the session?
     if(isset($_SESSION['message'])) {
       // Add it as an attribute and erase the stored version
@@ -78,7 +79,7 @@ class StudentSession {
   
 }
 
-$session = new Session();
-$message = $session->message();
+$studentSession = new StudentSession;
+$message = $studentSession->message();
 
 ?>
