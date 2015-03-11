@@ -55,6 +55,13 @@ class MySQLDatabase {
 	// Some functions that will make our code reusable by avoiding the use of mysql-specific
 	// functions outside of this class (this way it will be easily extendable to different 
 	// kinds of databases)
+
+	public function escape_value($string) {
+		global $connection;
+		$escaped_string = mysqli_real_escape_string($connection, $string);
+		return $escaped_string;
+	}
+
 	public function fetch_array($result_set) {
 		return mysqli_fetch_array($result_set);
 	}
