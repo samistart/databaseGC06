@@ -16,7 +16,7 @@
 
 	    if($newThread && $newThread->save()) {
 	    	// Thread saved
-	    	redirect_to("../view/view_forum.php");
+	    	redirectTo("../view/view_forum.php");
 	    } else {
 	    	// Failed
 	    	$message = "There was an error that prevented the thread from being saved.";
@@ -27,5 +27,5 @@
 		$title = "";
 		$content = "";
 	}
-	$threads = Thread::find_threads_on($forumID);
+	$threads = Thread::findThreadsOn($forumID);
 ?>

@@ -32,11 +32,10 @@
 
 			header("Location: ../view/login_student.php");
       exit();
-		}
-		else{
+		} else {
 			echo "Invalid email format";
 		}
 	} else {
-	    echo "Passwords do not match, please try again.";
+	  echo "Passwords do not match, please try again.";
 	}
 ?>

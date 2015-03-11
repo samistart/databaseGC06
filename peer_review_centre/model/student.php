@@ -53,19 +53,18 @@ class Student extends DatabaseObject {
     $sql  = "SELECT * FROM students ";
     $sql .= "WHERE email = '{$email}' ";
     $sql .= "LIMIT 1;";
-    $resultArray = self::find_by_sql($sql);
+    $resultArray = self::findBySQL($sql);
     $newStudent = $resultArray[0];
+
     //You need to take the first 61 chars of the hash and salt
     // see http://stackoverflow.com/questions/27610403/php-password-verify-not-working-with-database
     // TODO this is liable to change so is a bad (temporary) bug fix
     $newStudent->password = substr( $newStudent->password, 0, 60 );
     if (password_verify($password, $newStudent->password)) {
-        return !empty($resultArray) ? array_shift($resultArray) : false;
-    }
-    else{
+      return !empty($resultArray) ? array_shift($resultArray) : false;
+    } else {
       return false;
     }
-
 
 	}
 

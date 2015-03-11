@@ -30,12 +30,11 @@
 	    $newAdmin->password = $hashAndSalt;
 	    $newAdmin->create();
 
-			    echo "Registration successful.";
-		}
-		else{
+			echo "Registration successful.";
+		} else {
 			echo "Invalid email format";
 		}
 	} else {
-	    echo "Passwords do not match, please try again.";
+	  echo "Passwords do not match, please try again.";
 	}
 ?>

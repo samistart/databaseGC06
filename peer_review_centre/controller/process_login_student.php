@@ -12,7 +12,7 @@ if($session->isLoggedIn()) {
 }
 
 // // Remember to give your form's submit tag a name="submit" attribute!
-if (isset($_POST['email'])&isset($_POST['password'])) { // Form has been submitted.
+if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submitted.
   
   $email = trim($_POST['email']);
   $password = trim($_POST['password']);
@@ -29,15 +29,14 @@ if (isset($_POST['email'])&isset($_POST['password'])) { // Form has been submitt
       $session->login($foundStudent, false);
       header("Location: ../view/index_student.php");
       exit();
-    }
-    else{
+    } else {
       echo "Email/password combination incorrect.";
     }
   
   } else { // Form has not been submitted.
     echo "That's not a valid email address.";
   }
-} else{
+} else {
   echo "Email or password cannot be blank.";
 }
 ?>

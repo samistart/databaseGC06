@@ -24,12 +24,14 @@ class MySQLDatabase {
 		$this->connection = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 		// Check connection and return the corresponding success/failure message.
 		if ($this->connection->connect_error) {
-		    die("Connection failed: " . $this->connection->connect_error);
-		} else {
+		  die("Connection failed: " . $this->connection->connect_error);
+		}
 			//I have taken out this line of code as it is setting a header
 			//and causing problems with my redirect. Sami
-			// echo "Connection successful </br>";
-		}
+			// 
+			//  else {
+			//	echo "Connection successful </br>";
+			//}
 	}
 
 	/**
