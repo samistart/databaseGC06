@@ -1,11 +1,10 @@
 <html>
-
-<head>
-  <title>Submit Report</title>
-  <!-- Change the icon to a picture of a little dinosaur -->
-  <link rel="shortcut icon" href="../icon.ico" />
-</head>
-
+  <?php
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+  require_once('../includes/initialise_student.php');
+  InitialiseStudent::checkLoggedIn($session);
+  ?>
 <body>
   <form method="POST" action="../controller/process_new_report.php" name="newReport">
     <label>Title: </label>

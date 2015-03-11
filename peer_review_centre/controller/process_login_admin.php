@@ -20,14 +20,14 @@ if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submi
   //Check for valid email
   if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 
-    // Check database to see if studentname/password exist.
-    $foundStudent = Student::authenticate($email, $password);
+    // Check database to see if adminname/password exist.
+    $foundAdmin = Admin::authenticate($email, $password);
 
-    if ($foundStudent) {
-      //$studentSession is an object that is constructed at the end
-      //of the student_session include
-      $session->login($foundStudent, false);
-      header("Location: ../view/index_student.php");
+    if ($foundAdmin) {
+      //$adminSession is an object that is constructed at the end
+      //of the admin_session include
+      $session->login($foundAdmin, false);
+      header("Location: ../view/index_admin.php");
       exit();
     } else {
       echo "Email/password combination incorrect.";

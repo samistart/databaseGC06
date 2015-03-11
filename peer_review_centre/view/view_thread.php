@@ -1,3 +1,7 @@
+<?php
+require_once('../includes/initialise_student.php');
+InitialiseStudent::checkLoggedIn($session);
+?>
 <html>
 
 <head>

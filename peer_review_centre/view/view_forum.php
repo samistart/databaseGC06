@@ -1,4 +1,8 @@
 <html>
+<?php
+  require_once('../includes/initialise_student.php');
+  InitialiseStudent::checkLoggedIn($session);
+?>
 
 <head>
 	<title>Forum</title>
@@ -6,9 +10,6 @@
 </head>
 
 <body>
-  <?php require_once("header_student.php"); ?>
-  <?php require_once("../controller/process_threads.php"); ?>
-  <?php require_once("../model/student.php"); ?>
 
   <h2>Welcome to your group forum</h2>
 

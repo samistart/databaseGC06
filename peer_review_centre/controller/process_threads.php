@@ -6,6 +6,7 @@ require_once("../model/thread.php");
 require_once("../model/forum.php");
 require_once("../includes/utilities.php");
 require_once('../includes/initialise_student.php');
+InitialiseStudent::checkLoggedIn($session);
 
 // Take studentID from the current session and create the corresponding student object.
 global $session;

@@ -3,7 +3,7 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once("../model/admin.php");
+require_once("../includes/initialise_admin.php");
 
 if ($_POST["password"] == $_POST["confirmPassword"]) {
 	//Check if the email is valid using built-in php function    

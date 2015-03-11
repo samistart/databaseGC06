@@ -1,5 +1,11 @@
+<?php
+  //Author Sami Start
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+  require_once('../includes/initialise_student.php');
+  var_dump($_SESSION);
+?>
 <html>
-
 <head>
 	<title>New Administrator Account</title>
 	<!-- Change the icon to a picture of a little dinosaur -->

@@ -1,13 +1,6 @@
 <html>
-
-<head>
-  <title>Admin Login</title>
-  <!-- Change the icon to a picture of a little dinosaur -->
-  <link rel="shortcut icon" href="../icon.ico" />
-</head>
-
 <body>
-  <h2>Student Login</h2>
+  <h2>Admin Login</h2>
   <form method='POST' action='../controller/process_login_admin.php' name='studentLogin'>
     <label>Email:</label>
     <input type='text' name='email' size='30'><br>

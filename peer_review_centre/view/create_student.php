@@ -1,11 +1,9 @@
 <html>
-
-<head>
-	<title>New Student Account</title>
-	<!-- Change the icon to a picture of a little dinosaur -->
-      <link rel="shortcut icon" href="../icon.ico" />
-</head>
-
+  <?php
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+  require_once('../includes/initialise_student.php');
+  ?>
 <body>
 	<?php include 'header_student.php' ?>
 	<h2>Create a new Student Account</h2>
