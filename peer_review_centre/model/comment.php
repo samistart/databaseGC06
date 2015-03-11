@@ -1,4 +1,5 @@
 <?php
+
 require_once("database.php");
 require_once("database_object.php");
 

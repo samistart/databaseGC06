@@ -1,5 +1,7 @@
 <?php
+
 require_once("database.php");
+
 /**
 * Class that holds the structure for all the "table classes"
 */
