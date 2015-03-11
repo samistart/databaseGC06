@@ -60,10 +60,11 @@ class Student extends DatabaseObject {
     //You need to take the first 61 chars of the hash and salt
     // see http://stackoverflow.com/questions/27610403/php-password-verify-not-working-with-database
     // TODO this is liable to change so is a bad (temporary) bug fix
-    $newStudent->password = substr( $newStudent->password, 0, 60 );
+    //$newStudent->password = substr( $newStudent->password, 0, 60 );
     if (password_verify($password, $newStudent->password)) {
       return !empty($resultArray) ? array_shift($resultArray) : false;
     } else {
+      echo "passwords don't match";
       return false;
     }
 
