@@ -38,7 +38,7 @@ class Forum extends DatabaseObject {
     public static function findForumsOn($groupID) {
         $sql = "SELECT * FROM " .self::$tableName;
         $sql .= " WHERE groupID=".$groupID;
-        return self::find_by_sql($sql);
+        return self::findBySQL($sql);
     }
 
     /**

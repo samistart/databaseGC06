@@ -3,11 +3,20 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
 require_once("../model/thread.php");
+require_once("../model/forum.php");
 require_once("../includes/utilities.php");
+require_once('../includes/initialise_student.php');
 
-// Variables forumID and studentID will be taken from session, but are 1 for now.
-$studentID = 1;
-$forumID = 1;
+// Take studentID from the current session and create the corresponding student object.
+global $session;
+$studentID = $session->userID;
+$student = Student::findByID($studentID);
+
+// Since forum-group have a one to one relationship, findForumsOn() will
+// only return one result which will be the corresponding forum.
+$forums = Forum::findForumsOn($student->groupID);
+$forum = $forums[0];
+$forumID = $forum->forumID;
 
 if(isset($_POST['submit'])) {
 
