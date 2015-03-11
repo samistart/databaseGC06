@@ -47,20 +47,23 @@ class Student extends DatabaseObject {
 
   //Author: Sami Start
 	public static function authenticate($email="", $password="") {
-    //TO DO: UNCOMMENT THESE LINES ONCE AXEL HAS MADE ESCAPE_VALUE (written by Sami)
-    // $email = escape_value($email);
-    // $password = escape_value($password);
+    global $database;
+    $email = $database->escapeValue($email);
+    $password = $database->escapeValue($password);
 
     $sql  = "SELECT * FROM students ";
     $sql .= "WHERE email = '{$email}' ";
     $sql .= "LIMIT 1;";
     $resultArray = self::findBySQL($sql);
-    $newStudent = $resultArray[0];
+    if ($resultArray==NULL) {
+      global $session;
+      $session->message("That email has not been registered for an student account.");
+      header("Location: ../view/login_student.php");
+      exit();
+    }
 
-    //You need to take the first 61 chars of the hash and salt
-    // see http://stackoverflow.com/questions/27610403/php-password-verify-not-working-with-database
-    // TODO this is liable to change so is a bad (temporary) bug fix
-    //$newStudent->password = substr( $newStudent->password, 0, 60 );
+    $newStudent = $resultArray[0];
+    
     if (password_verify($password, $newStudent->password)) {
       return !empty($resultArray) ? array_shift($resultArray) : false;
     } else {
@@ -68,7 +71,7 @@ class Student extends DatabaseObject {
       return false;
     }
 
-	}
+  }
 
 }
 ?>

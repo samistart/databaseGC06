@@ -2,6 +2,7 @@
 
 require_once("database.php");
 require_once("database_object.php");
+require_once('../includes/initialise_admin.php');
 
 /**
 * Class to represent all administrator related information in an Admin object
@@ -24,7 +25,7 @@ class Admin extends DatabaseObject {
 	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
-	protected function getPk() {
+	public function getPk() {
 		return $this->adminID;
 	}
 
@@ -35,5 +36,32 @@ class Admin extends DatabaseObject {
 	protected function setPk($value) {
 		$this->adminID = $value;
 	}
+
+	  //Author: Sami Start
+	public static function authenticate($email="", $password="") {
+		global $database;
+    $email = $database->escapeValue($email);
+    $password = $database->escapeValue($password);
+
+    $sql  = "SELECT * FROM admins ";
+    $sql .= "WHERE email = '{$email}' ";
+    $sql .= "LIMIT 1;";
+    $resultArray = self::findBySQL($sql);
+    if ($resultArray==NULL) {
+    	global $session;
+    	$session->message("That email has not been registered for an admin account.");
+      header("Location: ../view/login_admin.php");
+      exit();
+    }
+    $newAdmin = $resultArray[0];
+
+    if (password_verify($password, $newAdmin->password)) {
+      return !empty($resultArray) ? array_shift($resultArray) : false;
+    } else {
+      echo "passwords don't match";
+      return false;
+    }
+
+  }
 }
 ?>

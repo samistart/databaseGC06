@@ -6,24 +6,26 @@
 
   class InitialiseStudent {
     
-    public static function checkLoggedIn($session){  
+    public static function checkLoggedIn(){ 
+      global $session; 
+
       if ($session->isLoggedIn()) {
+
+        if ($session->isAdmin()) {
+          //Change to login_admin when it's ready
+          $session->message("Admins can't view that page - it's only for students. <br>");
+          header("Location: ../view/index_admin.php");
+          exit();
+        }
+        
         include '../view/header_student.php';
+
       }
 
       else {
-
-        if (!$session->isLoggedIn()) {
           $session->message("You must login first.");
-          header("Location: ../view/login_student.php");
+          header("Location: ../view/login_admin.php");
           exit();
-        } 
-        elseif ($session->isAdmin()) {
-          //Change to login_admin when it's ready
-          $session->message("Admins can't view this page - it's only for students.");
-          header("Location: unfinished_page.php");
-          exit();
-        }
 
       }
     }

@@ -11,7 +11,7 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
 
 		//Sanitize to prevent naughty hackers from putting HTML tags
 		//mysql_escape_string is tested here but needs to be replaced with mysqli_real_escape_string(connection,escapestring)
-		$firstName = mysql_escape_string(filter_var($_POST['firstName'], FILTER_SANITIZE_STRING));
+		$firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
 		$lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
 		$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 		//Use the PHP 5.5 hashing API. To check password use
@@ -30,7 +30,8 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     $newAdmin->password = $hashAndSalt;
     $newAdmin->create();
 
-		echo "Registration successful.";
+		header("Location: ../view/login_admin.php");
+    exit();
 	} else {
 		echo "Invalid email format";
 	}

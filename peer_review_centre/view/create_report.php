@@ -3,7 +3,7 @@
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
   require_once('../includes/initialise_student.php');
-  InitialiseStudent::checkLoggedIn($session);
+  InitialiseStudent::checkLoggedIn();
   ?>
 <body>
   <form method="POST" action="../controller/process_new_report.php" name="newReport">

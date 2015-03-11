@@ -8,7 +8,7 @@
 <body>
   <div id='navmenu'> 
     <ul> 
-      <li><a href='index_student.php'>Home</a></li>
+      <li><a href='index_admin.php'>Home</a></li>
       <li><a href='unfinished_page.php'>Blah</a></li>
       <li><a href='unfinished_page.php'>Blah</a></li>
       <li><a href='unfinished_page.php'>Blah</a></li>

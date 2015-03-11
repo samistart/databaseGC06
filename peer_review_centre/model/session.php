@@ -11,8 +11,8 @@
 
 class Session {
   
-  private $loggedIn=false;
-  private $isAdmin=false;
+  private $loggedIn = false;
+  private $isAdmin = false;
   public $userID;
   public $message;
   
@@ -37,7 +37,7 @@ class Session {
   }
 
   //@args: student or admin object and a boolean for admin status
-  public function login($user, $isAdmin=false) {
+  public function login($user, $isAdmin) {
 
     //if it's an admin log in based on the $user's adminID
       if($user){
@@ -53,6 +53,7 @@ class Session {
   public function logout() {
     unset($_SESSION['userID']);
     unset($this->userID);
+    unset($this->isAdmin);
     $this->loggedIn = false;
   }
 

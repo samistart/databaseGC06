@@ -26,7 +26,7 @@ if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submi
     if ($foundAdmin) {
       //$adminSession is an object that is constructed at the end
       //of the admin_session include
-      $session->login($foundAdmin, false);
+      $session->login($foundAdmin, true);
       header("Location: ../view/index_admin.php");
       exit();
     } else {

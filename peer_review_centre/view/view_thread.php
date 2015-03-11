@@ -1,6 +1,6 @@
 <?php
 require_once('../includes/initialise_student.php');
-InitialiseStudent::checkLoggedIn($session);
+InitialiseStudent::checkLoggedIn();
 ?>
 <html>
 
