@@ -36,7 +36,7 @@ CREATE TABLE `admins` (
   `firstName` text NOT NULL,
   `lastName` text NOT NULL,
   `email` text NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -125,7 +125,7 @@ CREATE TABLE `students` (
   `firstName` text NOT NULL,
   `lastName` text NOT NULL,
   `email` text NOT NULL COMMENT 'is username',
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `lastActive` datetime NOT NULL,
   `groupID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
