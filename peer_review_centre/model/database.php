@@ -58,10 +58,9 @@ class MySQLDatabase {
 	// functions outside of this class (this way it will be easily extendable to different 
 	// kinds of databases)
 
-	public function escape_value($string) {
-		global $connection;
-		$escaped_string = mysqli_real_escape_string($connection, $string);
-		return $escaped_string;
+	public function escape_value($value) {
+		$escaped_value = mysqli_real_escape_string($this->connection, $value);
+		return $escaped_value;
 	}
 
 	public function fetch_array($result_set) {
