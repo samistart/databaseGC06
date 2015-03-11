@@ -17,6 +17,29 @@ class Forum extends DatabaseObject{
     public $forumID = "NULL";
     public $groupID;
 
+    /**
+    * Method that takes a groupID as an argument and builds a new forum for said group.
+    */
+    public static function build($groupID) {
+        if (!empty($groupID)) {
+            $forum = new Forum();
+            $forum->groupID = $groupID;
+            return forum;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+    * Method that takes a groupID as an argument and returns the result to the query for finding
+    * the forum associated to it.
+    */
+    public static function find_forums_on($groupID) {
+        global $database;
+        $sql = "SELECT * FROM " .self::$table_name;
+        $sql .= " WHERE groupID=".$groupID;
+        return self::find_by_sql($sql);
+    }
 
     /**
     * Method that returns the variable that corresponds to the primary key.

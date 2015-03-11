@@ -87,10 +87,11 @@ CREATE TABLE `groups` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `comments`
 --
 
-CREATE TABLE `posts` (
+CREATE TABLE `comments` (
+`commentID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `content` text NOT NULL,
   `dateCreated` datetime NOT NULL,
   `threadID` int(11) NOT NULL,
@@ -138,8 +139,10 @@ CREATE TABLE `students` (
 CREATE TABLE `threads` (
 `threadID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `title` text NOT NULL,
+  `content` text NOT NULL,
   `dateCreated` datetime NOT NULL,
-  `forumID` int(11) NOT NULL
+  `forumID` int(11) NOT NULL,
+  `studentID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -157,11 +160,11 @@ ALTER TABLE `forums`
 ADD CONSTRAINT `forums_ibfk_1` FOREIGN KEY (`groupID`) REFERENCES `groups` (`groupID`);
 
 --
--- Constraints for table `posts`
+-- Constraints for table `comments`
 --
-ALTER TABLE `posts`
-ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`studentID`) REFERENCES `students` (`studentID`),
-ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`threadID`) REFERENCES `threads` (`threadID`);
+ALTER TABLE `comments`
+ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`studentID`) REFERENCES `students` (`studentID`),
+ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`threadID`) REFERENCES `threads` (`threadID`);
 
 --
 -- Constraints for table `reports`
@@ -179,6 +182,7 @@ ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`groupID`) REFERENCES `groups` (`g
 -- Constraints for table `threads`
 --
 ALTER TABLE `threads`
+ADD CONSTRAINT `threads_ibfk_2` FOREIGN KEY (`studentID`) REFERENCES `students` (`studentID`),
 ADD CONSTRAINT `threads_ibfk_1` FOREIGN KEY (`forumID`) REFERENCES `forums` (`forumID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

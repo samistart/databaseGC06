@@ -38,7 +38,7 @@ abstract class DatabaseObject {
 	* Method that takes an id number and returns the corresponding table entry.
 	*/
 	public static function find_by_id($id=0) {
-		$result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE studentID={$id} LIMIT 1");
+		$result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE ".static::$db_fields[0]."={$id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
 	}
 
