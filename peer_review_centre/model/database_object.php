@@ -78,6 +78,18 @@ abstract class DatabaseObject {
 	}
 
 	/**
+	* Method to get an objects attributes, clean and return them within an associative array.
+	*/
+	protected function clean_attributes() {
+		global $database;
+		$cleaned_attributes = array();
+		foreach($this->attributes() as $key => $value) {
+			$cleaned_attributes[$key] = $database->escape_value($value);
+		}
+		return $cleaned_attributes;
+	}
+
+	/**
 	* Method that saves an entry into the corresponding table, by either calling the create() 
 	* method if the database entry doesn't exist, or the update() method if it does.
 	*/
@@ -93,9 +105,9 @@ abstract class DatabaseObject {
 		global $database;
 		// Construct the create query.
 		$sql = "INSERT INTO ".static::$table_name." (";
-		$sql .= join(", ", array_keys($this->attributes()));
+		$sql .= join(", ", array_keys($this->clean_attributes()));
 		$sql .= ") VALUES  ('";
-		$sql .= join("', '", array_values($this->attributes()));
+		$sql .= join("', '", array_values($this->clean_attributes()));
 		$sql .= "');";
 		// Delete single quotes around CURRENT_TIMESTAMP values
 		$sql = str_replace("'CURRENT_TIMESTAMP'","CURRENT_TIMESTAMP", $sql);
