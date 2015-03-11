@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="../icon.ico" />
 	</head>
 	<body>
-		<?php include 'navbar.php' ?>
+
 		<h2>Create a new Administrator Account</h2>
 		<form method='post' action='../controller/process_new_admin.php' name='newAdmin'>
 			<label>First Name:</label>

@@ -6,8 +6,6 @@
     <link rel="shortcut icon" href="../icon.ico" />
   </head>
   <body>
-    <?php include 'navbar.php' ?>
-
     <form method="POST" action="../controller/process_new_report.php" name="newReport">
       <label>Title: </label>
       <input type="text" name="title"><br><br>
@@ -18,6 +16,4 @@
       <input type="submit" name="submit" value="Submit">
     </form>
   </body>
-  
-
 </html>

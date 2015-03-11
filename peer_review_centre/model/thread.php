@@ -9,8 +9,8 @@ class Thread extends DatabaseObject {
 
 	// Name of the corresponding database table and fields are stored in static variables.
 	// (will be common to every instance of the class)
-	protected static $table_name = 'threads';
-	protected static $db_fields = array('threadID', 'title', 'content', 'dateCreated', 'forumID', 'studentID');
+	protected static $tableName = 'threads';
+	protected static $dbFields = array('threadID', 'title', 'content', 'dateCreated', 'forumID', 'studentID');
 
 	// Variables that correspond to the fields of the corresponding table, that will be given values
 	// for each object (creating the corresponding table entry)
@@ -43,9 +43,8 @@ class Thread extends DatabaseObject {
     * Method that takes a forumID as an argument and returns the result to the query for finding
     * the threads it contains, ordered in ascending dateCreated.
     */
-    public static function find_threads_on($forumID) {
-        global $database;
-        $sql = "SELECT * FROM " .self::$table_name;
+    public static function findThreadsOn($forumID) {
+        $sql = "SELECT * FROM " .self::$tableName;
         $sql .= " WHERE forumID=".$forumID;
         $sql .= " ORDER BY dateCreated ASC";
         return self::find_by_sql($sql);

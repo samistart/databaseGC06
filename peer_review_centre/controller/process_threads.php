@@ -5,8 +5,8 @@
 	error_reporting(E_ALL | E_STRICT);
 
 	// Variables forumID and studentID will be taken from session, but are 1 for now.
-	$forumID = 1;
 	$studentID = 1;
+	$forumID = 1;
 
 	if(isset($_POST['submit'])) {
 
@@ -30,5 +30,5 @@
 		$title = "";
 		$content = "";
 	}
-	$threads = Thread::find_threads_on($forumID);
+	$threads = Thread::findThreadsOn($forumID);
 ?>
