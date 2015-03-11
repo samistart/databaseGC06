@@ -21,34 +21,34 @@ class Thread extends DatabaseObject {
 	public $forumID;
 	public $studentID;
 
-    /**
-    * Method that takes forumID, studentID, title and content as an arguments and builds a new thread 
-    * with the corresponding values.
-    */
-    public static function build($forumID, $studentID, $title="", $content="") {
-    	// Checks that all the arguments where 
-        if (!empty($forumID) && !empty($studentID) && !empty($title) && !empty($content)) {
-            $thread = new Thread();
-            $thread->forumID = $forumID;
-            $thread->studentID = $studentID;
-            $thread->title = $title;
-            $thread->content = $content;
-            return $thread;
-        } else {
-            return false;
-        }
+  /**
+  * Method that takes forumID, studentID, title and content as an arguments and builds a new thread 
+  * with the corresponding values.
+  */
+  public static function build($forumID, $studentID, $title="", $content="") {
+  	// Checks that all the arguments where 
+    if (!empty($forumID) && !empty($studentID) && !empty($title) && !empty($content)) {
+      $thread = new Thread();
+      $thread->forumID = $forumID;
+      $thread->studentID = $studentID;
+      $thread->title = $title;
+      $thread->content = $content;
+      return $thread;
+    } else {
+        return false;
     }
+  }
 
-    /**
-    * Method that takes a forumID as an argument and returns the result to the query for finding
-    * the threads it contains, ordered in ascending dateCreated.
-    */
-    public static function findThreadsOn($forumID) {
-        $sql = "SELECT * FROM " .self::$tableName;
-        $sql .= " WHERE forumID=".$forumID;
-        $sql .= " ORDER BY dateCreated ASC";
-        return self::find_by_sql($sql);
-    }
+  /**
+  * Method that takes a forumID as an argument and returns the result to the query for finding
+  * the threads it contains, ordered in ascending dateCreated.
+  */
+  public static function findThreadsOn($forumID) {
+    $sql = "SELECT * FROM " .self::$tableName;
+    $sql .= " WHERE forumID=".$forumID;
+    $sql .= " ORDER BY dateCreated ASC";
+    return self::findBySQL($sql);
+  }
 
 	/**
 	* Method that returns the variable that corresponds to the primary key.

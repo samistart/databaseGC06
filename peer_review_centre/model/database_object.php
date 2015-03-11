@@ -5,8 +5,9 @@ require_once("database.php");
 */
 abstract class DatabaseObject {
 
-	protected static $table_name;
-	protected static $db_fields;
+	// These need to be set only in the subclasses: leaving them here because of nostalgia.
+	// protected static $tableName;
+	// protected static $dbFields;
 
 	// Methods that should be overridden in all the child classes
 	protected abstract function getPk();
@@ -16,11 +17,11 @@ abstract class DatabaseObject {
 	* Method that instantiates an object with 
 	*/
 	private static function instantiate($record) {
-   		$object = new static;
+   	$object = new static;
 
 		// Instantiates all the attributes in the class
-		foreach($record as $attribute=>$value){
-		  if($object->has_attribute($attribute)) {
+		foreach($record as $attribute=>$value) {
+		  if ($object->hasAttribute($attribute)) {
 		    $object->$attribute = $value;
 		  }
 		}
@@ -30,37 +31,37 @@ abstract class DatabaseObject {
 	/**
 	* Method that returns all the entries of the table.
 	*/
-	public static function find_all() {
-		return static::find_by_sql("SELECT * FROM ".static::$table_name."");
+	public static function findAll() {
+		return static::findBySQL("SELECT * FROM ".static::$tableName."");
 	}
 
 	/**
 	* Method that takes an id number and returns the corresponding table entry.
 	*/
-	public static function find_by_id($id=0) {
-		$result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE ".static::$db_fields[0]."={$id} LIMIT 1");
-		return !empty($result_array) ? array_shift($result_array) : false;
+	public static function findByID($id=0) {
+		$resultArray = static::findBySQL("SELECT * FROM ".static::$tableName." WHERE ".static::$dbFields[0]."={$id} LIMIT 1");
+		return !empty($resultArray) ? array_shift($resultArray) : false;
 	}
 
 	/**
 	* Method that takes a string containing a query and returns the corresponding entries found.
 	*/
-	public static function find_by_sql($sql="") {
+	public static function findBySQL($sql="") {
 		global $database;
-		$result_set = $database->query($sql);
-    	$object_array = array();
-    	while ($row = $database->fetch_array($result_set)) {
-      		$object_array[] = static::instantiate($row);
+		$resultSet = $database->query($sql);
+    	$objectArray = array();
+    	while ($row = $database->fetchArray($resultSet)) {
+      		$objectArray[] = static::instantiate($row);
     	}
-    	return $object_array;
+    	return $objectArray;
 	}
 
 	/**
 	* Method that returns true if the passed attribute exists in the class, and false otherwise.
 	*/
-	protected function has_attribute($attribute) {
-		$object_vars = $this->attributes();
-		return array_key_exists($attribute, $object_vars);
+	protected function hasAttribute($attribute) {
+		$objectVars = $this->attributes();
+		return array_key_exists($attribute, $objectVars);
 	}
 
 	/**
@@ -69,7 +70,7 @@ abstract class DatabaseObject {
 	*/	
 	protected function attributes() {
 		$attributes = array();
-		foreach (static::$db_fields as $field) {
+		foreach (static::$dbFields as $field) {
 			if(property_exists($this, $field)) {
 				$attributes[$field] = $this->$field;
 			}
@@ -80,13 +81,13 @@ abstract class DatabaseObject {
 	/**
 	* Method to get an objects attributes, clean and return them within an associative array.
 	*/
-	protected function clean_attributes() {
+	protected function cleanAttributes() {
 		global $database;
-		$cleaned_attributes = array();
+		$cleanedAttributes = array();
 		foreach($this->attributes() as $key => $value) {
-			$cleaned_attributes[$key] = $database->escapeValue($value);
+			$cleanedAttributes[$key] = $database->escapeValue($value);
 		}
-		return $cleaned_attributes;
+		return $cleanedAttributes;
 	}
 
 	/**
@@ -104,17 +105,17 @@ abstract class DatabaseObject {
 	public function create() {
 		global $database;
 		// Construct the create query.
-		$sql = "INSERT INTO ".static::$table_name." (";
-		$sql .= join(", ", array_keys($this->clean_attributes()));
+		$sql = "INSERT INTO ".static::$tableName." (";
+		$sql .= join(", ", array_keys($this->cleanAttributes()));
 		$sql .= ") VALUES  ('";
-		$sql .= join("', '", array_values($this->clean_attributes()));
+		$sql .= join("', '", array_values($this->cleanAttributes()));
 		$sql .= "');";
 		// Delete single quotes around CURRENT_TIMESTAMP values
 		$sql = str_replace("'CURRENT_TIMESTAMP'","CURRENT_TIMESTAMP", $sql);
 		// Sends the query to the database, returning true if succesful and false otherwise.
 		if($database->query($sql)) {
 			// Update id value of the current object
-			$this->setPk($database->insert_id());
+			$this->setPk($database->insertID());
 			return true;
 		} else {
 			return false;
@@ -127,21 +128,21 @@ abstract class DatabaseObject {
 	public function update() {
 		global $database;
 		// Construct the update query.
-		$sql = "UPDATE ".static::$table_name." SET ";
+		$sql = "UPDATE ".static::$tableName." SET ";
 		// Calls the attributes method to get the corresponding key/value pairs for the object.
 		$attributes = $this->attributes();
-		$attribute_pairs = array();
+		$attributePairs = array();
 		// Creates key/value assignments in strings
 		foreach($attributes as $key => $value) {
-			$attribute_pairs[] = "{$key}='{$value}'";
+			$attributePairs[] = "{$key}='{$value}'";
 		}
 		// Joins the string/value pair strings and adds them to the query
-		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE ".static::$db_fields[0]."=" . $this->getPk();
+		$sql .= join(", ", $attributePairs);
+		$sql .= " WHERE ".static::$dbFields[0]."=" . $this->getPk();
 		// Send query to database
 		$database->query($sql);
 		// Check whether a row has been affected to see if the query was successfull
-		return ($database->affected_rows() == 1) ? true : false;
+		return ($database->affectedRows() == 1) ? true : false;
 	}
 
 	/**
@@ -150,13 +151,13 @@ abstract class DatabaseObject {
 	public function delete() {
 		global $database;
 		// Construct the delete query.
-		$sql = 	"DELETE FROM ".static::$table_name." ";
-		$sql .= "WHERE ".static::$db_fields[0]."=". $this->getPk();
+		$sql = 	"DELETE FROM ".static::$tableName." ";
+		$sql .= "WHERE ".static::$dbFields[0]."=". $this->getPk();
 		$sql .= " LIMIT 1";
 		// Send query to database
 		$database->query($sql);
 		// Check whether a row has been affected to see if the query was successfull
-		return ($database->affected_rows() == 1) ? true : false;
+		return ($database->affectedRows() == 1) ? true : false;
 	}
 	
 }

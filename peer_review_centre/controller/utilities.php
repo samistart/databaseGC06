@@ -4,10 +4,11 @@ function isEmail($inputEmail) {
 	
 }
 
-function redirect_to($location = NULL) {
-		if ($location != NULL) {
-		header("Location: {$location}");
-		exit;
-		}
+function redirectTo($location = NULL) {
+	if ($location != NULL) {
+    header("Location: {$location}");
+    exit;
+	}
 }
+
 ?>
