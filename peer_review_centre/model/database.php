@@ -12,13 +12,13 @@ class MySQLDatabase {
 	* Constructor automatically opens the connection when a database is instantiated
 	*/
 	function __construct() {
-		$this->open_connection();
+		$this->openConnection();
 	}
 
 	/**
 	* Method that opens a connection with the specified database.
 	*/
-	public function open_connection() {
+	public function openConnection() {
 		// Establish a connection using mysqli extension API method (improved version of mysql)
 		// Takes the database details from the config file.
 		$this->connection = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
@@ -35,7 +35,7 @@ class MySQLDatabase {
 	/**
 	* Method that closes a connection with the specified database.
 	*/
-	public function close_connection() {
+	public function closeConnection() {
 		if(isset($this->connection)) {
 			$this->connection->close();
 			unset($this->connection);
@@ -58,24 +58,24 @@ class MySQLDatabase {
 	// functions outside of this class (this way it will be easily extendable to different 
 	// kinds of databases)
 
-	public function escape_value($value) {
+	public function escapeValue($value) {
 		$escaped_value = mysqli_real_escape_string($this->connection, $value);
 		return $escaped_value;
 	}
 
-	public function fetch_array($result_set) {
+	public function fetchArray($result_set) {
 		return mysqli_fetch_array($result_set);
 	}
 
-	public function num_rows($result_set) {
+	public function numRows($result_set) {
 		return mysqli_num_rows($result_set);
 	}
 
-	public function insert_id() {
+	public function insertID() {
 		return mysqli_insert_id($this->connection);
 	}
 
-	public function affected_rows() {
+	public function affectedRows() {
 		return mysqli_affected_rows($this->connection);
 	}
 }

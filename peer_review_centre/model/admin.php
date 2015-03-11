@@ -3,14 +3,14 @@ require_once("database.php");
 require_once("database_object.php");
 
 /**
-* Class to represent all aministrator related information in an Admin object
+* Class to represent all administrator related information in an Admin object
 */
-class Admin extends DatabaseObject{
+class Admin extends DatabaseObject {
 
 	// Name of the corresponding database table and fields are stored in static variables.
 	// (will be common to every instance of the class)
-	protected static $table_name='admins';
-	protected static $db_fields = array('adminID', 'firstName', 'lastName', 'email', 'password');
+	protected static $tableName='admins';
+	protected static $dbFields = array('adminID', 'firstName', 'lastName', 'email', 'password');
 
 	// Variables that correspond to the fields of the corresponding table, that will be given values
 	// for each object (creating the corresponding table entry)

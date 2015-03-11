@@ -5,12 +5,12 @@ require_once("database_object.php");
 /**
 * Class to represent all group related information in a Group object
 */
-class Group extends DatabaseObject{
+class Group extends DatabaseObject {
 
 	// Name of the corresponding database table and fields are stored in static variables.
 	// (will be common to every instance of the class)
-	protected static $table_name='groups';
-	protected static $db_fields = array('groupID', 'groupName', 'averageGrade', 'ranking');
+	protected static $tableName='groups';
+	protected static $dbFields = array('groupID', 'groupName', 'averageGrade', 'ranking');
 
 	// Variables that correspond to the fields of the corresponding table, that will be given values
 	// for each object (creating the corresponding table entry)

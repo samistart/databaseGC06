@@ -84,7 +84,7 @@ abstract class DatabaseObject {
 		global $database;
 		$cleaned_attributes = array();
 		foreach($this->attributes() as $key => $value) {
-			$cleaned_attributes[$key] = $database->escape_value($value);
+			$cleaned_attributes[$key] = $database->escapeValue($value);
 		}
 		return $cleaned_attributes;
 	}
