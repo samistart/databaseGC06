@@ -32,7 +32,7 @@
           <?php echo $thread->dateCreated; ?>
         </td>
         <td>
-          <?php $student = Student::find_by_id($thread->studentID);
+          <?php $student = Student::findByID($thread->studentID);
             echo $student->fullName(); ?>
         </td>
       </tr>

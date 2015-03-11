@@ -98,7 +98,7 @@ abstract class DatabaseObject {
 	*/
 	public function save() {
 		// Calls create() or update(), depending on whether database entry exists or not
-		return isset($this->studentID) ? $this->update() : $this->create();
+		return (null!==$this->getPk()) ? $this->update() : $this->create();
 	}
 
 	/**

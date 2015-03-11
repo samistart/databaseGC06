@@ -19,7 +19,7 @@
       <h3> <?php echo $thread->content; ?> </h3>
     </div>
     <div class="author">
-      Started by <?php $student = Student::find_by_id($thread->studentID);
+      Started by <?php $student = Student::findByID($thread->studentID);
       echo $student->fullName(); ?> on <?php echo $thread->dateCreated; ?>
     </div>
   </div>
@@ -36,7 +36,7 @@
       <?php foreach($comments as $comment): ?>
         <tr>
           <td>
-            <?php $student = Student::find_by_id($comment->studentID);
+            <?php $student = Student::findByID($comment->studentID);
             echo $student->fullName(); ?>
           </td>
           <td>

@@ -45,7 +45,7 @@ class Comment extends DatabaseObject {
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE threadID=".$threadID;
     $sql .= " ORDER BY dateCreated ASC";
-    return self::find_by_sql($sql);
+    return self::findBySQL($sql);
   }
 
   /**
