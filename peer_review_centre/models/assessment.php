@@ -29,6 +29,23 @@ class Assessment extends DatabaseObject {
 	public $grade3;
 
 	/**
+	* find all assessement that a group has to do of other group reports.
+	*/
+	public static function findAssessmentsForGroup($groupID) {
+    $sql = "SELECT * FROM " .self::$tableName;
+    $sql .= " WHERE groupID=".$groupID;
+    $sql .= " ORDER BY groupID ASC";
+    return self::findBySQL($sql);
+  }
+
+  public static function findAssessmentsForReport($reportID) {
+    $sql = "SELECT * FROM " .self::$tableName;
+    $sql .= " WHERE reportID=".$reportID;
+    $sql .= " ORDER BY groupID ASC";
+    return self::findBySQL($sql);
+  }
+
+	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
 	protected function getPk() {
