@@ -22,7 +22,7 @@
     </div>
     <div class="author">
       Started by <?php $student = Student::findByID($thread->studentID);
-      echo $student->fullName(); ?> on <?php echo $thread->dateCreated; ?>
+      echo $student->fullName(); ?> on <?php echo $thread->lastEdited; ?>
     </div>
   </div>
 
@@ -45,7 +45,7 @@
             <?php echo $comment->content; ?>
           </td>
           <td>
-            <?php echo $comment->dateCreated; ?>
+            <?php echo $comment->lastEdited; ?>
           </td>
         </tr>
       <?php endforeach; ?> 
