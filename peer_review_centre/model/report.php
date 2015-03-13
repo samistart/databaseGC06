@@ -11,7 +11,7 @@ class Report extends DatabaseObject {
 	// Name of the corresponding database table and fields are stored in static variables.
 	// (will be common to every instance of the class)
 	protected static $tableName='reports';
-	protected static $dbFields = array('reportID', 'title', 'abstract', 'content', 'dateCreated', 'groupID');
+	protected static $dbFields = array('reportID', 'title', 'abstract', 'content', 'lastEdited', 'groupID');
 
 	// Variables that correspond to the fields of the corresponding table, that will be given values
 	// for each object (creating the corresponding table entry)
@@ -19,7 +19,7 @@ class Report extends DatabaseObject {
 	public $title;
 	public $abstract;
 	public $content;
-	public $dateCreated = "CURRENT_TIMESTAMP";
+	public $lastEdited = "CURRENT_TIMESTAMP";
 	public $groupID;
 
 	/**

@@ -9,10 +9,14 @@ include '../model/report.php';
 global $session;
 //get an object with the current student
 $currentStudent = Student::findByID("$session->userID");
+$newReport = Report::findByGroupID("$currentStudent->groupID");
 //create a report object
-$newReport = new Report($_POST["title"], $_POST["abstract"], $_POST["content"], "$currentStudent->groupID");
+$newReport->title = $_POST["title"];
+$newReport->abstract = $_POST["abstract"];
+$newReport->content = $_POST["content"];
+
 //use report object to create database entry
-$newReport->create();
+$newReport->update();
 
 redirectTo($location = "../view/view_my_report.php");
 ?>

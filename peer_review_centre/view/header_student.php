@@ -9,7 +9,7 @@
   <div id='navmenu'> 
     <ul> 
       <li><a href='index_student.php'>Home</a></li>
-      <li><a href='unfinished_page.php'>My Report</a></li>
+      <li><a href='view_my_report.php'>My Report</a></li>
       <li><a href='unfinished_page.php'>Assess</a></li>
       <li><a href='unfinished_page.php'>My Assessments</a></li>
       <li><a href='view_forum.php'>Forum</a></li> 
