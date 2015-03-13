@@ -11,13 +11,13 @@ class Comment extends DatabaseObject {
 	// Name of the corresponding database table and fields are stored in static variables.
 	// (will be common to every instance of the class)
 	protected static $tableName='comments';
-	protected static $dbFields = array('commentID', 'content', 'dateCreated', 'threadID', 'studentID');
+	protected static $dbFields = array('commentID', 'content', 'lastEdited', 'threadID', 'studentID');
 
 	// Variables that correspond to the fields of the corresponding table, that will be given values
 	// for each object (creating the corresponding table entry)
 	public $commentID = "NULL";
   public $content;
-	public $dateCreated = "CURRENT_TIMESTAMP";
+	public $lastEdited = "CURRENT_TIMESTAMP";
 	public $threadID;
 	public $studentID;
 
@@ -39,12 +39,12 @@ class Comment extends DatabaseObject {
 
   /**
   * Method that takes a threadID as an argument and returns the result to the query for finding
-  * the comments it contains, ordered in ascending dateCreated.
+  * the comments it contains, ordered in ascending lastEdited.
   */
   public static function findCommentsOn($threadID) {
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE threadID=".$threadID;
-    $sql .= " ORDER BY dateCreated ASC";
+    $sql .= " ORDER BY lastEdited ASC";
     return self::findBySQL($sql);
   }
 
