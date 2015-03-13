@@ -2,9 +2,6 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once("../model/thread.php");
-require_once("../model/forum.php");
-require_once("../includes/utilities.php");
 require_once('../includes/initialise_student.php');
 InitialiseStudent::checkLoggedIn($session);
 
