@@ -1,6 +1,6 @@
 <?php
-  require_once('../includes/initialise_student.php');
-  require_once('../model/report.php');
+  require_once('../../../includes/initialise_student.php');
+  require_once('../../../model/report.php');
   InitialiseStudent::checkLoggedIn();
 
   //get an object of the current student

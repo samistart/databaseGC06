@@ -6,7 +6,7 @@
 ?>
 <html>
 <body>
-  <form method="POST" action="../controller/process_new_report.php" name="newReport">
+  <form method="POST" action="../../../controller/process_new_report.php" name="newReport">
     <label>Title: </label>
     <input type="text" name="title"><br><br>
     <label>Abstract: </label>

@@ -6,13 +6,23 @@ error_reporting(E_ALL | E_STRICT);
 require_once('../includes/initialise_student.php');
 include '../model/report.php';
 
-global $session;
-//get an object with the current student
-$currentStudent = Student::findByID("$session->userID");
-//create a report object
-$newReport = new Report($_POST["title"], $_POST["abstract"], $_POST["content"], "$currentStudent->groupID");
-//use report object to create database entry
-$newReport->create();
+class Report{
 
-redirectTo($location = "../view/view_my_report.php");
+
+  public function save(){
+    global $session;
+    //get an object with the current student
+    $currentStudent = Student::findByID("$session->userID");
+    //create a report object
+    $newReport = new Report($_POST["title"], $_POST["abstract"], $_POST["content"], "$currentStudent->groupID");
+    //use report object to create database entry
+    $newReport->save();
+
+    redirectTo($location = "../../views/prc_student/reports/view.php");
+  }
+
+  public function update
+  
+}
+
 ?>
