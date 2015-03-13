@@ -7,6 +7,7 @@
 <html>
 
 <body>
+
   <h1>Welcome to the home page!</h1>
   <h2>I hope you like my minimalist design.</h2>
 

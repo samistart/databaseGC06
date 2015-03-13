@@ -12,7 +12,7 @@
 class Session {
   
   private $loggedIn = false;
-  private $isAdmin = false;
+  private $isAdmin;
   public $userID;
   public $message;
   
