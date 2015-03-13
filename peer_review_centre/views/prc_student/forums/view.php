@@ -1,5 +1,5 @@
 <?php
-  //require_once("../../../controllers/prc_student/threads.php");
+  require_once("../../../controllers/prc_student/threads.php");
   require_once('../../../includes/initialise_student.php');
   InitialiseStudent::checkLoggedIn();
 ?>

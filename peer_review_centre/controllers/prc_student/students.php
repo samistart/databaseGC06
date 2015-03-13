@@ -3,7 +3,7 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once('../includes/initialise_student.php');
+require_once('../../includes/initialise_student.php');
 //Don't check for login because that would be silly for a login page
 
 class Students {
