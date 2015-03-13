@@ -1,6 +1,6 @@
 <?php
-  require_once("../controller/process_comments.php");
-  require_once('../includes/initialise_student.php');
+  require_once("../../../controllers/prc_student/comments/process_commentss.php");
+  require_once('../../../includes/initialise_student.php');
   InitialiseStudent::checkLoggedIn();
 ?>
 
