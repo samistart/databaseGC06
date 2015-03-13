@@ -57,7 +57,7 @@ class Student extends DatabaseObject {
     $resultArray = self::findBySQL($sql);
     if ($resultArray==NULL) {
       global $session;
-      $session->message("That email has not been registered for an student account.");
+      $session->message("That email has not been registered for a student account.");
       header("Location: ../view/login_student.php");
       exit();
     }
@@ -67,7 +67,6 @@ class Student extends DatabaseObject {
     if (password_verify($password, $newStudent->password)) {
       return !empty($resultArray) ? array_shift($resultArray) : false;
     } else {
-      echo "passwords don't match";
       return false;
     }
 

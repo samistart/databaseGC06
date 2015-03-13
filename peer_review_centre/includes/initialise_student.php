@@ -25,7 +25,7 @@
           exit();
         }
         
-        include '../view/header_student.php';
+        include '../view/layouts/student_header.php';
 
       }
 

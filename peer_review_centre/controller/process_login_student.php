@@ -31,7 +31,8 @@ if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submi
       header("Location: ../view/index_student.php");
       exit();
     } else {
-      echo "Email/password combination incorrect.";
+      $session->message("Incorrect email or password");
+      header("Location: ../view/login_student.php");
     }
   
   } else { // Form has not been submitted.
