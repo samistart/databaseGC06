@@ -1,42 +1,68 @@
 <?php
-// Author: Sami Start
+//Author Sami Start
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once("../includes/initialise_student.php");
+require_once('../includes/initialise_student.php');
+//Don't check for login because that would be silly for a login page
 
-if ($_POST["password"] == $_POST["confirmPassword"]) {
-	//Check if the email is valid using built-in php function    
-	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+class Students {
 
-		//Sanitize to prevent naughty hackers from putting HTML tags
-		//mysql_escape_string is tested here but needs to be replaced with mysqli_real_escape_string(connection,escapestring)
-		$firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
-		$lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
-		$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-		//Use the PHP 5.5 hashing API. To check password use
-		// if (password_verify($password, $hashAndSalt)) {
-	 	//   // Verified
-		// }
-		// See http://stackoverflow.com/questions/14992367/using-php-5-5s-password-hash-and-verify-function-am-i-doing-it-right
-		$hashAndSalt = password_hash($_POST["password"], PASSWORD_BCRYPT);	
+  public function login{
+    if($session->isLoggedIn()) {
+      //var_dump($_SESSION);
+      header("Location: ../view/unfinished_page.php");
+      exit();
+    }
+
+    // // Remember to give your form's submit tag a name="submit" attribute!
+    if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submitted.
+      
+      $email = trim($_POST['email']);
+      $password = trim($_POST['password']);
+
+      //Check for valid email
+      if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+
+        // Check database to see if studentname/password exist.
+        $foundStudent = Student::authenticate($email, $password);
+
+        if ($foundStudent) {
+          //$studentSession is an object that is constructed at the end
+          //of the student_session include
+          $session->login($foundStudent, false);
+          header("Location: ../view/index_student.php");
+          exit();
+        } else {
+          $session->message("Incorrect email or password");
+          header("Location: ../view/login_student.php");
+        }
+      
+      } else { // Form has not been submitted.
+        echo "That's not a valid email address.";
+      }
+    } else {
+      echo "Email or password cannot be blank.";
+    }
+  }
+
+  public function logout{
+
+    if ($session->isAdmin()) {
+      $session->logout();
+      header("Location: ../view/login_admin.php");
+      exit();
+    }
+    else{
+      $session->logout();
+      header("Location: ../view/login_student.php");
+      exit();
+    }
+
+  }
 
 
-	  // Create a new Student object from information in the form (groupID = 1 for now)
-    $newStudent = new Student();
-    $newStudent->firstName = $firstName; 
-    $newStudent->lastName = $lastName;
-    $newStudent->email = $email;
-    $newStudent->password = $hashAndSalt;
-    $newStudent->groupID = "1";
-    $newStudent->create();
-
-		header("Location: ../view/login_student.php");
-    exit();
-	} else {
-		echo "Invalid email format";
-	}
-} else {
-  echo "Passwords do not match, please try again.";
 }
+
+
 ?>

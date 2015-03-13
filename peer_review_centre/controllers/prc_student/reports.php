@@ -6,7 +6,7 @@ error_reporting(E_ALL | E_STRICT);
 require_once('../includes/initialise_student.php');
 include '../model/report.php';
 
-class Report{
+class Reports{
 
 
   public function save(){

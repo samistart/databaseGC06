@@ -2,7 +2,6 @@
 
 require_once("database.php");
 require_once("database_object.php");
-require_once('../includes/initialise_admin.php');
 
 /**
 * Class to represent all administrator related information in an Admin object
