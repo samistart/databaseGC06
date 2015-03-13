@@ -31,7 +31,7 @@
           </a>
         </td>
         <td>
-          <?php echo $thread->dateCreated; ?>
+          <?php echo $thread->lastEdited; ?>
         </td>
         <td>
           <?php $student = Student::findByID($thread->studentID);
