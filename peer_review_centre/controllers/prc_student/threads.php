@@ -2,7 +2,7 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once('../includes/initialise_student.php');
+require_once('../../../includes/initialise_student.php');
 InitialiseStudent::checkLoggedIn($session);
 
 // Take studentID from the current session and create the corresponding student object.
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
 
     if($newThread && $newThread->create()) {
     	// Thread saved
-    	redirectTo('../../views/forum/view.php');
+    	redirectTo('../../views/prc_student/forums/view.php');
     } else {
     	// Failed
     	$message = "There was an error that prevented the thread from being saved.";
