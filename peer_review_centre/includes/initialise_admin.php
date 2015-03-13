@@ -1,9 +1,13 @@
 <?php
-
-require_once("../model/session.php");
-require_once("../model/database.php");
-require_once("../model/admin.php");
-require_once("utilities.php");
+defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+  defined('SITE_ROOT') ? null : 
+    define('SITE_ROOT', DS.'Applications'.DS.'MAMP'.DS.'htdocs'.DS.'databaseGC06'.DS.'peer_review_centre');
+  defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
+  
+  require_once(SITE_ROOT.DS."models/admin.php");
+  require_once(SITE_ROOT.DS."models/session.php");
+  require_once(SITE_ROOT.DS."models/database.php");
+  require_once(SITE_ROOT.DS."includes/utilities.php");
 
   class InitialiseAdmin {
     

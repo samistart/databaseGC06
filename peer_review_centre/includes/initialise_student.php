@@ -1,14 +1,19 @@
 <?php
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
-
-  require_once("../models/forum.php");
-  require_once("../models/thread.php");
-  require_once("../models/comment.php");
-  require_once("../models/session.php");
-  require_once("../models/database.php");
-  require_once("../models/student.php");
-  require_once("utilities.php");
+  
+  defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+  defined('SITE_ROOT') ? null : 
+    define('SITE_ROOT', DS.'Applications'.DS.'MAMP'.DS.'htdocs'.DS.'databaseGC06'.DS.'peer_review_centre');
+  defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
+  
+  require_once(SITE_ROOT.DS."models/forum.php");
+  require_once(SITE_ROOT.DS."models/thread.php");
+  require_once(SITE_ROOT.DS."models/comment.php");
+  require_once(SITE_ROOT.DS."models/session.php");
+  require_once(SITE_ROOT.DS."models/database.php");
+  require_once(SITE_ROOT.DS."models/student.php");
+  require_once(SITE_ROOT.DS."includes/utilities.php");
 
   class InitialiseStudent {
     
