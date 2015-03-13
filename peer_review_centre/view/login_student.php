@@ -1,3 +1,8 @@
+<?php 
+require_once('../includes/initialise_student.php');
+InitialiseStudent::reverseCheckLoggedIn();
+echo $session->message;
+?>
 <html>
 
 <head>
@@ -9,7 +14,6 @@
 <body>
   <h2>Student Login</h2>
   <?php 
-  require_once('../includes/initialise_student.php');
   echo $session->message;
   ?>
   <form method='POST' action='../controller/process_login_student.php' name='studentLogin'>
@@ -19,6 +23,8 @@
     <input type='password' name='password' size='30'><br>
     <p><input type='submit' value='Login'></p>
   </form>
+  <a href='create_student.php'>Register for an account</a>
+  <a href='login_admin.php'>Login as admin</a>
 </body>
 
 </html>

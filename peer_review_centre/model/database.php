@@ -62,6 +62,8 @@ class MySQLDatabase {
 	// kinds of databases)
 
 	public function escapeValue($value) {
+		//Why haven't you run any prevention for html injection? It looks like only prevention for
+		//sql injection? Comment written by Sami
 		$escaped_value = mysqli_real_escape_string($this->connection, $value);
 		return $escaped_value;
 	}

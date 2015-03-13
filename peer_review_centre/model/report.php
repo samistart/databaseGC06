@@ -25,12 +25,12 @@ class Report extends DatabaseObject {
 	/**
 	*A constructor taking args for use in taking form data and create a new object.
 	*/
-	function __construct($title, $abstract, $content){
+	function __construct($title="", $abstract="", $content="", $groupID="1"){
 		
 		$this->title = $title;
 		$this->abstract = $abstract;
 		$this->content = $content;
-		//set the default value for groupId as 1 for now as a test (because there is only groupID 1 in the table)
+		$this->groupID = $groupID;
 		//reportId and lastEdited will be automatically filled out (AI and timestamp)
 	}
 
@@ -48,6 +48,26 @@ class Report extends DatabaseObject {
 	protected function setPk($value) {
 		$this->reportID = $value;
 	}
+
+	//finds a report by groupID and returns a report object or false if not found
+	public static function findByGroupID($groupID="") {
+    global $database;
+    //clean for sql/html injection
+    $groupID = $database->escapeValue($groupID);
+
+    //send sql query to db and get back result array
+    $sql  = "SELECT * FROM reports ";
+    $sql .= "WHERE groupID = '{$groupID}' ";
+    $sql .= "LIMIT 1;";
+    $resultArray = self::findBySQL($sql);
+
+    //return result... or false if not found
+    if ($resultArray==NULL) {
+      return false;
+    }
+    return $resultArray[0];
+
+  }
 
 }
 ?>

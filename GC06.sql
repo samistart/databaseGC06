@@ -108,7 +108,7 @@ CREATE TABLE `reports` (
 `reportID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `title` text NOT NULL,
   `abstract` text NOT NULL,
-  `content` int(11) NOT NULL,
+  `content` text NOT NULL,
   `dateCreated` datetime NOT NULL,
   `groupID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

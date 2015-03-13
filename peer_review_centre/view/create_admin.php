@@ -26,6 +26,8 @@
 		<input type='password' name='confirmPassword' size='30'>
 		<p><input type='submit' value='Register'></p>
 	</form>
+  <a href='login_admin.php'>Go to login</a>
+  <a href='create_student.php'>Create student account</a>
 </body>
 
 </html>
