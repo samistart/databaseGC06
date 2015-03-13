@@ -11,4 +11,8 @@ function redirectTo($location = NULL) {
 	}
 }
 
+function getLocation() {
+  return $_SERVER["DOCUMENT_ROOT"].DS."databaseGC06".DS."peer_review_centre".DS;
+}
+
 ?>
