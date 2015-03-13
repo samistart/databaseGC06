@@ -2,12 +2,12 @@
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
 
-  require_once("../model/forum.php");
-  require_once("../model/thread.php");
-  require_once("../model/comment.php");
-  require_once("../model/session.php");
-  require_once("../model/database.php");
-  require_once("../model/student.php");
+  require_once("../models/forum.php");
+  require_once("../models/thread.php");
+  require_once("../models/comment.php");
+  require_once("../models/session.php");
+  require_once("../models/database.php");
+  require_once("../models/student.php");
   require_once("utilities.php");
 
   class InitialiseStudent {
@@ -21,17 +21,17 @@
         if ($session->isAdmin()) {
           //Change to login_admin when it's ready
           $session->message("Admins can't view that page - it's only for students. <br>");
-          header("Location: ../view/index_admin.php");
+          header("Location: ../views/prc_admin/admins/index.php");
           exit();
         }
         
-        include '../view/layouts/student_header.php';
+        include '../layouts/student_header.php';
 
       }
 
       else {
           $session->message("You must login first.");
-          header("Location: ../view/login_student.php");
+          header("Location: ../views/prc_student/students/login.php");
           exit();
 
       }
@@ -47,11 +47,11 @@
         if ($session->isAdmin()) {
           //Change to login_admin when it's ready
           $session->message("Already logged in as an admin, please log out before logging in as a student. <br>");
-          header("Location: ../view/index_admin.php");
+          header("Location: ../views/prc_admin/admins/index.php");
           exit();
         } else {
           $session->message("Already logged in as a student. Please logout before trying to access login page. <br>");
-          header("Location: ../view/index_student.php");
+          header("Location: ../views/prc_student/students/index.php");
           exit();
         }
 

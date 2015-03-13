@@ -1,5 +1,5 @@
 <?php
-  require_once("../../../controllers/prc_student/threads/process_threads.php");
+  require_once("../../../controllers/prc_student/threads.php");
   require_once('../../../includes/initialise_student.php');
   InitialiseStudent::checkLoggedIn();
 ?>
@@ -26,7 +26,7 @@
     <?php foreach($threads as $thread): ?>
       <tr>
         <td>
-          <a href="../threads/view_thread.php?threadID=<?php echo $thread->threadID; ?>">
+          <a href="../threads/view.php?threadID=<?php echo $thread->threadID; ?>">
             <?php echo $thread->title; ?>
           </a>
         </td>
@@ -46,7 +46,7 @@
   <!-- Form to allow user to create a new thread. -->
   <div id="thread-form">
     <h3>Start a new thread</h3>
-    <form method='post' action='../../../controllers/prc_student/threads/process_threads.php' name='newThread'>
+    <form method='post' action='../../../controllers/prc_student/threads.php' name='newThread'>
       <label>Title:</label>
       <input type='text' name='title' size='50'><br>
       <label>Content:</label>
