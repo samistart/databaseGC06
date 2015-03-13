@@ -55,4 +55,4 @@
   </form>
 </div>
 
-<?php include '../../../layouts/student_header.php';?>
+<?php include '../../../layouts/student_footer.php';?>
