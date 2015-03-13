@@ -1,18 +1,16 @@
 <?php
-require_once('../includes/initialise_student.php');
-InitialiseStudent::checkLoggedIn();
+  require_once("../controller/process_comments.php");
+  require_once('../includes/initialise_student.php');
+  InitialiseStudent::checkLoggedIn();
 ?>
-<html>
 
+<html>
 <head>
 	<title>Forum</title>
   	<link rel="shortcut icon" href="../icon.ico" />
 </head>
 
 <body>
-  <?php require_once("header_student.php") ?>
-  <?php require_once("../controller/process_comments.php"); ?>
-  <?php require_once("../model/student.php"); ?>
 
   <!-- Display thread title and content -->
   <div id="thread">

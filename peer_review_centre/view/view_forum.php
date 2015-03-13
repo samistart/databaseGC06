@@ -1,9 +1,10 @@
-<html>
 <?php
+  require_once("../controller/process_threads.php");
   require_once('../includes/initialise_student.php');
   InitialiseStudent::checkLoggedIn();
 ?>
 
+<html>
 <head>
 	<title>Forum</title>
   	<link rel="shortcut icon" href="../icon.ico" />
