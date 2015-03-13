@@ -1,7 +1,8 @@
 <?php
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
-  require_once('../includes/initialise_student.php');
+  
+  require_once('../../../includes/initialise_student.php');
 ?>
 <html>
 <body>
