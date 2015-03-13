@@ -11,8 +11,7 @@ class Students {
   public function login{
     if($session->isLoggedIn()) {
       //var_dump($_SESSION);
-      header("Location: ../view/unfinished_page.php");
-      exit();
+      redirectTo(WEB_ROOT."views/prc_student/students/index.php");
     }
 
     // // Remember to give your form's submit tag a name="submit" attribute!
@@ -31,11 +30,10 @@ class Students {
           //$studentSession is an object that is constructed at the end
           //of the student_session include
           $session->login($foundStudent, false);
-          header("Location: ../view/index_student.php");
-          exit();
+          redirectTo(WEB_ROOT."views/prc_student/students/index.php");
         } else {
           $session->message("Incorrect email or password");
-          header("Location: ../view/login_student.php");
+          redirectTo(WEB_ROOT."views/prc_student/students/login.php");
         }
       
       } else { // Form has not been submitted.
@@ -50,19 +48,14 @@ class Students {
 
     if ($session->isAdmin()) {
       $session->logout();
-      header("Location: ../view/login_admin.php");
-      exit();
+      redirectTo(WEB_ROOT."views/prc_admin/admins/login.php");
     }
     else{
       $session->logout();
-      header("Location: ../view/login_student.php");
-      exit();
+      redirectTo(WEB_ROOT."views/prc_student/students/login.php");
     }
 
   }
-
-
 }
-
 
 ?>
