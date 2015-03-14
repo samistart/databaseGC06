@@ -5,16 +5,13 @@
 
   require_once('../../includes/initialise_student.php');
   global $session;
-
+  
   //get an object with the current student
   $currentStudent = Student::findByID("$session->userID");
-  $newReport = Report::findByGroupID("$currentStudent->groupID");
   //create a report object
-  $newReport->title = $_POST["title"];
-  $newReport->abstract = $_POST["abstract"];
-  $newReport->content = $_POST["content"];
+  $newReport = new Report($_POST["title"], $_POST["abstract"], $_POST["content"], "$currentStudent->groupID");
   //use report object to create database entry
-  $newReport->update();
+  $newReport->save();
   
   redirectTo("views/prc_student/reports/view.php");
 
