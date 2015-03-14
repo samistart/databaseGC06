@@ -54,7 +54,7 @@ class Thread extends DatabaseObject {
 	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
-	public function getPk() {
+	protected function getPk() {
 		return $this->threadID;
 	}
 
@@ -62,7 +62,7 @@ class Thread extends DatabaseObject {
 	* Method that updates the variable that corresponds to the primary key with
 	* the value that is passed as an argument.
 	*/
-	public function setPk($value) {
+	protected function setPk($value) {
 		$this->threadID = $value;
 	}
 }

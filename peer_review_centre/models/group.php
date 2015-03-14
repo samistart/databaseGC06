@@ -23,7 +23,7 @@ class Group extends DatabaseObject {
 	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
-	public function getPk() {
+	protected function getPk() {
 		return $this->groupID;
 	}
 
@@ -31,7 +31,7 @@ class Group extends DatabaseObject {
 	* Method that updates the variable that corresponds to the primary key with
 	* the value that is passed as an argument.
 	*/
-	public function setPk($value) {
+	protected function setPk($value) {
 		$this->groupID = $value;
 	}
 
@@ -49,7 +49,7 @@ class Group extends DatabaseObject {
 	public static function updateRank() {
 		global $database;
 		$sql = "SELECT * FROM ".static::$tableName;
-		$sql .= " ORDER BY 'averageGrade' DESC";
+		$sql .= " ORDER BY averageGrade DESC";
 		$groupsByRank = static::findBySQL($sql);
 		$i = 1;
 		foreach ($groupsByRank as $group) {

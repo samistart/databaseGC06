@@ -141,6 +141,8 @@ abstract class DatabaseObject {
 		// Joins the string/value pair strings and adds them to the query
 		$sql .= join(", ", $attributePairs);
 		$sql .= " WHERE ".static::$dbFields[0]."=" . $this->getPk();
+		// Delete single quotes around CURRENT_TIMESTAMP values
+		$sql = str_replace("'CURRENT_TIMESTAMP'","CURRENT_TIMESTAMP", $sql);
 		// Send query to database
 		$database->query($sql);
 		// Check whether a row has been affected to see if the query was successfull

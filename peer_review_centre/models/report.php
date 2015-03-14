@@ -23,7 +23,7 @@ class Report extends DatabaseObject {
 	public $groupID;
 
 	/**
-	*A constructor taking args for use in taking form data and create a new object.
+	* A constructor taking args for use in taking form data and create a new object.
 	*/
 	function __construct($title="", $abstract="", $content="", $groupID="1"){
 		
@@ -37,7 +37,7 @@ class Report extends DatabaseObject {
 	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
-	public function getPk() {
+	protected function getPk() {
 		return $this->reportID;
 	}
 
@@ -45,7 +45,7 @@ class Report extends DatabaseObject {
 	* Method that updates the variable that corresponds to the primary key with
 	* the value that is passed as an argument.
 	*/
-	public function setPk($value) {
+	protected function setPk($value) {
 		$this->reportID = $value;
 	}
 
