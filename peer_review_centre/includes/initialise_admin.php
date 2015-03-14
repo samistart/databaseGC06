@@ -1,9 +1,12 @@
 <?php
-defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-  defined('SITE_ROOT') ? null : 
-    define('SITE_ROOT', DS.'Applications'.DS.'MAMP'.DS.'htdocs'.DS.'databaseGC06'.DS.'peer_review_centre');
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+
+  defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+  defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
   defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
-  
+  defined('WEB_ROOT') ? null : define('WEB_ROOT', 'http://localhost:8888/databaseGC06/peer_review_centre/');
+
   require_once(SITE_ROOT.DS."models/admin.php");
   require_once(SITE_ROOT.DS."models/session.php");
   require_once(SITE_ROOT.DS."models/database.php");
@@ -19,19 +22,16 @@ defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 
         if (!($session->isAdmin())) {
           $session->message("Studens can't view that page - it's only for admins. <br>");
-          header("Location: ../view/index_student.php");
-          exit();
+          redirectTo(WEB_ROOT."views/prc_student/students/index.php");
         }
         
-        include '../view/header_admin.php';
+        include '../layouts/admin_header.php';
 
       }
 
       else {
           $session->message("You must login first.");
-          header("Location: ../view/login_admin.php");
-          exit();
-
+          redirectTo(WEB_ROOT."views/prc_admin/admins/login.php");
       }
     }
 
@@ -45,16 +45,14 @@ defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
         if (!($session->isAdmin())) {
           //Change to login_admin when it's ready
           $session->message("Already logged in as an student, please log out before logging in as an admin. <br>");
-          header("Location: ../view/index_student.php");
-          exit();
+          redirectTo(WEB_ROOT."views/prc_student/students/index.php");
+
         } else {
           $session->message("Already logged in as an admin. Please logout before trying to access login page. <br>");
-          header("Location: ../view/index_admin.php");
-          exit();
+          redirectTo(WEB_ROOT."views/prc_admins/admins/index.php");
         }
 
       }
     }
-
   }
 ?>

@@ -9,12 +9,12 @@
 <body>
   <div id='navmenu'> 
     <ul> 
-      <li><a href='index_admin.php'>Home</a></li>
-      <li><a href='unfinished_page.php'>Blah</a></li>
-      <li><a href='unfinished_page.php'>Blah</a></li>
-      <li><a href='unfinished_page.php'>Blah</a></li>
-      <li><a href='view_forum.php'>Blah</a></li> 
-      <li><a href='../controller/process_logout.php'>Logout</a></li> 
+      <li><a href='../views/prc_admin/admins/index.php'>Home</a></li>
+      <li><a href='../views/unfinished_page.php'>Blah</a></li>
+      <li><a href='../views/unfinished_page.php'>Blah</a></li>
+      <li><a href='../views/unfinished_page.php'>Blah</a></li>
+      <li><a href='../views/prc_student/forums/view.php'>Blah</a></li> 
+      <li><a href='../controllers/prc_admin/admin_logout.php'>Logout</a></li> 
     </ul>   
   </div>
 
