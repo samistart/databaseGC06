@@ -4,10 +4,11 @@
   error_reporting(E_ALL | E_STRICT);
 
   require_once('../../includes/initialise_student.php');
-
   //Don't check for login because that would be silly for a login page
+
   if($session->isLoggedIn()) {
     //var_dump($_SESSION);
+    $session->message("You're already logged in. <br>");
     redirectTo("views/prc_student/students/index.php");
   }
   // // Remember to give your form's submit tag a name="submit" attribute!

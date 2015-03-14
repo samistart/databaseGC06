@@ -7,6 +7,8 @@
   //echo DB_SERVER;
   InitialiseStudent::reverseCheckLoggedIn();
   echo $session->message;
+  $action = WEB_ROOT."controllers/prc_student/student_login.php";
+  echo $action;
 ?>
 
 <?php include '../../../layouts/header.php'; ?>
@@ -15,7 +17,7 @@
 <?php 
 echo $session->message;
 ?>
-<form method='POST' action='../../../controllers/prc_student/student_login.php' name='studentLogin'>
+<form method='POST' action='<?php echo $action; ?>' name='studentLogin'>
   <label>Email:</label>
   <input type='text' name='email' size='30'><br>
   <label>Password:</label>

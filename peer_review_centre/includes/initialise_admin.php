@@ -25,7 +25,7 @@
           redirectTo("views/prc_student/students/index.php");
         }
         
-        include '../layouts/admin_header.php';
+        include SITE_ROOT.DS.'layouts/admin_header.php';
 
       }
 
