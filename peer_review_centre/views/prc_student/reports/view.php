@@ -1,6 +1,5 @@
 <?php
   require_once('../../../includes/initialise_student.php');
-  require_once('../../../model/report.php');
   InitialiseStudent::checkLoggedIn();
 
   //get an object of the current student
@@ -23,6 +22,6 @@ if ($myReport) {
   if ($myReport) {
     var_dump($myReport);
   } else {
-    echo "Your group hasn't created a report yet: <a href='create_report.php'>Create report</a>";
+    echo "Your group hasn't created a report yet: <a href='create.php'>Create report</a>";
   }
 ?>
