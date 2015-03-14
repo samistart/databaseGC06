@@ -18,6 +18,6 @@
   <p><input type='submit' value='Login'></p>
 </form>
 <a href='create.php'>Register for an account</a>
-<a href='../../prc_student/students/login.php'>Login as student</a>
+<a href='<?php echo $loginAsStudent; ?>'>Login as student</a>
 
 <?php include '../../../layouts/footer.php'; ?>

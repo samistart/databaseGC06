@@ -10,11 +10,11 @@
   <div id='navmenu'> 
     <ul> 
       <li><a href='../views/prc_admin/admins/index.php'>Home</a></li>
-      <li><a href='../views/unfinished_page.php'>Blah</a></li>
-      <li><a href='../views/unfinished_page.php'>Blah</a></li>
-      <li><a href='../views/unfinished_page.php'>Blah</a></li>
+      <li><a href='#'>Blah</a></li>
+      <li><a href='#'>Blah</a></li>
+      <li><a href='#'>Blah</a></li>
       <li><a href='../views/prc_student/forums/view.php'>Blah</a></li> 
-      <li><a href='../controllers/prc_admin/admin_logout.php'>Logout</a></li> 
+      <li><a href='<?php echo WEB_ROOT; ?>controllers/prc_admin/admin_logout.php'>Logout</a></li> 
     </ul>   
   </div>
 
