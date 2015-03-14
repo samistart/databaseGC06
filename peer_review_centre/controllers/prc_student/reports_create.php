@@ -13,6 +13,6 @@
   //use report object to create database entry
   $newReport->create();
   
-  redirectTo("views/prc_student/reports/my_report.php");
+  redirectTo("views/prc_student/reports/view.php");
 
 ?>
