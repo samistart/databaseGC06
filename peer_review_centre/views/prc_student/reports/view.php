@@ -7,21 +7,13 @@
   //get the current student's report by finding it with it's group ID
   $myReport = Report::findByGroupID("$currentStudent->groupID");
 ?>
-
 <?php 
-if ($myReport) {
-  echo "<h2>This is your report. Isn't it great.</h2> ";
-  echo "Last edited: " . $myReport->lastEdited . "<a href='update.php'>Edit Report</a>";
-}
-?><br><br>  
-<?php
-  //get an object of the current student
-  $currentStudent = Student::findByID("$session->userID");
-  //get the current student's report by finding it with it's group ID
-  $myReport = Report::findByGroupID("$currentStudent->groupID");
   if ($myReport) {
-    var_dump($myReport);
+    echo "<h2>This is your report.</h2> ";
+    echo "Last edited: " . $myReport->lastEdited . "<a href='update.php'>Edit Report</a>";
+  }
   } else {
     echo "Your group hasn't created a report yet: <a href='create.php'>Create report</a>";
+    var_dump($report);
   }
 ?>

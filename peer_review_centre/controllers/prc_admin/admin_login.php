@@ -3,19 +3,18 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once("../includes/initialise_admin.php");
+require_once("../../includes/initialise_admin.php");
 
 if($session->isLoggedIn()) {
   //var_dump($_SESSION);
-  header("Location: ../view/unfinished_page.php");
-  exit();
+  redirectTo("views/prc_admin/admins/index.php");
 }
 
 // // Remember to give your form's submit tag a name="submit" attribute!
 if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submitted.
   
   $email = trim($_POST['email']);
-  $password = trim($_POST['password']);
+  $password = $_POST['password'];
 
   //Check for valid email
   if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -27,8 +26,8 @@ if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submi
       //$adminSession is an object that is constructed at the end
       //of the admin_session include
       $session->login($foundAdmin, true);
-      header("Location: ../view/index_admin.php");
-      exit();
+      redirectTo("views/prc_admin/admins/index.php");
+
     } else {
       echo "Email/password combination incorrect.";
     }

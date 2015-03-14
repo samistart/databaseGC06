@@ -20,8 +20,8 @@
 		<input type='password' name='confirmPassword' size='30'>
 		<p><input type='submit' value='Register'></p>
 	</form>
-  <a href='login_student.php'>Go to login</a>
-  <a href='create_admin.php'>Create admin account</a>
+  <a href='login.php'>Student Login</a>
+  <a href='../../prc_admin/admins/login.php'>Create admin account</a>
 </body>
 
 </html>

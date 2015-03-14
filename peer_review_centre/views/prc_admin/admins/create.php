@@ -2,7 +2,7 @@
   //Author Sami Start
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
-  require_once('../includes/initialise_student.php');
+  require_once('../../../includes/initialise_student.php');
 ?>
 <html>
 <head>
@@ -26,8 +26,8 @@
 		<input type='password' name='confirmPassword' size='30'>
 		<p><input type='submit' value='Register'></p>
 	</form>
-  <a href='login_admin.php'>Go to login</a>
-  <a href='create_student.php'>Create student account</a>
+  <a href='login.php'>Admin login</a>
+  <a href='../../prc_student/students/create.php'>Create student account</a>
 </body>
 
 </html>

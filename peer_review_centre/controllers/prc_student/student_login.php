@@ -14,7 +14,7 @@
   if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submitted.
     
     $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+    $password = $_POST['password'];
     //Check for valid email
     if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
       // Check database to see if studentname/password exist.
