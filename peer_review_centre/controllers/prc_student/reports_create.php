@@ -3,8 +3,7 @@
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
 
-  require_once('../includes/initialise_student.php');
-  include '../model/report.php';
+  require_once('../../includes/initialise_student.php');
   global $session;
   
   //get an object with the current student
@@ -14,6 +13,6 @@
   //use report object to create database entry
   $newReport->create();
   
-  redirectTo($location = "../view/view_my_report.php");
+  redirectTo(WEB_ROOT."views/prc_student/reports/my_report.php");
 
 ?>

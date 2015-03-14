@@ -9,6 +9,7 @@
 
   //echo SITE_ROOT.DS."models/forum.php";
   require_once(SITE_ROOT.DS."models/forum.php");
+  require_once(SITE_ROOT.DS."models/report.php");
   require_once(SITE_ROOT.DS."models/thread.php");
   require_once(SITE_ROOT.DS."models/comment.php");
   require_once(SITE_ROOT.DS."models/session.php");

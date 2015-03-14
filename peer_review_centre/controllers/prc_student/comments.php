@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 
   if($newComment && $newComment->create()) {
   	// Comment saved
-  	redirectTo("../../views/prc_student/threads/views.php?threadID=".$thread->threadID);
+  	redirectTo(WEB_ROOT."views/prc_student/threads/views.php?threadID=".$thread->threadID);
   } else {
   	// Failed
   	$message = "There was an error that prevented the post from being saved.";
