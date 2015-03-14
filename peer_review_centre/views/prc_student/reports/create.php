@@ -1,11 +1,11 @@
 <?php
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
-  require_once('../includes/initialise_student.php');
+  require_once('../../../includes/initialise_student.php');
   InitialiseStudent::checkLoggedIn();
 ?>
 
-<form method="POST" action="../../../controller/process_new_report.php" name="newReport">
+<form method="POST" action="../../../controllers/prc_student/reports_create.php" name="newReport">
   <label>Title: </label>
   <input type="text" name="title"><br><br>
   <label>Abstract: </label>
