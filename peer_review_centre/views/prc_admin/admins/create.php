@@ -3,12 +3,15 @@
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
   require_once('../../../includes/initialise_student.php');
+
+  $action = WEB_ROOT."controllers/prc_admin/admin_create.php";
+  echo $action;
 ?>
 
 <?php include '../../../layouts/header.php'; ?>
 
 <h2>Create a new Administrator Account</h2>
-<form method='post' action='../controller/process_new_admin.php' name='newAdmin'>
+<form method='post' action='<?php echo $action; ?>' name='newAdmin'>
 	<label>First Name:</label>
 	<input type='text' name='firstName' size='30'><br>
 	<label>Family Name:</label>

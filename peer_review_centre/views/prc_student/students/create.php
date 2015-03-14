@@ -3,11 +3,14 @@
   error_reporting(E_ALL | E_STRICT);
   
   require_once('../../../includes/initialise_student.php');
+  $action = WEB_ROOT."controllers/prc_student/student_create.php";
+  echo $action;
 ?>
 
 <?php include '../../../layouts/header.php'; ?>
 
 	<h2>Create a new Student Account</h2>
+  <?php var_dump($_SESSION); ?>
 	<form method='post' action='../../../controllers/prc_student/student_create.php' name='newUser'>
 		<label>First Name:</label>
 		<input type='text' name='firstName' size='30'><br>

@@ -10,15 +10,24 @@
   $currentStudent = Student::findByID("$session->userID");
 
   //create a report object
-  $newReport = new Report($_POST["title"], $_POST["abstract"], $_POST["content"], "$currentStudent->groupID");
+  $myReport = new Report;
 
-  //get the current student's report by finding it with it's group ID
-  $oldReport = Report::findByGroupID("$currentStudent->groupID");
-  $newReport->setPk($oldReport->getPK());
-
-  
-  //use report object to create database entry
-  $newReport->save();
+  //retrieve existing record if there is one
+  if (Report::findByGroupID("$currentStudent->groupID")) {
+    $myReport = Report::findByGroupID("$currentStudent->groupID");
+    $myReport->title = $_POST["title"];
+    $myReport->abstract = $_POST["abstract"];
+    $myReport->content = $_POST["content"];
+    $myReport->groupID = "$currentStudent->groupID";
+    $myReport->update();
+  }
+  else{
+    $myReport->title = $_POST["title"];
+    $myReport->abstract = $_POST["abstract"];
+    $myReport->content = $_POST["content"];
+    $myReport->groupID = "$currentStudent->groupID";
+    $myReport->create();
+  }
   
   redirectTo("views/prc_student/reports/view.php");
 

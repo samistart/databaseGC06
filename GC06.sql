@@ -93,7 +93,7 @@ CREATE TABLE `groups` (
 CREATE TABLE `comments` (
 `commentID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `content` text NOT NULL,
-  `lastEdited` datetime NOT NULL,
+  `lastEdited` timestamp NOT NULL,
   `threadID` int(11) NOT NULL,
   `studentID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -109,7 +109,7 @@ CREATE TABLE `reports` (
   `title` text NOT NULL,
   `abstract` text NOT NULL,
   `content` text NOT NULL,
-  `lastEdited` datetime NOT NULL,
+  `lastEdited` timestamp NOT NULL,
   `groupID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -140,7 +140,7 @@ CREATE TABLE `threads` (
 `threadID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `title` text NOT NULL,
   `content` text NOT NULL,
-  `lastEdited` datetime NOT NULL,
+  `lastEdited` timestamp NOT NULL,
   `forumID` int(11) NOT NULL,
   `studentID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
