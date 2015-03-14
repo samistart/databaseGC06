@@ -35,5 +35,47 @@ class Group extends DatabaseObject {
 		$this->groupID = $value;
 	}
 
+	/**
+	* Method that returns the number of groups in the table.
+	*/
+	public static function noGroups() {
+		$allGroups = static::findAll();
+		return sizeof($allGroups);
+	}
+
+  /**
+	* Method that updates the ranking variables in all the groups in the table.
+	*/
+	public static function updateRank() {
+		global $database;
+		$sql = "SELECT * FROM ".static::$tableName;
+		$sql .= " ORDER BY 'averageGrade' DESC";
+		$groupsByRank = static::findBySQL($sql);
+		$i = 1;
+		foreach ($groupsByRank as $group) {
+		  $group->ranking = $i;
+		  $group->save();
+		  $i += 1;
+		}
+	}
+
+	/**
+	* Method that returns the total average grade of all the groups.
+	*/
+	public static function groupsAverageGrade() {
+		$allGroups = static::findAll();
+		$noGroups = sizeof($allGroups);
+		if ($noGroups == 0) {
+			return 0;
+		} else {
+			$totalAverage = 0;
+			foreach ($allGroups as $group) {
+				$totalAverage += $group->averageGrade;
+			}
+			$totalAverage = bcdiv($totalAverage, $noGroups, 3);
+			return $totalAverage;
+		}
+	}
 }
+
 ?>

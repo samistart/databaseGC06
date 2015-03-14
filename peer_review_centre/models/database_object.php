@@ -51,11 +51,11 @@ abstract class DatabaseObject {
 	public static function findBySQL($sql="") {
 		global $database;
 		$resultSet = $database->query($sql);
-    	$objectArray = array();
-    	while ($row = $database->fetchArray($resultSet)) {
-      		$objectArray[] = static::instantiate($row);
-    	}
-    	return $objectArray;
+  	$objectArray = array();
+  	while ($row = $database->fetchArray($resultSet)) {
+    	$objectArray[] = static::instantiate($row);
+  	}
+  	return $objectArray;
 	}
 
 	/**

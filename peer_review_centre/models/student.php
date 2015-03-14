@@ -72,5 +72,15 @@ class Student extends DatabaseObject {
 
   }
 
+  /**
+  * Method that returns the teammates of the current student.
+  */
+  public function findTeamMates() {
+    $sql = "SELECT * FROM " .self::$tableName;
+    $sql .= " WHERE groupID=".$this->groupID;
+    $sql .= " AND studentID!=".$this->studentID;
+    return self::findBySQL($sql);
+  }
+
 }
 ?>
