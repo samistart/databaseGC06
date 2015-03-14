@@ -13,7 +13,7 @@
   if ($myReport) {
     echo "<h2>This is your report. It's really good. You should be a writer.</h2> ";
     var_dump($myReport);
-    echo "Last edited: " . $myReport->lastEdited . "<a href='update.php'>Edit Report</a>";
+    echo "Last edited: " . $myReport->lastEdited . "<a href='submit.php'>Edit Report</a>";
   }
   // } else {
   //   echo "Your group hasn't created a report yet: <a href='create.php'>Create report</a>";
