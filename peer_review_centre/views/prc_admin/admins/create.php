@@ -5,6 +5,8 @@
   require_once('../../../includes/initialise_student.php');
 ?>
 
+<?php include '../../../layouts/header.php'; ?>
+
 <h2>Create a new Administrator Account</h2>
 <form method='post' action='../controller/process_new_admin.php' name='newAdmin'>
 	<label>First Name:</label>
@@ -21,6 +23,5 @@
 </form>
 <a href='login.php'>Admin login</a>
 <a href='../../prc_student/students/create.php'>Create student account</a>
-
 
 <?php include '../../../layouts/footer.php'; ?>

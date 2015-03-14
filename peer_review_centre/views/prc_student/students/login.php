@@ -9,6 +9,8 @@
   echo $session->message;
 ?>
 
+<?php include '../../../layouts/header.php'; ?>
+
 <h2>Student Login</h2>
 <?php 
 echo $session->message;
@@ -22,6 +24,5 @@ echo $session->message;
 </form>
 <a href='create.php'>Register for an account</a>
 <a href='../../prc_admin/admins/login.php'>Login as admin</a>
-
 
 <?php include '../../../layouts/footer.php'; ?>

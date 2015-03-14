@@ -4,8 +4,9 @@
   
   require_once('../../../includes/initialise_student.php');
 ?>
-<html>
-<body>
+
+<?php include '../../../layouts/header.php'; ?>
+
 	<h2>Create a new Student Account</h2>
 	<form method='post' action='../../../controllers/prc_student/student_create.php' name='newUser'>
 		<label>First Name:</label>

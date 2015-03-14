@@ -3,6 +3,8 @@
   echo $session->message;
 ?>
 
+<?php include '../../../layouts/header.php'; ?>
+
 <h2>Admin Login</h2>
 <form method='POST' action='../../../controllers/prc_admin/admin_login.php' name='adminLogin'>
   <label>Email:</label>
@@ -13,6 +15,5 @@
 </form>
 <a href='create.php'>Register for an account</a>
 <a href='../../prc_student/students/login.php'>Login as student</a>
-
 
 <?php include '../../../layouts/footer.php'; ?>
