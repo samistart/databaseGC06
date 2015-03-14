@@ -22,7 +22,7 @@
 
         if (!($session->isAdmin())) {
           $session->message("Studens can't view that page - it's only for admins. <br>");
-          redirectTo(WEB_ROOT."views/prc_student/students/index.php");
+          redirectTo("views/prc_student/students/index.php");
         }
         
         include '../layouts/admin_header.php';
@@ -31,7 +31,7 @@
 
       else {
           $session->message("You must login first.");
-          redirectTo(WEB_ROOT."views/prc_admin/admins/login.php");
+          redirectTo("views/prc_admin/admins/login.php");
       }
     }
 
@@ -45,11 +45,11 @@
         if (!($session->isAdmin())) {
           //Change to login_admin when it's ready
           $session->message("Already logged in as an student, please log out before logging in as an admin. <br>");
-          redirectTo(WEB_ROOT."views/prc_student/students/index.php");
+          redirectTo("views/prc_student/students/index.php");
 
         } else {
           $session->message("Already logged in as an admin. Please logout before trying to access login page. <br>");
-          redirectTo(WEB_ROOT."views/prc_admins/admins/index.php");
+          redirectTo("views/prc_admins/admins/index.php");
         }
 
       }

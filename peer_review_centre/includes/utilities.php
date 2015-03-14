@@ -6,7 +6,7 @@ function isEmail($inputEmail) {
 
 function redirectTo($location = NULL) {
 	if ($location != NULL) {
-    header("Location: {$location}");
+    header("Location: {".WEB_ROOT."$location}");
     exit();
 	}
 }

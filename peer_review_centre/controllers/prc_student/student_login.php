@@ -8,7 +8,7 @@
   //Don't check for login because that would be silly for a login page
   if($session->isLoggedIn()) {
     //var_dump($_SESSION);
-    redirectTo(WEB_ROOT."views/prc_student/students/index.php");
+    redirectTo("views/prc_student/students/index.php");
   }
   // // Remember to give your form's submit tag a name="submit" attribute!
   if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submitted.
@@ -23,10 +23,10 @@
         //$studentSession is an object that is constructed at the end
         //of the student_session include
         $session->login($foundStudent, false);
-        redirectTo(WEB_ROOT."views/prc_student/students/index.php");
+        redirectTo("views/prc_student/students/index.php");
       } else {
         $session->message("Incorrect email or password");
-        redirectTo(WEB_ROOT."views/prc_student/students/login.php");
+        redirectTo("views/prc_student/students/login.php");
       }
     
     } else { // Form has not been submitted.

@@ -7,6 +7,6 @@
   require_once("../model/database.php");
 
   $session->logout();
-  redirectTo(WEB_ROOT."views/prc_student/students/login.php");
+  redirectTo("views/prc_student/students/login.php");
 
 ?>
