@@ -32,7 +32,7 @@ class Admin extends DatabaseObject {
 	* Method that updates the variable that corresponds to the primary key with
 	* the value that is passed as an argument.
 	*/
-	public function setPk($value) {
+	protected function setPk($value) {
 		$this->adminID = $value;
 	}
 

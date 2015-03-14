@@ -3,7 +3,7 @@
   echo $session->message;
 
   $action = WEB_ROOT."controllers/prc_admin/admin_login.php";
-  $loginAsStudent = WEB_ROOT."views/prc_student/students/student_login.php";
+  $loginAsStudent = WEB_ROOT."views/prc_student/students/login.php";
   echo $action;
 ?>
 
