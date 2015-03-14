@@ -22,14 +22,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index_student.php">PRC</a>
+      <a class="navbar-brand" href="../views/prc_student/students/index.php">PRC</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="view_my_report.php">My Report <span class="sr-only">(current)</span></a></li>
-        <li><a href="view_forum.php">Forum</a></li>
+        <li class="active"><a href="../views/prc_student/reports/view.php">My Report <span class="sr-only">(current)</span></a></li>
+        <li><a href="../views/prc_student/forums/view.php">Forum</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assessments<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -63,7 +63,7 @@
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
-            <li><a href="../controller/process_logout.php">Logout</a></li>
+            <li><a href="../controllers/prc_student/student_logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>

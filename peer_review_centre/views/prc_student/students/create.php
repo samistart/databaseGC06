@@ -7,7 +7,7 @@
 <html>
 <body>
 	<h2>Create a new Student Account</h2>
-	<form method='post' action='../../../controllers/prc_student/students.php' name='newUser'>
+	<form method='post' action='../../../controllers/prc_student/student_create.php' name='newUser'>
 		<label>First Name:</label>
 		<input type='text' name='firstName' size='30'><br>
 		<label>Last Name:</label>
