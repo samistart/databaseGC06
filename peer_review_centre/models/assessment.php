@@ -29,7 +29,7 @@ class Assessment extends DatabaseObject {
 	public $grade3;
 
 	/**
-	* find all assessement that a group has to do of other group reports.
+	* Find all assessements that a group has to do of other group reports.
 	*/
 	public static function findAssessmentsForGroup($groupID) {
     $sql = "SELECT * FROM " .self::$tableName;
@@ -38,6 +38,9 @@ class Assessment extends DatabaseObject {
     return self::findBySQL($sql);
   }
 
+  /**
+  * Find all assessements that a group received from other groups.
+  */
   public static function findAssessmentsForReport($reportID) {
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE reportID=".$reportID;
