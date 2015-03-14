@@ -22,6 +22,5 @@
 	</form>
   <a href='login.php'>Student Login</a>
   <a href='../../prc_admin/admins/login.php'>Create admin account</a>
-</body>
 
-</html>
+<?php include '../../../layouts/footer.php'; ?>

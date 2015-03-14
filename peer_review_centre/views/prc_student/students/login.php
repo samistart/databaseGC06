@@ -23,8 +23,5 @@ echo $session->message;
 <a href='create.php'>Register for an account</a>
 <a href='../../prc_admin/admins/login.php'>Login as admin</a>
 
-Here's a dummy footer.
 
-</div>
-</body>
-</html>
+<?php include '../../../layouts/footer.php'; ?>
