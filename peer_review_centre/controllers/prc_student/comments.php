@@ -2,8 +2,11 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once('../../../includes/initialise_student.php');
-InitialiseStudent::checkLoggedIn($session);
+defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
+
+require_once(SITE_ROOT.DS."includes/initialise_student.php");
+//InitialiseStudent::checkLoggedIn($session);
 
 // Variable threadID passed in the link from the forum page.
 global $session;
@@ -19,7 +22,7 @@ if (isset($_POST['submit'])) {
 
   if($newComment && $newComment->create()) {
   	// Comment saved
-  	redirectTo("views/prc_student/threads/views.php?threadID=".$thread->threadID);
+  	redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
   } else {
   	// Failed
   	$message = "There was an error that prevented the post from being saved.";

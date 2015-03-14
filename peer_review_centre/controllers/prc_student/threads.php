@@ -2,8 +2,11 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-require_once('../../../includes/initialise_student.php');
-InitialiseStudent::checkLoggedIn($session);
+defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
+
+require_once(SITE_ROOT.DS."includes/initialise_student.php");
+//InitialiseStudent::checkLoggedIn($session);
 
 // Take studentID from the current session and create the corresponding student object.
 global $session;
@@ -33,7 +36,7 @@ if(isset($_POST['submit'])) {
     	$message = "There was an error that prevented the thread from being saved.";
     }
 
-	echo "Thread was created successfully.";
+	//echo "Thread was created successfully.";
 } else {
 	$title = "";
 	$content = "";
