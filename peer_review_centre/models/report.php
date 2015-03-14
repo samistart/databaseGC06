@@ -37,7 +37,7 @@ class Report extends DatabaseObject {
 	/**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
-	protected function getPk() {
+	public function getPk() {
 		return $this->reportID;
 	}
 
@@ -45,7 +45,7 @@ class Report extends DatabaseObject {
 	* Method that updates the variable that corresponds to the primary key with
 	* the value that is passed as an argument.
 	*/
-	protected function setPk($value) {
+	public function setPk($value) {
 		$this->reportID = $value;
 	}
 

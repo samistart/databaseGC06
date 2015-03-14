@@ -6,7 +6,7 @@
 
   //get an object of the current student
   $currentStudent = Student::findByID("$session->userID");
-  // //get the current student's report by finding it with it's group ID
+  //get the current student's report by finding it with it's group ID
   $myReport = Report::findByGroupID("$currentStudent->groupID");
 ?>
 
