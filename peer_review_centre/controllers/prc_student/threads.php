@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
 
     if($newThread && $newThread->create()) {
     	// Thread saved
-        redirectTo(WEB_ROOT."views/prc_student/forums/view.php");
+        redirectTo("views/prc_student/forums/view.php");
     } else {
     	// Failed
     	$message = "There was an error that prevented the thread from being saved.";

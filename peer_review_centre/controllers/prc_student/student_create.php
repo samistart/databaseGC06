@@ -27,7 +27,7 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     $newStudent->password = $hashAndSalt;
     $newStudent->groupID = "1";
     $newStudent->create();
-    redirectTo(WEB_ROOT."views/prc_student/students/login.php");
+    redirectTo("views/prc_student/students/login.php");
   } else {
     echo "Invalid email format";
   }

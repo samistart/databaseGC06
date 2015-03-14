@@ -30,7 +30,7 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     $newAdmin->password = $hashAndSalt;
     $newAdmin->create();
 
-    redirectTo(WEB_ROOT."views/prc_admin/admins/login.php");
+    redirectTo("views/prc_admin/admins/login.php");
   } else {
     echo "Invalid email format";
   }
