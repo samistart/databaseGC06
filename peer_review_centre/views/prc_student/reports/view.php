@@ -11,7 +11,7 @@
 <?php 
 if ($myReport) {
   echo "<h2>This is your report. Isn't it great.</h2> ";
-  echo "Last edited: " . $myReport->lastEdited . "<a href='../view/edit_report.php'>Edit Report</a>";
+  echo "Last edited: " . $myReport->lastEdited . "<a href='update.php'>Edit Report</a>";
 }
 ?><br><br>  
 <?php
