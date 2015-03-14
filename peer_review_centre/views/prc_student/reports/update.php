@@ -5,7 +5,7 @@
   InitialiseStudent::checkLoggedIn();
 ?>
 
-<form method="POST" action="../../../controllers/reports_update.php" name="newReport">
+<form method="POST" action="../../../controllers/rpc_student/reports_update.php" name="newReport">
   <label>Title: </label>
   <input type="text" name="title" value="Test Value"><br><br>
   <label>Abstract: </label>
