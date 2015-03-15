@@ -48,9 +48,9 @@ class Admin extends DatabaseObject {
     $resultArray = self::findBySQL($sql);
     if ($resultArray==NULL) {
     	global $session;
+      require_once('../../includes/initialise_admin.php');
     	$session->message("That email has not been registered for an admin account.");
-      header("Location: ../view/login_admin.php");
-      exit();
+      redirectTo("views/prc_admin/admins/login.php");
     }
     $newAdmin = $resultArray[0];
 
