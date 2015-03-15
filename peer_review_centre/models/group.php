@@ -43,6 +43,16 @@ class Group extends DatabaseObject {
 		return sizeof($allGroups);
 	}
 
+	/**
+	* Method that finds and returns all groups ordered by ranking.
+	*/
+	public static function groupsByRank() {
+		global $database;
+		$sql = "SELECT * FROM ".static::$tableName;
+		$sql .= " ORDER BY ranking ASC";
+		return static::findBySQL($sql);
+	}
+
   /**
 	* Method that updates the ranking variables in all the groups in the table.
 	*/

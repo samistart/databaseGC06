@@ -47,7 +47,7 @@ class Thread extends DatabaseObject {
   public static function findThreadsOn($forumID) {
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE forumID=".$forumID;
-    $sql .= " ORDER BY lastEdited ASC";
+    $sql .= " ORDER BY lastEdited DESC";
     return self::findBySQL($sql);
   }
 
