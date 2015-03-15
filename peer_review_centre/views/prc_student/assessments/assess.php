@@ -43,11 +43,11 @@
     </tr>
     <tr>
       <td>
-        <label>Grade1</label>
+        <label>Grade</label>
         <input type="text" name="grade1" value="<?php if ( !empty(trim($assessment->grade1))) { echo "$assessment->grade1"; } ?>">
       </td>
       <td>
-        <label>Grade2</label>
+        <label>Grade</label>
         <input type="text" name="grade2" value="<?php if ( !empty(trim($assessment->grade2))) { echo "$assessment->grade2"; } ?>">
       </td>
       <td>
@@ -57,15 +57,15 @@
     </tr>
     <tr>
       <td>
-        <label>Comment1</label>
+        <label>Comment</label>
         <input type="text" name="comment1" value="<?php if ( !empty(trim($assessment->comment1))) { echo "$assessment->comment1"; } ?>">
       </td>
       <td>
-        <label>Comment2</label>
+        <label>Comment</label>
         <input type="text" name="comment2" value="<?php if ( !empty(trim($assessment->comment2))) { echo "$assessment->comment2"; } ?>">
       </td>
       <td>
-        <label>Comment3</label>
+        <label>Comment</label>
         <input type="text" name="comment3" value="<?php if ( !empty(trim($assessment->comment3))) { echo "$assessment->comment3"; } ?>">
       <td>
     </table>

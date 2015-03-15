@@ -20,3 +20,5 @@
     echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
   }
 ?>
+
+<?php include '../../../layouts/footer.php';?>

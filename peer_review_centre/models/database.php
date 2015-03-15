@@ -24,8 +24,8 @@ class MySQLDatabase {
 		// Takes the database details from the config file.
 		$this->connection = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 		// Check connection and return the corresponding success/failure message.
-		if ($this->connection->connect_error) {
-		  die("Connection failed: " . $this->connection->connect_error);
+		if ($this->connection->error) {
+		  die("Connection failed: " . $this->connection->error);
 		}
 			//I have taken out this line of code as it is setting a header
 			//and causing problems with my redirect. Sami
@@ -52,7 +52,7 @@ class MySQLDatabase {
 	public function query($sql) {
 		$result = $this->connection->query($sql);
 		if (!$result) {
-			die("Database query failed: " . $this->connection->connect_error);
+			die("Database query failed: " . $this->connection->error);
 		}
 		return $result;
 	}
