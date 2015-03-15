@@ -29,6 +29,7 @@
         }
         
         include SITE_ROOT.DS.'layouts/admin_header.php';
+        include SITE_ROOT.DS.'layouts/admin_navbar.php';
 
       }
 
@@ -55,6 +56,8 @@
           redirectTo("views/prc_admins/admins/index.php");
         }
 
+      } else {
+        include SITE_ROOT.DS.'layouts/admin_header.php';
       }
     }
   }

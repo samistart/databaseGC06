@@ -1,23 +1,31 @@
 <?php 
   require_once('../../../includes/initialise_admin.php');
+  InitialiseAdmin::reverseCheckLoggedIn();
   echo $session->message;
 
   $action = WEB_ROOT."controllers/prc_admin/admin_login.php";
   $loginAsStudent = WEB_ROOT."views/prc_student/students/login.php";
-  echo $action;
+  include '../../../layouts/header.php';  
 ?>
-
-<?php include '../../../layouts/header.php'; ?>
-
+<legend><ul class="nav nav-pills">
+      <li><a href='create.php'>Register for an account</a></li>
+      <li><a href='<?php echo $loginAsStudent; ?>'>Login as student</a></li>
+    </ul></legend>
 <h2>Admin Login</h2>
 <form method='POST' action='<?php echo $action; ?>' name='adminLogin'>
-  <label>Email:</label>
-  <input type='text' name='email' size='30'><br>
-  <label>Password:</label>
-  <input type='password' name='password' size='30'><br>
-  <p><input type='submit' value='Login'></p>
+  <div class="form-group">
+    <label>Email:</label>
+    <input type='text' name='email' size='30'>
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input type='password' name='password' size='30'>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </div>
 </form>
-<a href='create.php'>Register for an account</a>
-<a href='<?php echo $loginAsStudent; ?>'>Login as student</a>
 
 <?php include '../../../layouts/footer.php'; ?>

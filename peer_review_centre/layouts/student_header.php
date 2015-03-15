@@ -14,5 +14,5 @@
   <script src="<?php echo WEB_ROOT; ?>includes/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
-<body hola-ext-player="1">
+<body>
   
