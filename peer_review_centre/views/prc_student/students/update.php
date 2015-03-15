@@ -21,7 +21,5 @@
     <input type='password' name='confirmPassword' size='30'>
     <p><input type='submit' value='Submit changes'></p>
   </form>
-  <a href='login.php'>Student Login</a><br>
-  <a href='<?php echo $createAdmin; ?>'>Create admin account</a>
 
 <?php include '../../../layouts/footer.php'; ?>

@@ -1,7 +1,9 @@
-  </div> <!-- container div -->
-
-<div class="panel-footer">Copyright <?php echo date("Y", time()); ?>, Team 38</div>
-  
+</div> <!-- container div -->
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright <?php echo date("Y", time()); ?>, Team 38.</p>
+      </div>
+</footer>
 </body>
 
 </html>
