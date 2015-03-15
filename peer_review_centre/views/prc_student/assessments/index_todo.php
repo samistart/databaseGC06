@@ -28,7 +28,7 @@
               echo $report->title; ?>
       </td>
       <td>
-        <a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/make_todo.php?reportID=<?php echo $report->reportID; ?>">Assess</a>
+        <a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/assess.php?assessmentID=<?php echo $assessment->assessmentID; ?>">Assess</a>
       </td>
       <td>
         <?php echo 'We could count how many criteria have been commented and graded to show progress.' ?>
