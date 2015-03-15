@@ -7,16 +7,15 @@
   defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
   defined('WEB_ROOT') ? null : define('WEB_ROOT', 'http://localhost:8888/databaseGC06/peer_review_centre/');
 
-  //echo SITE_ROOT.DS."models/forum.php";
+  require_once(SITE_ROOT.DS."session.php");
+  require_once(SITE_ROOT.DS."database.php");
   require_once(SITE_ROOT.DS."models/forum.php");
   require_once(SITE_ROOT.DS."models/assessment.php");
   require_once(SITE_ROOT.DS."models/report.php");
   require_once(SITE_ROOT.DS."models/group.php");
   require_once(SITE_ROOT.DS."models/thread.php");
   require_once(SITE_ROOT.DS."models/comment.php");
-  require_once(SITE_ROOT.DS."models/session.php");
   require_once(SITE_ROOT.DS."models/student.php");
-  require_once(SITE_ROOT.DS."models/database.php");
   require_once(SITE_ROOT.DS."includes/utilities.php");
 
   class InitialiseStudent {

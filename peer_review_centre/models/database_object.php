@@ -1,6 +1,6 @@
 <?php
 
-require_once("database.php");
+require_once("../includes/database.php");
 
 /**
 * Class that holds the structure for all the "table classes"
