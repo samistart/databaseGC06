@@ -58,15 +58,10 @@ class Group extends DatabaseObject {
 	*/
 	public static function updateRank() {
 		global $database;
-		$sql = "SELECT * FROM ".static::$tableName;
-		$sql .= " ORDER BY averageGrade DESC";
-		$groupsByRank = static::findBySQL($sql);
-		$i = 1;
-		foreach ($groupsByRank as $group) {
-		  $group->ranking = $i;
-		  $group->save();
-		  $i += 1;
-		}
+		$sql = "SET @r=0; ";
+		$database->query($sql);
+		$sql = "UPDATE groups SET ranking= (@r:= @r+1) ORDER BY averageGrade DESC;";
+		$database->query($sql);
 	}
 
 	/**
@@ -82,7 +77,7 @@ class Group extends DatabaseObject {
 			foreach ($allGroups as $group) {
 				$totalAverage += $group->averageGrade;
 			}
-			$totalAverage = bcdiv($totalAverage, $noGroups, 3);
+			$totalAverage = bcdiv($totalAverage, $noGroups, 2);
 			return $totalAverage;
 		}
 	}
