@@ -13,25 +13,31 @@
 <h2>The time of your latest edit will count as the time of submission.</h2>
 
 <p>
-<form method="POST" action="../../../controllers/prc_student/reports.php" name="newReport">
-  <label>Title: </label>
-  <input type="text" name="title" value="<?php
+<form class="navbar-form navbar-left" method="POST" action="../../../controllers/prc_student/reports.php" name="newReport">
+  <div class="form-group">
+    <label>Title: </label><br>
+    <input type="text" style="width:100%" maxlength="60" class="form-control" name="title" value="<?php
     if ($myReport) {
       echo "$myReport->title";
     }
-  ?>"><br><br>
-  <label>Abstract: </label>
-  <input type="test" name="abstract" value="<?php
+    ?>">
+  </div><br><br>
+  <div class="form-group">
+    <label>Abstract: </label><br>
+    <input type="textarea" style="width:100%" maxlength="200" class="form-control" name="abstract" value="<?php
     if ($myReport) {
       echo "$myReport->abstract";
     }
-  ?>"><br><br>
-  <label>Content: </label>
-  <input type="text" name="content" value="<?php
+    ?>">
+  </div><br><br>
+  <div class="form-group">
+  <label>Content: </label><br>
+    <input type="textarea" maxlength="10000" class="form-control" name="content" value="<?php
     if ($myReport) {
       echo "$myReport->content";
     }
-  ?>"><br><br>
-  <input type="submit" name="submit" value="Submit">
+    ?>">
+  </div><br><br>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <p>

@@ -34,4 +34,4 @@
 <!-- Display report with its corresponding average grade. -->
 <h3>This team received an average grade of <?php echo $group->averageGrade; ?></h3>
 
-<?php include '../../../layouts/admin_footer.php';?>
+<?php include '../../../layouts/footer.php';?>

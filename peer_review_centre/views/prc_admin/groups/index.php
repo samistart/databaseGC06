@@ -35,4 +35,4 @@
 <?php if(empty($groupsByRank)) {echo "Group allocation has not been made yet.";} ?>
 </div>
 
-<?php include '../../../layouts/admin_footer.php';?>
+<?php include '../../../layouts/footer.php';?>

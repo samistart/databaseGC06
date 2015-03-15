@@ -37,4 +37,4 @@ You can contact your team members via your <a href='../forums/view.php' > group 
   You are ranked <?php echo $groupRank; ?> from a total of <?php echo $noGroups; ?> groups. <br>
 </div>
 
-<?php include '../../../layouts/student_footer.php';?>
+<?php include '../../../layouts/footer.php';?>

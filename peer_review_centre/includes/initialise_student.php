@@ -34,6 +34,7 @@
         }
         
         include SITE_ROOT.DS.'layouts/student_header.php';
+        include SITE_ROOT.DS.'layouts/student_navbar.php';
       } 
       else {
         $session->message("You must login first.");
@@ -57,6 +58,8 @@
           $session->message("Already logged in as a student. Please logout before trying to access login page. <br>");
           redirectTo("views/prc_student/students/index.php");
         }
+      } else {
+        include SITE_ROOT.DS.'layouts/student_header.php';
       }
     }
 

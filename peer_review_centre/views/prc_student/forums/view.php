@@ -48,4 +48,4 @@
   </form>
 </div>
 
-<?php include "../../../layouts/student_footer.php";?>
+<?php include "../../../layouts/footer.php";?>

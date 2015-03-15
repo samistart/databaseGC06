@@ -40,4 +40,4 @@
   <?php if(empty($assessmentsToDo)) {echo "No reports to assess.";} ?>
 </div>
 
-<?php include '../../../layouts/student_footer.php';?>
+<?php include '../../../layouts/footer.php';?>
