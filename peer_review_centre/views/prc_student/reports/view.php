@@ -9,11 +9,10 @@
   $myReport = Report::findByGroupID("$currentStudent->groupID");
 
   if ($myReport) {
-    echo "<h3>This is your report. It's really good. You should be a writer.</h3>";
-    echo "Last edited: ".$myReport->lastEdited.".<br>";
-    echo "<a href='submit.php'>Edit Report</a>";
+    echo "<legend><ul class='nav nav-pills'><li>Last edited: ".$myReport->lastEdited."</li>";
+    echo "<li><a href='submit.php'>Edit Report</a></li></ul></legend>";
     echo "<h2>$myReport->title</h2>";
-    echo "<h3>$myReport->abstract</h3><br><br>";
+    echo "<h4>$myReport->abstract</h4><br><br>";
     echo "<p>$myReport->content</p><br>";
   }
   else {

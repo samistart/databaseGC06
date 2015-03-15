@@ -4,7 +4,7 @@
   error_reporting(E_ALL | E_STRICT);
 
   require_once('../../includes/initialise_student.php');
-  //Don't check for login because that would be silly for a login page
+  //Don't check for login because that would be silly for a login controller
 
   if($session->isLoggedIn()) {
     //var_dump($_SESSION);

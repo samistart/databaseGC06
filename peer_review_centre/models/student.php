@@ -57,9 +57,9 @@ class Student extends DatabaseObject {
     $resultArray = self::findBySQL($sql);
     if ($resultArray==NULL) {
       global $session;
+      require_once('../../includes/initialise_student.php');
       $session->message("That email has not been registered for a student account.");
-      header("Location: ../view/login_student.php");
-      exit();
+      redirectTo("views/prc_student/students/login.php");
     }
 
     $newStudent = $resultArray[0];
