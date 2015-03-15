@@ -7,8 +7,8 @@
   defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
   defined('WEB_ROOT') ? null : define('WEB_ROOT', 'http://localhost:8888/databaseGC06/peer_review_centre/');
 
-  require_once(SITE_ROOT.DS."session.php");
-  require_once(SITE_ROOT.DS."database.php");
+  require_once(SITE_ROOT.DS."includes/session.php");
+  require_once(SITE_ROOT.DS."includes/database.php");
   require_once(SITE_ROOT.DS."models/forum.php");
   require_once(SITE_ROOT.DS."models/assessment.php");
   require_once(SITE_ROOT.DS."models/report.php");
