@@ -10,7 +10,7 @@
   InitialiseStudent::checkLoggedIn();
 
   // Get an object of the current student
-  $currentStudent = Student::findByID("$session->userID");
+  $currentStudent = Student::findByID($session->userID);
 
   $currentAssessmentID = $database->escapeValue((int)trim($_GET['assessmentID']));
   // Get assessments the student's group needs to do
