@@ -12,7 +12,7 @@
   <legend><ul class="nav nav-pills">
       <li><a href='login.php'>Admin Login</a></li>
       <li><a href='<?php echo $createStudent; ?>'>Create student account</a></li>
-    </ul></legend>
+  </ul></legend>
   <h2>Create a new admin account</h2>
   <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='newUser'>
   <fieldset>

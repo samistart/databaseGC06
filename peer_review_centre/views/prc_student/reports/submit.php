@@ -18,7 +18,7 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Title</label>
       <div class="col-lg-10">
-        <textarea name='title' class="form-control" rows="3" id="textArea" maxlength="60"><?php
+        <textarea name='title' class="form-control" rows="1" id="textArea" maxlength="60"><?php
             if ($myReport) {
               echo "$myReport->title";
             }
@@ -40,7 +40,7 @@
         <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Content</label>
       <div class="col-lg-10">
-        <textarea name='content' class="form-control" rows="3" id="textArea"  maxlength="10000"><?php
+        <textarea name='content' class="form-control" rows="20" id="textArea"  maxlength="10000"><?php
           if ($myReport) {
             echo "$myReport->content";
           }
@@ -56,3 +56,5 @@
     </div>
   </fieldset>
 </form>
+<?php include SITE_ROOT.DS.'layouts/footer.php';?>
+
