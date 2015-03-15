@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/groups/view.php">My Group </a></li>
-        <li class="active"><a href="<?php echo WEB_ROOT; ?>views/prc_student/reports/view.php">My Report <span class="sr-only">(current)</span></a></li>
+        <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/reports/view.php">My Report <span class="sr-only">(current)</span></a></li>
         <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/forums/view.php">Forum</a></li>
         <li class="dropdown">
           <!-- Assessments Tab -->
