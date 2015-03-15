@@ -32,15 +32,16 @@
         <li class="active"><a href="<?php echo WEB_ROOT; ?>views/prc_student/reports/view.php">My Report <span class="sr-only">(current)</span></a></li>
         <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/forums/view.php">Forum</a></li>
         <li class="dropdown">
+          <!-- Assessments Tab -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assessments<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/view_received.php">Received</a></li>
             <li class="divider"></li>
+            <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/index_todo.php">To Do</a></li>
+            <!-- <li><a href="#">Something else here</a></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">One more separated link</a></li> -->
           </ul>
         </li>
       </ul>

@@ -1,21 +1,21 @@
 
 
 
-<div id="assessings">
+<div id="">
     <h3>Reports to assess</h3>
     <table class="bordered">
       <tr>
         <th>Group</th>
         <th>Report</th>
       </tr>
-      <?php foreach($comments as $comment): ?>
+      <?php foreach($reports as $comment): ?>
       <tr>
         <td>
           <?php $student = Student::findByID($comment->studentID);
           echo $student->fullName(); ?>
         </td>
         <td>
-          <?php echo $comment->content; ?>
+          <?php echon $comment->content; ?>
         </td>
         <td>
           <?php echo $comment->lastEdited; ?>

@@ -233,42 +233,42 @@ INSERT INTO `GC06`.`forums` (`forumID`, `groupID`) VALUES (NULL, '20');
 
 -- Seed 18 students divided into 6 groups
 
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000001, 'Person1', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 1);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000002, 'Person2', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 1);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000003, 'Person3', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 1);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000004, 'Person4', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 2);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000005, 'Person5', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 2);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000006, 'Person6', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 2);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000007, 'Person7', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 3);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000008, 'Person8', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 3);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000009, 'Person9', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 3);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000010, 'Person10', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 4);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000011, 'Person11', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 4);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000012, 'Person12', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 4);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000013, 'Person13', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 5);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000014, 'Person14', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 5);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000015, 'Person15', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 5);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000016, 'Person16', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000017, 'Person17', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
-INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000018, 'Person18', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000001, 'Person1', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 1);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000002, 'Person2', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 1);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000003, 'Person3', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 1);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000004, 'Person4', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 2);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000005, 'Person5', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 2);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000006, 'Person6', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 2);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000007, 'Person7', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 3);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000008, 'Person8', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 3);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000009, 'Person9', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 3);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000010, 'Person10', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 4);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000011, 'Person11', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 4);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000012, 'Person12', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 4);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000013, 'Person13', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 5);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000014, 'Person14', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 5);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000015, 'Person15', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 5);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000016, 'Person16', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000017, 'Person17', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
+-- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
+--   VALUES (NULL, 0000018, 'Person18', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
 
 
 -- Seed 18 students divided into 6 groups
