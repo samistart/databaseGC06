@@ -10,25 +10,28 @@
   $action = WEB_ROOT."controllers/prc_student/student_login.php";
   $loginAsAdmin = WEB_ROOT."views/prc_admin/admins/login.php";
 ?>
-
 <div class="container">
+  <legend><ul class="nav nav-pills">
+      <li><a href='create.php'>Register for an account</a></li>
+      <li><a href='<?php echo $loginAsAdmin; ?>'>Login as admin</a></li> 
+  </ul></legend>
   <h2>Student Login</h2>
-  <form class="form-sigin" method='POST' action='<?php echo $action; ?>' name='studentLogin'>
-    <h2 class="form-signin-heading"><?php echo $session->message; ?></h2>
-    <label for="inputEmail" class="sr-only">Email:</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name='email'>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name='password'>
-    <table style="width:100%">
-      <tr>
-        <td><a href='create.php'>Register for an account</a></td>
-        <td><a href='<?php echo $loginAsAdmin; ?>'>Login as admin</a></td>    
-    </table>
-    <div>
-      
-      
-    </div>
-    <input type='submit' value='Login'>
+  <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='studentLogin'>
+  <fieldset>
+  <div class="form-group">
+    <label>Email:</label>
+    <input type='text' name='email' size='30'>
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input type='password' name='password' size='30'>
+  </div>
+  <div class="form-group">
+  <div class="col-lg-10 col-lg-offset-2">
+    <button type="submit" class="btn btn-primary">Login</button>
+  </div>
+  </div>
+    </fieldset>
   </form>
 </div>
 

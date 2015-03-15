@@ -10,22 +10,40 @@
   $action = WEB_ROOT."controllers/prc_student/student_create.php";
   $createAdmin = WEB_ROOT."views/prc_admin/admins/create.php";
 ?>
-
+<div class="container">
+  <legend><ul class="nav nav-pills">
+      <li><a href='login.php'>Student Login</a></li>
+      <li><a href='<?php echo $createAdmin; ?>'>Create admin account</a></li>
+    </ul></legend>
 	<h2>Create a new Student Account</h2>
-	<form method='post' action='<?php echo $action; ?>' name='newUser'>
+	<form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='newUser'>
+  <fieldset>
+  <div class="form-group">
 		<label>First Name:</label>
-		<input type='text' name='firstName' size='30'><br>
+		<input type='text' name='firstName' size='30'>
+  </div>
+  <div class="form-group">
 		<label>Last Name:</label>
-		<input type='text' name='lastName' size='30'><br>
+		<input type='text' name='lastName' size='30'>
+  </div>
+  <div class="form-group">
 		<label>Email:</label>
-		<input type='text' name='email' size='30'><br>
+		<input type='text' name='email' size='30'>
+  </div>
+  <div class="form-group">
 		<label>Password:</label>
-		<input type='password' name='password' size='30'><br>
+		<input type='password' name='password' size='30'>
+  </div>
+  <div class="form-group">
 		<label>Confirm Password:</label>
 		<input type='password' name='confirmPassword' size='30'>
-		<p><input type='submit' value='Register'></p>
+  </div>
+  <div class="form-group">
+  <div class="col-lg-10 col-lg-offset-2">
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
+  </div>
+    </fieldset>
 	</form>
-  <a href='login.php'>Student Login</a>
-  <a href='<?php echo $createAdmin; ?>'>Create admin account</a>
-
+</div>
 <?php include '../../../layouts/footer.php'; ?>
