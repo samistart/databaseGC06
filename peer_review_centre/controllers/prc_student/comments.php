@@ -16,21 +16,25 @@ if (isset($_POST['submit'])) {
 	// Title and content from form
 	$content = trim($_POST['content']);
 
-	// Create a new Thread object from information in the form and session
-  $newComment = Comment::build($content, $thread->threadID, $studentID);
-
-  if($newComment && $newComment->create()) {
-  	// Comment saved
-  	redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
+  if (empty($content)) {
+    // Redirect to form and display error message
+    $session->message("Can't post without content.");
+    redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
+  
   } else {
-  	// Failed
-  	$message = "There was an error that prevented the post from being saved.";
-  }
+	  // Create a new Comment object from information in the form and session
+    $newComment = Comment::build($content, $thread->threadID, $studentID);
 
-	echo "Comment was created successfully.";
+    if (!($newComment && $newComment->create())) {
+  	  // Failed to create comment
+      $session->message("There was an error that prevented your comment from being saved.");
+      redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
+    }
+  }
+  redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
 } else {
-	$title = "";
-	$content = "";
+  // If form wasn't submited content must be empty.
+  $content = "";
 }
 
 $comments = Comment::findCommentsOn($thread->threadID);

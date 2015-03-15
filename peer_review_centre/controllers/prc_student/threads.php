@@ -12,33 +12,38 @@ global $session;
 $studentID = $session->userID;
 $student = Student::findByID($studentID);
 
-// Since forum-group have a one to one relationship, findForumsOn() will
-// only return one result which will be the corresponding forum.
+// Since forum-group have a one to one relationship, findForumsOn() will only
+// return one result which will be the corresponding forum.
 $forums = Forum::findForumsOn($student->groupID);
 $forum = $forums[0];
 $forumID = $forum->forumID;
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
+  // Title and content from form
+  $title = trim($_POST['title']);
+  $content = trim($_POST['content']);
 
-	// Title and content from form
-	$title = trim($_POST['title']);
-	$content = trim($_POST['content']);
+  if (empty($title) || empty($content)) {
+    // Redirect to form and display error message
+    $session->message("Can't create a new thread without a title or content.");
+    redirectTo("views/prc_student/forums/view.php");
 
-	// Create a new Thread object from information in the form and session (forumID = 1 and studentID = 1 for now)
+  } else {
+    // Create a new Thread object from information in the form and session
     $newThread = Thread::build($forumID, $studentID, $title, $content);
 
-    if($newThread && $newThread->create()) {
-    	// Thread saved
-        redirectTo("views/prc_student/forums/view.php");
-    } else {
-    	// Failed
-    	$message = "There was an error that prevented the thread from being saved.";
+    if (!($newThread && $newThread->create())) {
+      // Failed to create thread
+      $session->message("There was an error that prevented your thread from being saved.");
+      redirectTo("views/prc_student/forums/view.php");
     }
-
-	//echo "Thread was created successfully.";
+  }
+  redirectTo("views/prc_student/forums/view.php");
 } else {
-	$title = "";
-	$content = "";
+  // If form wasn't submited title and content must be empty
+  $title = "";
+  $content = "";
 }
+
 $threads = Thread::findThreadsOn($forumID);
 ?>

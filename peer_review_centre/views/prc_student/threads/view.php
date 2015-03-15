@@ -1,5 +1,5 @@
 <?php
-  require_once('../../../includes/initialise_student.php');
+  require_once("../../../includes/initialise_student.php");
   require_once("../../../controllers/prc_student/comments.php");
   InitialiseStudent::checkLoggedIn();
 ?>
@@ -8,6 +8,7 @@
 <div id="thread">
   <div class="title">
     <h2> <?php echo $thread->title; ?> </h2>
+    <button onclick="window.location.href='../forums/view.php'">Back to forum</button>
   </div>
   <div class="content">
     <h3> <?php echo $thread->content; ?> </h3>
@@ -48,11 +49,12 @@
 <!-- Form to allow user to create a new post. -->
 <div id="comment-form">
   <h3>Write a new post</h3>
-  <form method='post' action='../../../controllers/prc_student/comments.php?threadID=<?php echo $thread->threadID;?>' name='newComment'>
+  <?php echo $session->message; ?>
+  <form method="post" action="../../../controllers/prc_student/comments.php?threadID=<?php echo $thread->threadID;?>" name="newComment">
     <label>Content:</label>
-    <input type='text' name='content' size='1000' style="height:300px; width:500px;"><br>
-    <p><input type='submit' name='submit' value='Submit post'></p>
+    <input type="text" name="content"/><br>
+    <p><input type="submit" name="submit" value="Submit post"></p>
   </form>
 </div>
 
-<?php include '../../../layouts/student_footer.php';?>
+<?php include "../../../layouts/student_footer.php";?>

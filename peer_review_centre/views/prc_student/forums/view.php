@@ -1,5 +1,5 @@
 <?php
-  require_once('../../../includes/initialise_student.php');
+  require_once("../../../includes/initialise_student.php");
   require_once("../../../controllers/prc_student/threads.php");
   InitialiseStudent::checkLoggedIn();
 ?>
@@ -11,9 +11,9 @@
   <h3>Threads</h3>
   <table class="bordered">
     <tr>
-      <th>Thread title</th>
-      <th>Date/Time</th>
-      <th>Author</th>
+      <th>Thread title </th>
+      <th>Last Edited </th>
+      <th>Author </th>
     </tr>
   <?php foreach($threads as $thread): ?>
     <tr>
@@ -38,13 +38,14 @@
 <!-- Form to allow user to create a new thread. -->
 <div id="thread-form">
   <h3>Start a new thread</h3>
-  <form method='post' action='../../../controllers/prc_student/threads.php' name='newThread'>
+  <?php echo $session->message; ?>
+  <form method="post" action="../../../views/prc_student/forums/view.php" name="newThread">
     <label>Title:</label>
-    <input type='text' name='title' size='50'><br>
+    <input type="text" name="title"/><br>
     <label>Content:</label>
-    <input type='text' name='content' size='1000' style="height:300px; width:500px;"><br>
-    <p><input type='submit' name='submit' value='Create thread'></p>
+    <input type="text" name="content"/><br>
+    <p><input type="submit" name="submit" value="Create thread"></p>
   </form>
 </div>
 
-<?php include '../../../layouts/student_footer.php';?>
+<?php include "../../../layouts/student_footer.php";?>

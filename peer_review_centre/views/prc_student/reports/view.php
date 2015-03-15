@@ -10,7 +10,7 @@
 
   if ($myReport) {
     echo "<h3>This is your report. It's really good. You should be a writer.</h3>";
-    echo "Last edited: ".$myReport->lastEdited." by ".$currentStudent->fullName().".<br>";
+    echo "Last edited: ".$myReport->lastEdited.".<br>";
     echo "<a href='submit.php'>Edit Report</a>";
     echo "<h2>$myReport->title</h2>";
     echo "<h3>$myReport->abstract</h3><br><br>";
