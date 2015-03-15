@@ -132,7 +132,7 @@ abstract class DatabaseObject {
 		// Construct the update query.
 		$sql = "UPDATE ".static::$tableName." SET ";
 		// Calls the attributes method to get the corresponding key/value pairs for the object.
-		$attributes = $this->attributes();
+		$attributes = $this->cleanAttributes();
 		$attributePairs = array();
 		// Creates key/value assignments in strings
 		foreach($attributes as $key => $value) {

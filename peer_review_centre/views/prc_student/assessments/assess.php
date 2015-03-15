@@ -20,6 +20,9 @@
   }
   $report = Report::findByID($assessment->reportID);
 ?>
+
+<?php echo $session->message; ?>
+
 <p>
 <table>
   <tr><td><h2>Report by Group <?php echo $report->groupID; ?></h2></td></tr>
@@ -30,9 +33,8 @@
 </p>
 
 <hr>
-
 <p>
-<form method="POST" action="../../../controllers/prc_student/assessment_todo.php" name="assessment">
+<form method="POST" action="../../../controllers/prc_student/assessments.php" name="assessment">
   <table border="1">
     <tr>
       <td><b><?php echo $assessment->criteria1; ?></b></td>
@@ -67,6 +69,7 @@
         <input type="text" name="comment3" value="<?php if ( !empty(trim($assessment->comment3))) { echo "$assessment->comment3"; } ?>">
       <td>
     </table>
+    <input type="hidden" name="assessmentID" value="<?php echo $assessment->assessmentID; ?>">
     <input type="submit" name="submit" value="Submit">
 </form>
 <p>

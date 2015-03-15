@@ -13,6 +13,7 @@
   $assessmentsToDo = Assessment::findByGroupID("$currentStudent->groupID");
 
 ?>
+<?php echo $session->message; ?>
 <div id="assessments">
   <h3>Reports to assess</h3>
   <table border="1">
