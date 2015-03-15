@@ -10,7 +10,7 @@
   <title>Peer Review Centre</title>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT; ?>includes/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT; ?>includes/bootstrap/css/bootstrap.min.css">
   <script src="<?php echo WEB_ROOT; ?>includes/bootstrap/js/bootstrap.min.js"></script>
 </head>
 

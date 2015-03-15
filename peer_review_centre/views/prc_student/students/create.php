@@ -4,14 +4,15 @@
   
   require_once('../../../includes/initialise_student.php');
   $action = WEB_ROOT."controllers/prc_student/student_create.php";
-  echo $action;
+  InitialiseStudent::reverseCheckLoggedIn();
+
+  // Make absolute file paths
+  $action = WEB_ROOT."controllers/prc_student/student_create.php";
+  $createAdmin = WEB_ROOT."views/prc_admin/admins/create.php";
 ?>
 
-<?php include '../../../layouts/header.php'; ?>
-
 	<h2>Create a new Student Account</h2>
-  <?php var_dump($_SESSION); ?>
-	<form method='post' action='../../../controllers/prc_student/student_create.php' name='newUser'>
+	<form method='post' action='<?php echo $action; ?>' name='newUser'>
 		<label>First Name:</label>
 		<input type='text' name='firstName' size='30'><br>
 		<label>Last Name:</label>
@@ -25,6 +26,6 @@
 		<p><input type='submit' value='Register'></p>
 	</form>
   <a href='login.php'>Student Login</a>
-  <a href='../../prc_admin/admins/login.php'>Create admin account</a>
+  <a href='<?php echo $createAdmin; ?>'>Create admin account</a>
 
 <?php include '../../../layouts/footer.php'; ?>

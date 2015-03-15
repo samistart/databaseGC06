@@ -10,34 +10,49 @@
   $myReport = Report::findByGroupID("$currentStudent->groupID");
 ?>
 
-<h2>The time of your latest edit will count as the time of submission.</h2>
+<h2>Submit Report</h2>
 
-<p>
-<form class="navbar-form navbar-left" method="POST" action="../../../controllers/prc_student/reports.php" name="newReport">
-  <div class="form-group">
-    <label>Title: </label><br>
-    <input type="text" style="width:100%" maxlength="60" class="form-control" name="title" value="<?php
-    if ($myReport) {
-      echo "$myReport->title";
-    }
-    ?>">
-  </div><br><br>
-  <div class="form-group">
-    <label>Abstract: </label><br>
-    <input type="textarea" style="width:100%" maxlength="200" class="form-control" name="abstract" value="<?php
-    if ($myReport) {
-      echo "$myReport->abstract";
-    }
-    ?>">
-  </div><br><br>
-  <div class="form-group">
-  <label>Content: </label><br>
-    <input type="textarea" maxlength="10000" class="form-control" name="content" value="<?php
-    if ($myReport) {
-      echo "$myReport->content";
-    }
-    ?>">
-  </div><br><br>
-  <button type="submit" class="btn btn-default">Submit</button>
+<form class="form-horizontal" method="POST" action="../../../controllers/prc_student/reports.php" name="newReport">
+  <fieldset>
+    <legend>The time of your latest edit will count as the time of submission.</legend>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Title</label>
+      <div class="col-lg-10">
+        <textarea name='title' class="form-control" rows="3" id="textArea" maxlength="60"><?php
+            if ($myReport) {
+              echo "$myReport->title";
+            }
+          ?></textarea>
+        <span class="help-block">Maximum 60 characters.</span>
+      </div>
+    </div>
+        <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Abstract</label>
+      <div class="col-lg-10">
+        <textarea name='abstract' class="form-control" rows="3" id="textArea" maxlength="400"><?php
+          if ($myReport) {
+            echo "$myReport->abstract";
+          }
+        ?></textarea>
+        <span class="help-block">Maximum 400 characters.</span>
+      </div>
+    </div>
+        <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Content</label>
+      <div class="col-lg-10">
+        <textarea name='content' class="form-control" rows="3" id="textArea"  maxlength="10000"><?php
+          if ($myReport) {
+            echo "$myReport->content";
+          }
+        ?></textarea>
+        <span class="help-block">Maximum 10,000 characters.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Undo all changes</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
 </form>
-<p>
