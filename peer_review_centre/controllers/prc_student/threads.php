@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
   }
   redirectTo("views/prc_student/forums/view.php");
 } else {
-  // If form wasn't submited title and content must be empty
+  // If form wasn't submited title and content must be empty.
   $title = "";
   $content = "";
 }

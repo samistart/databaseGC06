@@ -49,19 +49,22 @@ class Report extends DatabaseObject {
 		$this->reportID = $value;
 	}
 
-	//finds a report by groupID and returns a report object or false if not found
+  /**
+  * Method that finds a report by groupID and returns a report object or 
+  * false if not found
+  */
 	public static function findByGroupID($groupID="") {
     global $database;
-    //clean for sql/html injection
+    // Clean for sql/html injection
     $groupID = $database->escapeValue($groupID);
 
-    //send sql query to db and get back result array
+    // Send sql query to db and get back result array
     $sql  = "SELECT * FROM reports ";
     $sql .= "WHERE groupID = '{$groupID}' ";
     $sql .= "LIMIT 1;";
     $resultArray = self::findBySQL($sql);
 
-    //return result... or false if not found
+    // Return result... or false if not found
     if ($resultArray==NULL) {
       return false;
     }

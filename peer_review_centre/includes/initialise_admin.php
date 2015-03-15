@@ -8,6 +8,9 @@
   defined('WEB_ROOT') ? null : define('WEB_ROOT', 'http://localhost:8888/databaseGC06/peer_review_centre/');
 
   require_once(SITE_ROOT.DS."models/admin.php");
+  require_once(SITE_ROOT.DS."models/student.php");
+  require_once(SITE_ROOT.DS."models/group.php");
+  require_once(SITE_ROOT.DS."models/report.php");
   require_once(SITE_ROOT.DS."models/session.php");
   require_once(SITE_ROOT.DS."models/database.php");
   require_once(SITE_ROOT.DS."includes/utilities.php");
