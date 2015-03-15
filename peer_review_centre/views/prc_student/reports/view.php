@@ -7,7 +7,9 @@
 
   // Get the current student's report by finding it with it's group ID
   $myReport = Report::findByGroupID("$currentStudent->groupID");
-
+?>
+<div class="span9">
+<?php
   if ($myReport) {
     echo "<legend><ul class='nav nav-pills'><li>Last edited: ".$myReport->lastEdited."</li>";
     echo "<li><a href='submit.php'>Edit Report</a></li></ul></legend>";
@@ -19,5 +21,5 @@
     echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
   }
 ?>
-
+</div>
 <?php include '../../../layouts/footer.php';?>

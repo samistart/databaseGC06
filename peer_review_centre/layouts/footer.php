@@ -1,9 +1,9 @@
 </div> <!-- container div -->
-<footer class="footer">
+<!-- <footer id="footer">
       <div class="container">
         <p class="text-muted">Copyright <?php echo date("Y", time()); ?>, Team 38.</p>
       </div>
-</footer>
+</footer> -->
 </body>
 
 </html>
