@@ -26,13 +26,18 @@
   <h3>Your report received the following Assessments</h3>
   <table border="1">
     <tr>
-      <th></th>
+      <td colspan="2" rowspan="2"></td>
+      <td colspan="3">Criteria</td>
+    </tr>
+    <tr>
       <th><?php echo $criteria[0]; ?></th>
       <th><?php echo $criteria[1]; ?></th>
       <th><?php echo $criteria[2]; ?></th>
     </tr>
     <?php foreach($receivedAssmts as $assmt): ?>
     <tr>
+      <td rowspan="2">
+        <?php echo "Group $assmt->groupID"; ?>
       <td>
         Grades
       </td>
