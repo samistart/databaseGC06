@@ -29,6 +29,9 @@ if (isset($_POST['submit'])) {
   	  // Failed to create comment
       $session->message("There was an error that prevented your comment from being saved.");
       redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
+    } else {
+      $thread->lastEdited = "CURRENT_TIMESTAMP";
+      $thread->update();
     }
   }
   redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
