@@ -6,12 +6,14 @@
 
 <!-- Display thread title and content -->
 <div id="thread">
-  <div class="title">
-    <h2> <?php echo $thread->title; ?> </h2>
-    <button onclick="window.location.href='../forums/view.php'">Back to forum</button>
-  </div>
+  <legend>
+    <h2>
+      <?php echo $thread->title; ?>
+      <button onclick="window.location.href='../forums/view.php'" class="btn btn-default">Back to forum</button>
+    </h2>
+  </legend>
   <div class="content">
-    <h3> <?php echo $thread->content; ?> </h3>
+    <p class="lead"> <?php echo $thread->content; ?> </p>
   </div>
   <div class="author">
     Started by <?php $student = Student::findByID($thread->studentID);
@@ -21,39 +23,52 @@
 
 <!-- Find and display all existing posts in current thread. -->
 <div id="comments">
-  <h3>Posts</h3>
-  <table class="bordered">
-    <tr>
-      <th>Author</th>
-      <th>Content</th>
-      <th>Date</th>
-    </tr>
+  <table class="table table-striped">
+    <thead>
+      <th style="width:70%;"></th>
+      <th style="width:15%;"></th>
+      <th></th>
+    </thead>
+    <tbody>
     <?php foreach($comments as $comment): ?>
       <tr>
+        <td>
+          <?php echo $comment->content; ?>
+        </td>
         <td>
           <?php $student = Student::findByID($comment->studentID);
           echo $student->fullName(); ?>
         </td>
         <td>
-          <?php echo $comment->content; ?>
-        </td>
-        <td>
           <?php echo $comment->lastEdited; ?>
         </td>
       </tr>
-    <?php endforeach; ?> 
+    <?php endforeach; ?>
+    </tbody>
   </table>
-  <?php if(empty($comment)) {echo "No posts.";} ?>
+<!-- Display message if there are no posts. -->
+<?php if(empty($comment)) {echo "No posts.";} ?>
 </div>
 
 <!-- Form to allow user to create a new post. -->
-<div id="comment-form">
-  <h3>Write a new post</h3>
+<div id="thread-form" style="width:60%;">
+  <h4>Reply to thread</h4>
   <?php echo $session->message; ?>
-  <form method="post" action="../../../controllers/prc_student/comments.php?threadID=<?php echo $thread->threadID;?>" name="newComment">
-    <label>Content:</label>
-    <input type="text" name="content"/><br>
-    <p><input type="submit" name="submit" value="Submit post"></p>
+  <form class="form-horizontal" method="post" action="../../../controllers/prc_student/comments.php?threadID=<?php echo $thread->threadID;?>" name="newComment">
+    <fieldset>
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">Content</label>
+        <div class="col-lg-10">
+          <textarea class="form-control" rows="5" name="content" maxlength="400"></textarea>
+          <span class="help-block">Maximum 400 characters.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        </div>
+      </div>
+    </fieldset>
   </form>
 </div>
 
