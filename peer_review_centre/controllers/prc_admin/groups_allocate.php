@@ -14,16 +14,39 @@
   // Get all groups
   $groups = Group::findAll();
 
-  $global = $session;
+  //global $session;
   
   //Check if form was submitted
   if(isset($_POST['submit'])) {
     // set groupID of the three students to the groupID 
     // specified in POST:
+    if ($_POST['group'] != 0) {
+      $newGroupID = $_POST['group'];
 
-    $session->message("success".$_POST['student1']);
+      if ($_POST['student1'] != 0 ) {
+        $student = Student::findByID($_POST['student1']);
+        $student->groupID = $newGroupID;
+        $student->update();
+      }
 
-    redirectTo('views/prc_admin_groups_allocate.php');
+      if ( ($_POST['student2'] != 0)
+        && ($_POST['student2'] !== $_POST['student1']) ) {
+        $student = Student::findByID($_POST['student2']);
+        $student->groupID = $newGroupID;
+        $student->update();
+      }
+      if ( ($_POST['student3'] != 0)
+        && ($_POST['student3'] !== $_POST['student1'])
+        && ($_POST['student3'] !== $_POST['student2']) ) {
+        $student = Student::findByID($_POST['student3']);
+        $student->groupID = $newGroupID;
+        $student->update();
+      }
+    }
+    
+    $session->message("Group allocation succeeded.");
+
+    redirectTo("views/prc_admin/groups/allocate.php");
 
   } else {
     //echo 'POST submit NOT set.';
