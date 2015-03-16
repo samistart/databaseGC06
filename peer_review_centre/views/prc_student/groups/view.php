@@ -5,13 +5,14 @@
 ?>
 
 <!-- Display all team members and their info -->
-<div id="group-members">
+<div id="group-members" class="panel panel-default">
+<div class="panel-body">
   <h3>Your group members</h3>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Email address</th>
+        <th style="width:40%;">Name</th>
+        <th style="width:40%;">Email address</th>
         <th>Last active</th>
       </tr>
     </thead>
@@ -29,10 +30,12 @@
 <?php if(empty($members)) {echo "Group allocation has not been made yet.";} ?>
 <?php if(!empty($members)) {echo "You can discuss your report and assessments with your group via your private <a href='../forums/view.php' > group forum</a>.";} ?>
 </div>
+</div>
 
 
 <!-- Class ranking -->
-<div id="ranking">
+<div id="ranking" class="panel panel-default">
+<div class="panel-body">
   <h3>Your group's performance </h3>
   <div style="width: 100%;">
     <div style="float: left; width: 30%;">
@@ -67,6 +70,7 @@
     </div>
     <br style="clear: both;" />
   </div>
+</div>
 </div>
 
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

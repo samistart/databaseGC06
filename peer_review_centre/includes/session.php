@@ -22,9 +22,9 @@ class Session {
     $this->checkLogin();
     $this->checkAdmin();
     if($this->loggedIn) {
-      // actions to take right away if student is logged in
+      // Actions to take right away if student is logged in
     } else {
-      // actions to take right away if student is not logged in
+      // Actions to take right away if student is not logged in
     }
   }
   
@@ -32,21 +32,21 @@ class Session {
     return $this->loggedIn;
   }
 
-  public function isAdmin(){
+  public function isAdmin() {
     return $this->isAdmin;
   }
 
   //@args: student or admin object and a boolean for admin status
   public function login($user, $isAdmin) {
 
-    //if it's an admin log in based on the $user's adminID
+    // If it's an admin log in based on the $user's adminID
       if($user){
       $this->userID = $_SESSION['userID'] = $user->getPk();
       $this->isAdmin = $_SESSION['isAdmin'] = $isAdmin;
       $this->loggedIn = true;
       }
 
-    // database should find student based on studentname/password
+    // Database should find student based on studentname/password
     
   }
   
@@ -59,11 +59,11 @@ class Session {
 
   public function message($msg="") {
     if(!empty($msg)) {
-      // then this is "set message"
-      // make sure you understand why $this->message=$msg wouldn't work
+      // Then this is "set message"
+      // Make sure you understand why $this->message=$msg wouldn't work
       $_SESSION['message'] = $msg;
     } else {
-      // then this is "get message"
+      // Then this is "get message"
       return $this->message;
     }
   }
