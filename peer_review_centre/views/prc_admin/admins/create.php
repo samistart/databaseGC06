@@ -4,16 +4,17 @@
   error_reporting(E_ALL | E_STRICT);
   require_once('../../../includes/initialise_admin.php');
   InitialiseAdmin::reverseCheckLoggedIn();
-  echo $session->message;
   $action = WEB_ROOT."controllers/prc_admin/admin_create.php";
   $createStudent = WEB_ROOT."views/prc_student/students/create.php";
 ?>
 <?php include '../../../layouts/header.php'; ?>
-  <legend><ul class="nav nav-pills">
-      <li><a href='login.php'>Admin Login</a></li>
-      <li><a href='<?php echo $createStudent; ?>'>Create student account</a></li>
-    </ul></legend>
+<legend><ul class="nav nav-pills">
+    <li><a href='login.php'>Admin Login</a></li>
+    <li><a href='<?php echo $createStudent; ?>'>Create student account</a></li>
+</ul></legend>
+<div class="container">
   <h2>Create a new admin account</h2>
+  <?php echo $session->message; ?>
   <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='newUser'>
   <fieldset>
   <div class="form-group">

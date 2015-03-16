@@ -1,7 +1,6 @@
 <?php 
   require_once('../../../includes/initialise_admin.php');
   InitialiseAdmin::reverseCheckLoggedIn();
-  echo $session->message;
 
   $action = WEB_ROOT."controllers/prc_admin/admin_login.php";
   $loginAsStudent = WEB_ROOT."views/prc_student/students/login.php";
@@ -10,8 +9,10 @@
 <legend><ul class="nav nav-pills">
       <li><a href='create.php'>Register for an account</a></li>
       <li><a href='<?php echo $loginAsStudent; ?>'>Login as student</a></li>
-    </ul></legend>
+</ul></legend>
+<div class="container">
 <h2>Admin Login</h2>
+<?php echo $session->message; ?>
 <form method='POST' action='<?php echo $action; ?>' name='adminLogin'>
   <div class="form-group">
     <label>Email:</label>

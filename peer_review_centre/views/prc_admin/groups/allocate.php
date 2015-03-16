@@ -17,24 +17,34 @@
     <legend>Allocation</legend>
     
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Selects</label>
+      <label for="select" class="col-lg-2 control-label">Students</label>
       <div class="col-lg-10">
         <select class="form-control" id="student1" name="student1">
+          <option value="0" selected>none</option>
           <?php foreach($students as $student) {
-            echo '<option>'.$student->fullName().'</option>'; } ?>
+            echo '<option value="'.$student->studentID.'">'.
+              $student->fullName().'</option>'; } ?>
         </select>
         <br>
         <select class="form-control" id="student2" name="student2">
+          <option value="0" selected>none</option>
           <?php foreach($students as $student) {
-            echo '<option>'.$student->fullName().'</option>'; } ?>
+            echo '<option value="'.$student->studentID.'">'.
+              $student->fullName().'</option>'; } ?>
         </select>
         <br>
         <select class="form-control" id="student3" name="student3">
+          <option value="0" selected>none</option>
           <?php foreach($students as $student) {
-            echo '<option>'.$student->fullName().'</option>'; } ?>
+            echo '<option value="'.$student->studentID.'">'.
+              $student->fullName().'</option>'; } ?>
         </select>
-        <br><br>
+        <br>
+      </div>
+      <label for="select" class="col-lg-2 control-label">Group</label>
+      <div class="col-lg-10">
         <select class="form-control" id="group" name="group">
+          <option value="0" selected>none</option>
           <?php foreach($groups as $group) { 
             echo "<option>$group->groupID</option>"; } ?>
         </select>

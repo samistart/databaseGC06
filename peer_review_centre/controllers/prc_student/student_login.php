@@ -31,9 +31,11 @@
       }
     
     } else { // Form has not been submitted.
-      echo "That's not a valid email address.";
+      $session->message("Invalid email address.");
+      redirectTo("views/prc_student/students/login.php");
     }
   } else {
-    echo "Email or password cannot be blank.";
+    $session->message("Email or password cannot be blank.");
+    redirectTo("views/prc_student/students/login.php");
   }
 ?>
