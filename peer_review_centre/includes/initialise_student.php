@@ -20,9 +20,9 @@
 
   class InitialiseStudent {
     
-    //Check that students are logged in on pages that require login for access
-    public static function checkLoggedIn(){ 
-      global $session; 
+    // Check that students are logged in on pages that require login for access
+    public static function checkLoggedIn() { 
+      global $session;
 
       if ($session->isLoggedIn()) {
 
@@ -32,6 +32,11 @@
           redirectTo("views/prc_admin/admins/index.php");
         }
         
+        // Update timestamp for student's last activity.
+        $student = Student::findByID($session->userID);
+        $student->lastActive = "CURRENT_TIMESTAMP";
+        $student->update();
+
         include SITE_ROOT.DS.'layouts/header.php';
         include SITE_ROOT.DS.'layouts/student_navbar.php';
       } 
@@ -41,15 +46,15 @@
       }
     }
 
-  //Check that students are logged out on pages that require you to be logged out
-  //e.g. sign in and register
-  public static function reverseCheckLoggedIn(){ 
+  // Check that students are logged out on pages that require you to be logged out
+  // e.g. sign in and register
+  public static function reverseCheckLoggedIn() { 
       global $session; 
 
       if ($session->isLoggedIn()) {
 
         if ($session->isAdmin()) {
-          //Change to login_admin when it's ready
+          // Change to login_admin when it's ready
           $session->message("Already logged in as an admin, please log out before logging in as a student. <br>");
           redirectTo("views/prc_admin/admins/index.php");
         } 
