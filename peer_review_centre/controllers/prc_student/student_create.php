@@ -29,10 +29,12 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     $newStudent->create();
     redirectTo("views/prc_student/students/login.php");
   } else {
-    echo "Invalid email format";
+    $session->message("Invalid email address.");
+    redirectTo("views/prc_student/students/create.php");
   }
 } else {
-  echo "Passwords do not match, please try again.";
+    $session->message("Passwords do not match.");
+    redirectTo("views/prc_student/students/create.php");
 }
 
 ?>

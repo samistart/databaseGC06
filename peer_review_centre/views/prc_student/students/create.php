@@ -3,19 +3,19 @@
   error_reporting(E_ALL | E_STRICT);
   
   require_once('../../../includes/initialise_student.php');
-  $action = WEB_ROOT."controllers/prc_student/student_create.php";
   InitialiseStudent::reverseCheckLoggedIn();
 
   // Make absolute file paths
   $action = WEB_ROOT."controllers/prc_student/student_create.php";
   $createAdmin = WEB_ROOT."views/prc_admin/admins/create.php";
 ?>
+<legend><ul class="nav nav-pills">
+    <li><a href='login.php'>Student Login</a></li>
+    <li><a href='<?php echo $createAdmin; ?>'>Create admin account</a></li>
+  </ul></legend>
 <div class="container">
-  <legend><ul class="nav nav-pills">
-      <li><a href='login.php'>Student Login</a></li>
-      <li><a href='<?php echo $createAdmin; ?>'>Create admin account</a></li>
-    </ul></legend>
 	<h2>Create a new Student Account</h2>
+  <?php echo $session->message; ?>
 	<form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='newUser'>
   <fieldset>
   <div class="form-group">
@@ -45,5 +45,4 @@
   </div>
     </fieldset>
 	</form>
-</div>
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

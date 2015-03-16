@@ -4,18 +4,17 @@
 
   require_once('../../../includes/initialise_student.php');
   InitialiseStudent::reverseCheckLoggedIn();
-  // Echo the session message
-  echo $session->message;
   // Make absolute file paths
   $action = WEB_ROOT."controllers/prc_student/student_login.php";
   $loginAsAdmin = WEB_ROOT."views/prc_admin/admins/login.php";
 ?>
+<legend><ul class="nav nav-pills">
+    <li><a href='create.php'>Register for an account</a></li>
+    <li><a href='<?php echo $loginAsAdmin; ?>'>Login as admin</a></li> 
+</ul></legend>
 <div class="container">
-  <legend><ul class="nav nav-pills">
-      <li><a href='create.php'>Register for an account</a></li>
-      <li><a href='<?php echo $loginAsAdmin; ?>'>Login as admin</a></li> 
-  </ul></legend>
   <h2>Student Login</h2>
+  <?php echo $session->message; ?>
   <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='studentLogin'>
   <fieldset>
   <div class="form-group">
@@ -33,6 +32,5 @@
   </div>
     </fieldset>
   </form>
-</div>
 
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

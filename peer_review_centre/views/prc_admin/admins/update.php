@@ -2,12 +2,12 @@
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
   
-  require_once('../../../includes/initialise_student.php');
-  $action = WEB_ROOT."controllers/prc_student/student_create.php";
-  InitialiseStudent::checkLoggedIn();
+  require_once('../../../includes/initialise_admin.php');
+  $action = WEB_ROOT."controllers/prc_admin/admin_create.php";
+  InitialiseAdmin::checkLoggedIn();
 
   // Make absolute file paths
-  $action = WEB_ROOT."controllers/prc_student/student_update.php";
+  $action = WEB_ROOT."controllers/prc_admin/admin_update.php";
   $createAdmin = WEB_ROOT."views/prc_admin/admins/create.php";
 ?>
 

@@ -32,9 +32,11 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
 
     redirectTo("views/prc_admin/admins/login.php");
   } else {
-    echo "Invalid email format";
+        $session->message("Invalid email format.");
+        redirectTo("views/prc_admin/admins/create.php");
   }
 } else {
-  echo "Passwords do not match, please try again.";
+    $session->message("Passwords do not match, please try again.");
+    redirectTo("views/prc_admin/admins/create.php");
 }
 ?>
