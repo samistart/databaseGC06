@@ -39,5 +39,4 @@
   </table>
   <?php if(empty($assessmentsToDo)) {echo "No reports to assess.";} ?>
 </div>
-
-<?php include '../../../layouts/footer.php';?>
+<?php include SITE_ROOT.DS.'layouts/footer.php';?>

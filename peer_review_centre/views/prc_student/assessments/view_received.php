@@ -69,3 +69,4 @@
   </table>
   <?php if(empty($receivedAssmts)) {echo "No Assessments recieved, yet.";} ?>
 </div>
+<?php include SITE_ROOT.DS.'layouts/footer.php';?>

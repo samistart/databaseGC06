@@ -22,4 +22,4 @@
     <p><input type='submit' value='Submit changes'></p>
   </form>
 
-<?php include '../../../layouts/footer.php'; ?>
+<?php include SITE_ROOT.DS.'layouts/footer.php';?>

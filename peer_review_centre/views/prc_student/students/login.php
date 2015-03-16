@@ -35,4 +35,4 @@
   </form>
 </div>
 
-<?php include '../../../layouts/footer.php'; ?>
+<?php include SITE_ROOT.DS.'layouts/footer.php';?>

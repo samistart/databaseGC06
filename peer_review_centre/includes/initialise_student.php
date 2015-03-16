@@ -32,7 +32,7 @@
           redirectTo("views/prc_admin/admins/index.php");
         }
         
-        include SITE_ROOT.DS.'layouts/student_header.php';
+        include SITE_ROOT.DS.'layouts/header.php';
         include SITE_ROOT.DS.'layouts/student_navbar.php';
       } 
       else {
@@ -58,7 +58,7 @@
           redirectTo("views/prc_student/students/index.php");
         }
       } else {
-        include SITE_ROOT.DS.'layouts/student_header.php';
+        include SITE_ROOT.DS.'layouts/header.php';
       }
     }
 
