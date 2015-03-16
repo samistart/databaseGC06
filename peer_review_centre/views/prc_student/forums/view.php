@@ -1,5 +1,5 @@
 <?php
-  require_once("../../../includes/initialise_student.php");
+  //require_once("../../../includes/initialise_student.php");
   require_once("../../../controllers/prc_student/threads.php");
   InitialiseStudent::checkLoggedIn();
 ?>
@@ -8,43 +8,60 @@
 
 <!-- Display all existing threads. -->
 <div id="threads">
-  <h3>Threads</h3>
-  <table class="bordered">
-    <tr>
-      <th>Thread title </th>
+  <table class="table table-striped table-hover">
+    <thead>
+      <th style="width:60%;">Thread title </th>
+      <th style="width:25%;">Author </th>
       <th>Last Edited </th>
-      <th>Author </th>
-    </tr>
-  <?php foreach($threads as $thread): ?>
-    <tr>
-      <td>
-        <a href="../threads/view.php?threadID=<?php echo $thread->threadID; ?>">
-          <?php echo $thread->title; ?>
-        </a>
-      </td>
-      <td>
-        <?php echo $thread->lastEdited; ?>
-      </td>
-      <td>
-        <?php $student = Student::findByID($thread->studentID);
-          echo $student->fullName(); ?>
-      </td>
-    </tr>
-  <?php endforeach; ?>
+    </thead>
+    <tbody>
+    <?php foreach($threads as $thread): ?>
+      <tr>
+        <td>
+          <a href="../threads/view.php?threadID=<?php echo $thread->threadID; ?>">
+            <?php echo $thread->title; ?>
+          </a>
+        </td>
+        <td>
+          <?php $student = Student::findByID($thread->studentID);
+            echo $student->fullName(); ?>
+        </td>
+        <td>
+          <?php echo $thread->lastEdited; ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
   </table>
+<!-- Display message if there are no threads. -->
 <?php if(empty($threads)) {echo "No threads.";} ?>
 </div>
 
 <!-- Form to allow user to create a new thread. -->
-<div id="thread-form">
-  <h3>Start a new thread</h3>
+<div id="thread-form" style="width:60%;">
+  <h4>Start a new thread</h4>
   <?php echo $session->message; ?>
-  <form method="post" action="../../../views/prc_student/forums/view.php" name="newThread">
-    <label>Title:</label>
-    <input type="text" name="title"/><br>
-    <label>Content:</label>
-    <input type="text" name="content"/><br>
-    <p><input type="submit" name="submit" value="Create thread"></p>
+  <form class="form-horizontal" method="post" action="../../../views/prc_student/forums/view.php" name="newThread">
+    <fieldset>
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">Title</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">Content</label>
+        <div class="col-lg-10">
+          <textarea class="form-control" rows="5" name="content" maxlength="400"></textarea>
+          <span class="help-block">Maximum 400 characters.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-primary" name="submit">Create thread</button>
+        </div>
+      </div>
+    </fieldset>
   </form>
 </div>
 
