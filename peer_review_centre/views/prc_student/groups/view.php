@@ -4,8 +4,6 @@
   InitialiseStudent::checkLoggedIn();
 ?>
 
-
-
 <!-- Display all team members and their info -->
 <div id="group-members" class="panel panel-default">
 <div class="panel-body">
@@ -13,8 +11,8 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Email address</th>
+        <th style="width:40%;">Name</th>
+        <th style="width:40%;">Email address</th>
         <th>Last active</th>
       </tr>
     </thead>
