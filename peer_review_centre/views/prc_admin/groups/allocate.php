@@ -6,6 +6,8 @@
   defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
 
   require_once(SITE_ROOT.DS."controllers/prc_admin/groups_allocate.php");
+  InitialiseAdmin::checkLoggedIn();
+
 ?>
 
 <?php echo $session->message; ?>
@@ -20,21 +22,21 @@
       <label for="select" class="col-lg-2 control-label">Students</label>
       <div class="col-lg-10">
         <select class="form-control" id="student1" name="student1">
-          <option value="0" selected>none</option>
+          <option value="0" selected>select name</option>
           <?php foreach($students as $student) {
             echo '<option value="'.$student->studentID.'">'.
               $student->fullName().'</option>'; } ?>
         </select>
         <br>
         <select class="form-control" id="student2" name="student2">
-          <option value="0" selected>none</option>
+          <option value="0" selected>select name</option>
           <?php foreach($students as $student) {
             echo '<option value="'.$student->studentID.'">'.
               $student->fullName().'</option>'; } ?>
         </select>
         <br>
         <select class="form-control" id="student3" name="student3">
-          <option value="0" selected>none</option>
+          <option value="0" selected>select name</option>
           <?php foreach($students as $student) {
             echo '<option value="'.$student->studentID.'">'.
               $student->fullName().'</option>'; } ?>
@@ -44,7 +46,7 @@
       <label for="select" class="col-lg-2 control-label">Group</label>
       <div class="col-lg-10">
         <select class="form-control" id="group" name="group">
-          <option value="0" selected>none</option>
+          <option value="0" selected>select number</option>
           <?php foreach($groups as $group) { 
             echo "<option>$group->groupID</option>"; } ?>
         </select>

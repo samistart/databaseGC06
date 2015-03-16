@@ -6,7 +6,6 @@
   defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
 
   require_once(SITE_ROOT.DS."includes/initialise_admin.php");
-  InitialiseAdmin::checkLoggedIn();
 
   // Get all students
   $students = Student::findAll();
@@ -23,28 +22,43 @@
     if ($_POST['group'] != 0) {
       $newGroupID = $_POST['group'];
 
+      $msg = 'You need to specify at least one student.';
       if ($_POST['student1'] != 0 ) {
         $student = Student::findByID($_POST['student1']);
         $student->groupID = $newGroupID;
-        $student->update();
+        $result1 = $student->update();
+        $msg1 = ($result1) ? 'true ' : 'false ';
       }
-
       if ( ($_POST['student2'] != 0)
         && ($_POST['student2'] !== $_POST['student1']) ) {
         $student = Student::findByID($_POST['student2']);
         $student->groupID = $newGroupID;
-        $student->update();
+        $result2 = $student->update();
+        $msg2 = ($result2) ? 'true ' : 'false ';
       }
       if ( ($_POST['student3'] != 0)
         && ($_POST['student3'] !== $_POST['student1'])
         && ($_POST['student3'] !== $_POST['student2']) ) {
         $student = Student::findByID($_POST['student3']);
         $student->groupID = $newGroupID;
-        $student->update();
+        $result3 = $student->update();
+        $msg3 = ($result3) ? 'true ' : 'false ';
       }
+
+      if (isset($msg1) || isset($msg2) || isset($msg3)) {
+        $msg = 'Allocation result: ';
+        $msg .= (isset($msg1)) ? $msg1 : '-'; $msg .= ' , ';
+        $msg .= (isset($msg2)) ? $msg2 : '-'; $msg .= ' , ';
+        $msg .= (isset($msg3)) ? $msg3 : '-'; $msg .= ' .';
+  
+      }
+      $session->message($msg);
+    } else {
+      $session->message('You need to specify a least one 
+        student and the group.');
     }
+
     
-    $session->message("Group allocation succeeded.");
 
     redirectTo("views/prc_admin/groups/allocate.php");
 
