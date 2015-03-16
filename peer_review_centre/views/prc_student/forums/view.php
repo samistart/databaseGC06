@@ -14,6 +14,8 @@
       <th style="width:25%;">Author </th>
       <th>Last Edited </th>
     </thead>
+    <!-- Display message if there are no threads. -->
+    <?php if(empty($threads)) {echo "No threads have been started.";} ?>
     <tbody>
     <?php foreach($threads as $thread): ?>
       <tr>
@@ -33,8 +35,6 @@
     <?php endforeach; ?>
     </tbody>
   </table>
-<!-- Display message if there are no threads. -->
-<?php if(empty($threads)) {echo "No threads.";} ?>
 </div>
 
 <!-- Form to allow user to create a new thread. -->

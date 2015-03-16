@@ -5,7 +5,8 @@
 ?>
 
 <!-- Display thread title and content -->
-<div id="thread">
+<div id="thread" class="panel panel-default">
+  <div class="panel-body">
   <legend>
     <h2>
       <?php echo $thread->title; ?>
@@ -20,6 +21,7 @@
     echo $student->fullName(); ?> on <?php echo $thread->lastEdited; ?>
   </div>
 </div>
+</div>
 
 <!-- Find and display all existing posts in current thread. -->
 <div id="comments">
@@ -29,6 +31,8 @@
       <th style="width:15%;"></th>
       <th></th>
     </thead>
+    <!-- Display message if there are no posts. -->
+    <?php if(empty($comments)) {echo "There are no replies to this thread.";} ?>
     <tbody>
     <?php foreach($comments as $comment): ?>
       <tr>
@@ -46,8 +50,6 @@
     <?php endforeach; ?>
     </tbody>
   </table>
-<!-- Display message if there are no posts. -->
-<?php if(empty($comment)) {echo "No posts.";} ?>
 </div>
 
 <!-- Form to allow user to create a new post. -->
