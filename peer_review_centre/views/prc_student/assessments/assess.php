@@ -43,13 +43,17 @@
         </div>
         <div class="panel-body">
           <div class="form-group">
-            <label class="col-lg-2 control-label">Grade</label>
+            <label class="col-lg-3 control-label">Grade</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" name="grade1" value="<?php if ( !empty(trim($assessment->grade1))) { echo "$assessment->grade1"; } ?>">
+              <select class="form-control" id="grade1" name="grade1">
+                <?php for ($x = 1; $x <= 5; $x++) {
+                  $sel = ($x == $assessment->grade1) ? 'selected' : '';
+                  echo "<option $sel>$x</option>"; } ?>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-2 control-label">Comment</label>
+            <label class="col-lg-3 control-label">Comment</label>
             <div class="col-lg-10">
               <textarea type="text" class="form-control" rows="4" maxlength="400" name="comment1"><?php if ( !empty(trim($assessment->comment1))) { echo "$assessment->comment1"; } ?></textarea>
             </div>
@@ -64,13 +68,17 @@
         </div>
         <div class="panel-body">
           <div class="form-group">
-            <label class="col-lg-2 control-label">Grade</label>
+            <label class="col-lg-3 control-label">Grade</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" name="grade2" value="<?php if ( !empty(trim($assessment->grade2))) { echo "$assessment->grade2"; } ?>">
+              <select class="form-control" id="grade2" name="grade2">
+                <?php for ($x = 1; $x <= 5; $x++) {
+                  $sel = ($x == $assessment->grade2) ? 'selected' : '';
+                  echo "<option $sel>$x</option>"; } ?>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-2 control-label">Comment</label>
+            <label class="col-lg-3 control-label">Comment</label>
             <div class="col-lg-10">
               <textarea type="text" class="form-control" rows="4" maxlength="400" name="comment2"><?php if ( !empty(trim($assessment->comment2))) { echo "$assessment->comment2"; } ?></textarea>
             </div>
@@ -85,13 +93,17 @@
         </div>
         <div class="panel-body">
           <div class="form-group">
-            <label class="col-lg-2 control-label">Grade</label>
+            <label class="col-lg-3 control-label">Grade</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" name="grade3" value="<?php if ( !empty(trim($assessment->grade3))) { echo "$assessment->grade1"; } ?>">
+              <select class="form-control" id="grade3" name="grade3">
+                <?php for ($x = 1; $x <= 5; $x++) {
+                  $sel = ($x == $assessment->grade3) ? 'selected' : '';
+                  echo "<option $sel>$x</option>"; } ?>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-2 control-label">Comment</label>
+            <label class="col-lg-3 control-label">Comment</label>
             <div class="col-lg-10">
               <textarea type="text" class="form-control" rows="4" maxlength="400" name="comment3"><?php if ( !empty(trim($assessment->comment3))) { echo "$assessment->comment3"; } ?></textarea>
             </div>
