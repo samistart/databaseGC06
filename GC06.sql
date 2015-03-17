@@ -106,10 +106,10 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `reports` (
 `reportID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `title` text NOT NULL,
-  `abstract` text NOT NULL,
-  `content` text NOT NULL,
-  `lastEdited` timestamp NOT NULL,
+  `title` text,
+  `abstract` text,
+  `content` text,
+  `lastEdited` timestamp,
   `groupID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -270,8 +270,7 @@ INSERT INTO `GC06`.`forums` (`forumID`, `groupID`) VALUES (NULL, '20');
 -- INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
 --   VALUES (NULL, 0000018, 'Person18', 'last', 'Person@last.com', '123', CURRENT_TIMESTAMP, 6);
 
-
--- Seed 18 students divided into 6 groups
+-- Seed all reports, some of which currently have content.
 
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
   VALUES (NULL, 'Report1', 'This abstracts Report 1.', 'Here group 1 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 1);
@@ -283,7 +282,36 @@ INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastE
   VALUES (NULL, 'Report4', 'This abstracts Report 4.', 'Here group 4 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 4);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
   VALUES (NULL, 'Report5', 'This abstracts Report 5.', 'Here group 5 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 5);
-
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 6);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 7);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 8);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 9);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 10);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 11);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 12);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 13);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 14);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 15);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 16);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 17);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 18);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 19);
+INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
+  VALUES (NULL, '', '', '', NULL, 20);
 
 -- Seed assessments already done for groups 1-3
 
