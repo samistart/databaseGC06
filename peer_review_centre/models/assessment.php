@@ -21,15 +21,23 @@ class Assessment extends DatabaseObject {
 	public $assessmentID = "NULL";
 	public $groupID;
 	public $reportID;
-	public $criteria1;
+	public $criteria1 = 'Readability';
 	public $comment1;
 	public $grade1;
-	public $criteria2;
+	public $criteria2 = 'Content';
 	public $comment2;
 	public $grade2;
-	public $criteria3;
+	public $criteria3 = 'Accuracy';
 	public $comment3;
 	public $grade3;
+
+  /**
+  * Contructor which is used for easier assignment allocation. Only adds groupID and reportID and leaves criteria fields empty.
+  */
+  function __construct($groupID='', $reportID='') {
+    $this->groupID = $groupID;
+    $this->reportID = $reportID;
+  }
 
 	/**
 	* Find all assessements that a group has to do of other group reports.
@@ -48,6 +56,17 @@ class Assessment extends DatabaseObject {
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE reportID=".$reportID;
     $sql .= " ORDER BY groupID ASC";
+    return self::findBySQL($sql);
+  }
+
+  /**
+  * Find all assessements with specific groupID and reportID.
+  */
+  public static function findByGroupAndReportID($groupID, $reportID) {
+    $sql = "SELECT * FROM " .self::$tableName;
+    $sql .= " WHERE groupID=".$groupID;
+    $sql .= " AND reportID=".$reportID;
+    $sql .= " ORDER BY groupID ASC LIMIT 1";
     return self::findBySQL($sql);
   }
 

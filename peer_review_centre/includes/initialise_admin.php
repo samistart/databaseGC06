@@ -9,6 +9,7 @@
 
   require_once(SITE_ROOT.DS."includes/session.php");
   require_once(SITE_ROOT.DS."includes/database.php");
+  require_once(SITE_ROOT.DS."models/assessment.php");
   require_once(SITE_ROOT.DS."models/admin.php");
   require_once(SITE_ROOT.DS."models/student.php");
   require_once(SITE_ROOT.DS."models/group.php");
