@@ -43,6 +43,7 @@
         </select>
         <br>
       </div>
+      
       <label for="select" class="col-lg-2 control-label">Group</label>
       <div class="col-lg-10">
         <select class="form-control" id="group" name="group">
