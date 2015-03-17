@@ -7,7 +7,9 @@
 <!-- Display all team members and their info -->
 <div id="group-members" class="panel panel-default">
 <div class="panel-body">
-  <h3>Your group members</h3>
+  <legend>
+    <h3>Your group members</h3>
+  </legend>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -26,17 +28,20 @@
       <?php endforeach; ?>
     </tbody>
   </table>
+<hr>
+
 <!-- Link to group Forum if there are other team members, message otherwise -->
 <?php if(empty($members)) {echo "Group allocation has not been made yet.";} ?>
 <?php if(!empty($members)) {echo "You can discuss your report and assessments with your group via your private <a href='../forums/view.php' > group forum</a>.";} ?>
 </div>
 </div>
 
-
-<!-- Class ranking -->
-<div id="ranking" class="panel panel-default">
+<!-- Group performance -->
+<div id="performance" class="panel panel-default">
 <div class="panel-body">
-  <h3>Your group's performance </h3>
+  <legend>
+    <h3>Your group's performance </h3>
+  </legend>
   <div style="width: 100%;">
     <div style="float: left; width: 30%;">
       <div class="panel panel-default">

@@ -8,29 +8,42 @@
   $action = WEB_ROOT."controllers/prc_student/student_login.php";
   $loginAsAdmin = WEB_ROOT."views/prc_admin/admins/login.php";
 ?>
-<legend><ul class="nav nav-pills">
+
+<legend>
+  <ul class="nav nav-pills">
     <li><a href='create.php'>Register for an account</a></li>
     <li><a href='<?php echo $loginAsAdmin; ?>'>Login as admin</a></li> 
-</ul></legend>
-<div class="container">
-  <h2>Student Login</h2>
-  <?php echo $session->message; ?>
-  <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='studentLogin'>
-  <fieldset>
-  <div class="form-group">
-    <label>Email:</label>
-    <input type='text' name='email' size='30'>
+  </ul>
+</legend>
+<br>
+<div class="container" style="width:50%;">
+  <div class="jumbotron">
+    <legend>
+      <h2>Student Login</h2>
+    </legend>
+    <?php echo $session->message; ?>
+    <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='studentLogin'>
+      <fieldset>
+      <div class="form-group">
+        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" name="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </div>
+      </fieldset>
+    </form>
   </div>
-  <div class="form-group">
-    <label>Password:</label>
-    <input type='password' name='password' size='30'>
-  </div>
-  <div class="form-group">
-  <div class="col-lg-10 col-lg-offset-2">
-    <button type="submit" class="btn btn-primary">Login</button>
-  </div>
-  </div>
-    </fieldset>
-  </form>
+</div>
 
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

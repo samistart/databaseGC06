@@ -9,30 +9,32 @@
 <!-- Display all groups and their grades by ranking -->
 <div id="group-members">
   <h2>Group ranking</h2>
-  <table>
-    <tr>
+  <table class="table table-striped table-hover">
+    <thead>
       <th>Rank </th>
-      <th>Group </th>
+      <th style="width:80%;">Group </th>
       <th>Grade </th>
-    </tr>
-  <?php foreach($groupsByRank as $group): ?>
-    <tr>
-      <td>
-        <?php echo $group->ranking; ?>
-      </td>
-      <td>
-        <a href="view_group.php?groupID=<?php echo $group->groupID; ?>">
-          <?php echo $group->groupName; ?>
-        </a>
-      </td>
-      <td>
-        <?php echo $group->averageGrade; ?>
-      </td>
-    </tr>
-  <?php endforeach; ?>
-  <br>
+    </thead>
+    <!-- Display message if groups haven't been allocated yet -->
+    <?php if(empty($groupsByRank)) {echo "Group allocation has not been made yet.";} ?>
+    <tbody>
+    <?php foreach($groupsByRank as $group): ?>
+      <tr>
+        <td>
+          <?php echo $group->ranking; ?>
+        </td>
+        <td>
+          <a href="view_group.php?groupID=<?php echo $group->groupID; ?>">
+            <?php echo "Group ".$group->groupID.": ".$group->groupName; ?>
+          </a>
+        </td>
+        <td>
+          <?php echo $group->averageGrade; ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
   </table>
-<?php if(empty($groupsByRank)) {echo "Group allocation has not been made yet.";} ?>
 </div>
 
 <?php include '../../../layouts/footer.php';?>

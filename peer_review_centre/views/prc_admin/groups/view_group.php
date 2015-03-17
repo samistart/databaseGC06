@@ -10,25 +10,35 @@
 <h2><?php echo $group->groupName; ?></h2>
 
 <!-- Display all students in group -->
-<div id="group-members">
+<div id="group-members" class="panel panel-default">
+<div class="panel-body">
   <h3>Group members</h3>
-  <table>
-  <?php foreach($studentsInGroup as $student): ?>
-    <tr>
-      <td>
-        <?php echo $student->fullName(); ?>
-      </td>
-      <td>
-        <?php echo $student->email; ?>
-      </td>
-      <td>
-        <?php echo $student->lastActive; ?>
-      </td>
-    </tr>
-  <?php endforeach; ?>
-  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="width:40%;">Name</th>
+        <th style="width:40%;">Email address</th>
+        <th>Last active</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach($studentsInGroup as $student): ?>
+      <tr>
+        <td>
+          <?php echo $student->fullName(); ?>
+        </td>
+        <td>
+          <?php echo $student->email; ?>
+        </td>
+        <td>
+          <?php echo $student->lastActive; ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
   </table>
 <?php if(empty($studentsInGroup)) {echo "Group allocation has not been made yet.";} ?>
+</div>
 </div>
 
 <!-- Display report with its corresponding average grade. -->

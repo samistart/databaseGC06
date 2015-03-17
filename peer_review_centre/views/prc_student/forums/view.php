@@ -4,7 +4,9 @@
   InitialiseStudent::checkLoggedIn();
 ?>
 
-<h2>Welcome to your group forum</h2>
+<legend>
+  <h2>Welcome to your group forum</h2>
+</legend>
 
 <!-- Display all existing threads. -->
 <div id="threads">
