@@ -11,43 +11,53 @@
   $groups = Group::findAll();
   
   //Check if form was submitted
-  if(isset($_POST['submit'])) {
+  if (isset($_POST['submit'])) {
     // set groupID of the three students to the groupID 
     // specified in POST:
     if ($_POST['assesser'] != 0) {
       $assesserID = $_POST['assesser'];
-      $assassee1ID = ($_POST['assassee1']) ? $_POST['assassee1'] : false;
-      $assassee2ID = ($_POST['assassee2']) ? $_POST['assassee2'] : false;
+      $assessee1ID = ($_POST['assessee1']) ? $_POST['assessee1'] : false;
+      $assessee2ID = ($_POST['assessee2']) ? $_POST['assessee2'] : false;
 
+      if ($assesserID === $assessee1ID || $assesserID === $assessee2ID) {
+        $session->message('A group cannot assess its own report.');
+        redirectTo("views/prc_admin/assessments/assign.php");
+      }
       // check if the assignments made already exist. If they do, then end.
       // If they do not, then create them.
       $msg = 'You need to specify at least receiving group.';
 
-      if ($assassee1ID) {
+      if ($assessee1ID) {
         // sql query to check if assessment already exists:
-        $recGroup = findByID(assassee1ID);
-        $assmt = findByGroupAndReportID(assesserID, $recGroup->reportID);
-        if $assmt {
+        $recGroupReport = Report::findByGroupID($assessee1ID);
+        //var_dump($recGroupReport);
+        $assmt = Assessment::findByGroupAndReportID($assesserID, $recGroupReport->reportID);
+        if ($assmt) {
           // already exists, do nothing or write a message.
+          $msg1 = 'exists already';
         } else {
           // create the assessment
-          $assmt = new Assessment(assesserID, $recGroup->reportID);
-          $assmt->save();
-          $msg1 = ($assmt) ? 'true ' : 'false ';
+          $assmt = new Assessment($assesserID, $recGroupReport->reportID);
+          $result = $assmt->create();
+          $msg1 = ($result) ? 'true ' : 'false ';
         }
       }
-      if ($assassee2ID) {
+
+      if ($assessee2ID && ($assessee1ID !== $assessee2ID)) {
         // sql query to check if assessment already exists:
-        $recGroup = findByID(assassee2ID);
-        $assmt = findByGroupAndReportID(assesserID, $recGroup->reportID);
-        if $assmt {
+        $recGroupReport = Report::findByID($assessee2ID);
+        $assmt = Assessment::findByGroupAndReportID($assesserID, $recGroupReport->reportID);
+        if ($assmt) {
           // already exists, do nothing or write a message.
+          $msg2 = 'exists already';
         } else {
           // create the assessment
-          $assmt = new Assessment(assesserID, $recGroup->reportID);
-          $assmt->save();
-          $msg2 = ($assmt) ? 'true ' : 'false ';
+          $assmt = new Assessment($assesserID, $recGroupReport->reportID);
+          $result = $assmt->create();
+          $msg2 = ($result) ? 'true ' : 'false ';
         }
+      } else {
+        $msg2 = 'Receiving group IDs were identical.';
       }
 
       if ( isset($msg1) || isset($msg2) ) {
@@ -55,7 +65,9 @@
         $msg .= (isset($msg1)) ? $msg1 : '-'; $msg .= ' , ';
         $msg .= (isset($msg2)) ? $msg2 : '-'; $msg .= ' .';
       }
+
       $session->message($msg);
+
     } else {
       $session->message('You need to specify the assessing group and at least one assessment-receiving group.');
     }

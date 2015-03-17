@@ -21,26 +21,32 @@
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Assessing Group</label>
       <div class="col-lg-10">
-        <select class="form-control" id="assesser" name="student1">
+
+        <select class="form-control" id="assesser" name="assesser">
           <option value="0" selected>select assessing group</option>
           <?php foreach($groups as $group) {
             echo '<option>'.$group->groupID.'</option>'; } ?>
         </select>
+
         <hr>
       </div>
       <label for="select" class="col-lg-2 control-label">Receiving Groups</label>
       <div class="col-lg-10">
-        <select class="form-control" id="assessee1" name="student2">
+
+        <select class="form-control" id="assessee1" name="assessee1">
           <option value="0" selected>select group to be assessed</option>
           <?php foreach($groups as $group) {
             echo '<option>'.$group->groupID.'</option>'; } ?>
         </select>
+
         <br>
-        <select class="form-control" id="assessee2" name="student3">
+
+        <select class="form-control" id="assessee2" name="assessee2">
           <option value="0" selected>select group to be assessed</option>
           <?php foreach($groups as $group) {
             echo '<option>'.$group->groupID.'</option>'; } ?>
         </select>
+        
         <br>
       </div>
     </div>
