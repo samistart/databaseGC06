@@ -7,7 +7,7 @@
 
   require_once(SITE_ROOT.DS."includes/initialise_admin.php");
 
-  // Get array of all the students.
-  $students = Student::findAll();
+  // Get array of all the students ordered alphabetically (by surname).
+  $students = Student::findAllOrdered();
 
 ?>
