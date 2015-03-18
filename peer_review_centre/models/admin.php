@@ -60,7 +60,7 @@ class Admin extends DatabaseObject {
     if ($resultArray==NULL) {
     	global $session;
       require_once('../../includes/initialise_admin.php');
-    	$session->message("That email has not been registered for an admin account.");
+    	$session->errorMessage("That email has not been registered for an admin account.");
       redirectTo("views/prc_admin/admins/login.php");
     }
     $newAdmin = $resultArray[0];

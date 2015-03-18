@@ -21,7 +21,12 @@
     <legend>
       <h2>Student Login</h2>
     </legend>
-    <?php echo $session->message; ?>
+
+    <!-- Display possible success message in green box -->
+    <?php if (($session->message)) {greenBox($session->message);} ?>
+    <!-- Display possible error message in red box -->
+    <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
+    
     <form class="form-horizontal" method='post' action='<?php echo $action; ?>' name='studentLogin'>
       <fieldset>
       <div class="form-group">

@@ -8,7 +8,7 @@
 
   if($session->isLoggedIn()) {
     //var_dump($_SESSION);
-    $session->message("You're already logged in. <br>");
+    $session->errorMessage("You're already logged in. <br>");
     redirectTo("views/prc_student/students/index.php");
   }
   // // Remember to give your form's submit tag a name="submit" attribute!
@@ -26,16 +26,16 @@
         $session->login($foundStudent, false);
         redirectTo("views/prc_student/students/index.php");
       } else {
-        $session->message("Incorrect email or password");
+        $session->errorMessage("Incorrect email or password.");
         redirectTo("views/prc_student/students/login.php");
       }
     
     } else { // Form has not been submitted.
-      $session->message("Invalid email address.");
+      $session->errorMessage("Incorrect email or password.");
       redirectTo("views/prc_student/students/login.php");
     }
   } else {
-    $session->message("Email or password cannot be blank.");
+    $session->errorMessage("Email or password cannot be blank.");
     redirectTo("views/prc_student/students/login.php");
   }
 ?>

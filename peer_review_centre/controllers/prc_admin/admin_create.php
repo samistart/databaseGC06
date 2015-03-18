@@ -21,7 +21,6 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     // See http://stackoverflow.com/questions/14992367/using-php-5-5s-password-hash-and-verify-function-am-i-doing-it-right
     $hashAndSalt = password_hash($_POST["password"], PASSWORD_BCRYPT);  
 
-
     // Create a new Admin object from information in the form (groupID = 1 for now)
     $newAdmin = new Admin();
     $newAdmin->firstName = $firstName; 
@@ -30,13 +29,16 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     $newAdmin->password = $hashAndSalt;
     $newAdmin->create();
 
+    $session->message("Your administrator account was created successfully.");
     redirectTo("views/prc_admin/admins/login.php");
+    
   } else {
-        $session->message("Invalid email format.");
+        $session->errorMessage("Invalid email format.");
         redirectTo("views/prc_admin/admins/create.php");
   }
 } else {
-    $session->message("Passwords do not match, please try again.");
+    $session->errorMessage("Passwords do not match, please try again.");
     redirectTo("views/prc_admin/admins/create.php");
 }
+
 ?>

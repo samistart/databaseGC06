@@ -17,9 +17,11 @@ if ($_POST["newPassword"] == $_POST["confirmPassword"]) {
 
     $foundStudent->password = password_hash($_POST["newPassword"], PASSWORD_BCRYPT);
     $foundStudent->update();
+
+    $session->message("Your password was updated successfully.");
     redirectTo("views/prc_student/students/index.php");
 } else {
-    $session->message("Passwords do not match.");
+    $session->errorMessage("Passwords do not match.");
     redirectTo("views/prc_student/students/create.php");
 }
 

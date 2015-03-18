@@ -29,16 +29,16 @@ if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submi
       redirectTo("views/prc_admin/admins/index.php");
 
     } else {
-      $session->message("Email/password combination incorrect.");
+      $session->errorMessage("Email/password combination incorrect.");
       redirectTo("views/prc_admin/admins/login.php");
     }
   
   } else { 
-      $session->message("That's not a valid email address.");
+      $session->errorMessage("That's not a valid email address.");
       redirectTo("views/prc_admin/admins/login.php");
   }
 } else {
-  $session->message("Email or password cannot be blank.");
+  $session->errorMessage("Email or password cannot be blank.");
   redirectTo("views/prc_admin/admins/login.php");
 }
 ?>

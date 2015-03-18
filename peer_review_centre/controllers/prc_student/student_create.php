@@ -27,13 +27,15 @@ if ($_POST["password"] == $_POST["confirmPassword"]) {
     $newStudent->password = $hashAndSalt;
     $newStudent->groupID = "1";
     $newStudent->create();
+
+    $session->message("Your student account was created successfully.");
     redirectTo("views/prc_student/students/login.php");
   } else {
-    $session->message("Invalid email address.");
+    $session->errorMessage("Invalid email address.");
     redirectTo("views/prc_student/students/create.php");
   }
 } else {
-    $session->message("Passwords do not match.");
+    $session->errorMessage("Passwords do not match.");
     redirectTo("views/prc_student/students/create.php");
 }
 

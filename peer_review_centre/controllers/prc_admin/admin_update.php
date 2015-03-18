@@ -17,9 +17,11 @@ if ($_POST["newPassword"] == $_POST["confirmPassword"]) {
 
     $foundAdmin->password = password_hash($_POST["newPassword"], PASSWORD_BCRYPT);
     $foundAdmin->update();
+
+    $session->message("Your password was updated successfully.");
     redirectTo("views/prc_admin/admins/index.php");
 } else {
-    $session->message("Passwords do not match.");
+    $session->errorrMssage("Passwords do not match.");
     redirectTo("views/prc_admin/admins/create.php");
 }
 
