@@ -76,6 +76,15 @@ class Student extends DatabaseObject {
   }
 
   /**
+  * Method that returns all the students ordered alphabetically (by last name).
+  */
+  public static function findAllOrdered() {
+    $sql = "SELECT * FROM " .self::$tableName;
+    $sql .= " ORDER BY lastName ASC";
+    return self::findBySQL($sql);
+  }
+
+  /**
   * Method that returns the students in a given group.
   */
   public static function findStudentsOn($groupID) {
