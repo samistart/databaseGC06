@@ -26,10 +26,15 @@
   <?php if (($session->message)) {greenBox($session->message);} ?>
   <!-- Display possible error message in red box -->
   <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
-  
-  <h2><?php echo $myReport->title; ?></h2>
-  <p class="lead"><?php echo $myReport->abstract; ?></p>
-  <p><?php echo $myReport->content; ?></p>
+
+  <!-- Display report -->
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2><?php echo $myReport->title; ?></h2>
+      <p class="lead"><?php echo $myReport->abstract; ?></p>
+      <p><?php echo $myReport->content; ?></p>
+    </div>
+  </div>
 <?php } ?>
 </div>
 
