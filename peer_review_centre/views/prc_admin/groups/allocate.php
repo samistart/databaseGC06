@@ -16,7 +16,7 @@
   action="../../../controllers/prc_admin/groups_allocate.php" 
   name="neededQuestionMark">
   <fieldset>
-    <legend>Allocation</legend>
+    <legend>Group Allocation</legend>
     
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Students</label>
