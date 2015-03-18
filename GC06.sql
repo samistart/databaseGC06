@@ -79,7 +79,6 @@ CREATE TABLE `forums` (
 
 CREATE TABLE `groups` (
 `groupID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `groupName` text NOT NULL,
   `averageGrade` double NOT NULL COMMENT 'from 1-5',
   `ranking` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -188,26 +187,26 @@ ADD CONSTRAINT `threads_ibfk_1` FOREIGN KEY (`forumID`) REFERENCES `forums` (`fo
 
 -- Seed db with all 20 groups and corresponding group forums
 
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
-INSERT INTO `GC06`.`groups` (`groupID`, `groupName`, `averageGrade`, `ranking`) VALUES (NULL, 'defaultGroup', 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
+INSERT INTO `GC06`.`groups` (`groupID`, `averageGrade`, `ranking`) VALUES (NULL, 0, 1);
 
 INSERT INTO `GC06`.`forums` (`forumID`, `groupID`) VALUES (NULL, '1');
 INSERT INTO `GC06`.`forums` (`forumID`, `groupID`) VALUES (NULL, '2');
