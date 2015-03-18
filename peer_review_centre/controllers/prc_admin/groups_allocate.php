@@ -54,11 +54,8 @@
       }
       $session->message($msg);
     } else {
-      $session->message('You need to specify a least one 
-        student and the group.');
+      $session->errorMessage('You need to specify the group.');
     }
-
-    
 
     redirectTo("views/prc_admin/groups/allocate.php");
 

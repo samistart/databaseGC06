@@ -13,19 +13,24 @@
 <?php 
     if (!$myReport) {
       echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
-    } else { ?>
+    } else {
+?>
   <legend>
     <ul class='nav nav-pills'>
       <li>Last edited: <?php echo $myReport->lastEdited; ?></li>
       <li><a href='submit.php'>Edit Report</a></li>
     </ul>
   </legend>
+
+  <!-- Display possible success message in green box -->
+  <?php if (($session->message)) {greenBox($session->message);} ?>
+  <!-- Display possible error message in red box -->
+  <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
+  
   <h2><?php echo $myReport->title; ?></h2>
   <p class="lead"><?php echo $myReport->abstract; ?></p>
   <p><?php echo $myReport->content; ?></p>
-  <?php
-    }
-  ?>
+<?php } ?>
 </div>
 
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

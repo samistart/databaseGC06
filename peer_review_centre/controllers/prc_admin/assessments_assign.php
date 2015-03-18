@@ -20,7 +20,7 @@
       $assessee2ID = ($_POST['assessee2']) ? $_POST['assessee2'] : false;
 
       if ($assesserID === $assessee1ID || $assesserID === $assessee2ID) {
-        $session->message('A group cannot assess its own report.');
+        $session->errorMessage('A group cannot assess its own report.');
         redirectTo("views/prc_admin/assessments/assign.php");
       }
       // check if the assignments made already exist. If they do, then end.
@@ -69,7 +69,7 @@
       $session->message($msg);
 
     } else {
-      $session->message('You need to specify the assessing group and at least one assessment-receiving group.');
+      $session->errorMessage('You need to specify the assessing group and at least one assessment-receiving group.');
     }
     redirectTo("views/prc_admin/assessments/assign.php");
 

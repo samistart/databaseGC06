@@ -20,14 +20,21 @@
     $report->content = $_POST["content"];
     $report->lastEdited = "CURRENT_TIMESTAMP";
     $report->update();
+    if(!$report) {
+      $session->errorMessage("There was an error updating your report.");
+    } else {
+      $session->message("Your report was updated successfully.");
+    }
   } else {
     $report = new Report($_POST["title"], $_POST["abstract"], $_POST["content"], $currentStudent->groupID);
     $report->create();
+    if(!$report) {
+      $session->errorMessage("There was an error creating your report.");
+    } else {
+      $session->message("Your report was created successfully.");
+    }
   }
 
-  // Report will be created or updated in the database (as necessary).
-  //$report->save();
-  
   // Go back to the view report page.
   redirectTo("views/prc_student/reports/view.php");
 
