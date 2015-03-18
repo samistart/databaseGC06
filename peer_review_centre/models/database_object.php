@@ -96,15 +96,6 @@ abstract class DatabaseObject {
 	}
 
 	/**
-	* Method that saves an entry into the corresponding table, by either calling the create() 
-	* method if the database entry doesn't exist, or the update() method if it does.
-	*/
-	public function save() {
-		// Calls create() or update(), depending on whether database entry exists or not
-		return (null!==$this->getPk()) ? $this->update() : $this->create();
-	}
-
-	/**
 	* Method that creates and inserts the table entry that corresponds to the current object.
 	*/
 	public function create() {
