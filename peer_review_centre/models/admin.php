@@ -24,7 +24,15 @@ class Admin extends DatabaseObject {
 	public $email;
 	public $password;
 
-	/**
+	
+  /**
+  * Method that returns a string with the full name of the student.
+  */
+  public function fullName() {
+    return $this->firstName." ".$this->lastName;
+  }
+
+  /**
 	* Method that returns the variable that corresponds to the primary key.
 	*/
 	public function getPk() {

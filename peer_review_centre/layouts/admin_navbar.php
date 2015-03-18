@@ -23,8 +23,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
           <?php 
-            $currentStudent = Student::findByID("$session->userID");
-            echo $currentStudent->fullName();
+            $currentAdmin = Admin::findByID("$session->userID");
+            echo $currentAdmin->fullName();
           ?>
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
