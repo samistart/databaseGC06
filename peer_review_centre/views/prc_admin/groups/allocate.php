@@ -29,21 +29,21 @@
           <option value="0" selected>select name</option>
           <?php foreach($students as $student) {
             echo '<option value="'.$student->studentID.'">'.
-              $student->fullName().'</option>'; } ?>
+              $student->reverseFullName().'</option>'; } ?>
         </select>
         <br>
         <select class="form-control" id="student2" name="student2">
           <option value="0" selected>select name</option>
           <?php foreach($students as $student) {
             echo '<option value="'.$student->studentID.'">'.
-              $student->fullName().'</option>'; } ?>
+              $student->reverseFullName().'</option>'; } ?>
         </select>
         <br>
         <select class="form-control" id="student3" name="student3">
           <option value="0" selected>select name</option>
           <?php foreach($students as $student) {
             echo '<option value="'.$student->studentID.'">'.
-              $student->fullName().'</option>'; } ?>
+              $student->reverseFullName().'</option>'; } ?>
         </select>
         <br>
       </div>

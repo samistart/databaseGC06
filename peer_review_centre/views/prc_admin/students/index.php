@@ -21,7 +21,7 @@
       <tr>
         <td>
           <a href="view_student.php?studentID=<?php echo $student->studentID; ?>">
-          <?php echo $student->fullName(); ?>
+          <?php echo $student->reverseFullName(); ?>
           </a>
         </td>
         <td>
