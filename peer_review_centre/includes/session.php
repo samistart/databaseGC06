@@ -15,10 +15,12 @@ class Session {
   private $isAdmin;
   public $userID;
   public $message;
+  public $errorMessage;
   
   function __construct() {
     session_start();
     $this->checkMessage();
+    $this->checkErrorMessage();
     $this->checkLogin();
     $this->checkAdmin();
     if($this->loggedIn) {
@@ -68,6 +70,17 @@ class Session {
     }
   }
 
+    public function errorMessage($msg="") {
+    if(!empty($msg)) {
+      // Then this is "set message"
+      // Make sure you understand why $this->message=$msg wouldn't work
+      $_SESSION['errorMessage'] = $msg;
+    } else {
+      // Then this is "get message"
+      return $this->errorMessage;
+    }
+  }
+
   private function checkLogin() {
     if(isset($_SESSION['userID'])) {
       $this->userID = $_SESSION['userID'];
@@ -96,10 +109,22 @@ class Session {
       $this->message = "";
     }
   }
+
+  private function checkErrorMessage() {
+    // Is there a message stored in the session?
+    if(isset($_SESSION['errorMessage'])) {
+      // Add it as an attribute and erase the stored version
+      $this->errorMessage = $_SESSION['errorMessage'];
+      unset($_SESSION['errorMessage']);
+    } else {
+      $this->errorMessage = "";
+    }
+  }
   
 }
 
 $session = new Session;
 $message = $session->message();
+$errorMessage = $session->errorMessage();
 
 ?>

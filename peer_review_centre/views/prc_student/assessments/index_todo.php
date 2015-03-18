@@ -13,7 +13,12 @@
   $assessmentsToDo = Assessment::findByGroupID("$currentStudent->groupID");
 
 ?>
-<?php echo $session->message; ?>
+
+<!-- Display possible success message in green box -->
+<?php if (($session->message)) {greenBox($session->message);} ?>
+
+<!-- Display possible error message in red box -->
+<?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
 
 <!-- Display all reports to assess. -->
 <div id="assessments">

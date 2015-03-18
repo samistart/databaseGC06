@@ -21,6 +21,7 @@ if (isset($_POST['submit'])) {
        empty(trim($_POST['grade2'])) || empty(trim($_POST['comment2'])) ||
        empty(trim($_POST['grade3'])) || empty(trim($_POST['comment3'])) ) {
     $session->message("There is at least one field missing.");
+    echo $session->message;
     // nice to have: be able to keep entered values.
     redirectTo("views/prc_student/assessments/assess.php?assessmentID=".$assessment->assessmentID);
   }
@@ -33,7 +34,7 @@ if (isset($_POST['submit'])) {
     $assessment->comment3 = trim($_POST['comment3']);
 
     if (!$assessment->update()) {
-      $session->message("There was an error that prevented your assessment from being saved.");
+      $session->errorMessage("There was an error that prevented your assessment from being saved.");
       redirectTo("views/prc_student/assessments/assess.php?assessmentID=".$assessment->assessmentID);
     }
   }
