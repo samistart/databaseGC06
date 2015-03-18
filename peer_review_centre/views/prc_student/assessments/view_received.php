@@ -28,7 +28,7 @@
   <legend>
     <h3>Your report received the following assessments</h3>
   </legend>
-  <table class="table table-striped table-hover">
+  <table class="table table-striped">
     <thead>
       <th style="width:13%;">From: </th>
       <th style="width:12%;"> </th>
