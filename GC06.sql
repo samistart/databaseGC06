@@ -126,7 +126,7 @@ CREATE TABLE `students` (
   `email` text NOT NULL COMMENT 'is username',
   `password` varchar(255) NOT NULL,
   `lastActive` datetime NOT NULL,
-  `groupID` int(11) NOT NULL
+  `groupID` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
