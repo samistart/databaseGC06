@@ -27,9 +27,8 @@
   </legend>
   <table class="table table-striped table-hover">
     <thead>
-      <th style="width:40%;">Title </th>
       <th style="width:10%;">Action </th>
-      <th style="width:40%;">Progress </th>
+      <th style="width:90%;">Title </th>
     </thead>
     <!-- Display message if there are no reports to assess. -->
     <?php if(empty($assessmentsToDo)) {echo "No reports to assess.";} ?>
@@ -37,14 +36,11 @@
     <?php foreach($assessmentsToDo as $assessment): ?>
       <tr>
         <td>
-          <?php $report = Report::findByID($assessment->reportID); 
-                echo $report->title; ?>
-        </td>
-        <td>
           <a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/assess.php?assessmentID=<?php echo $assessment->assessmentID; ?>">Assess</a>
         </td>
         <td>
-          <?php echo 'We could count how many criteria have been commented and graded to show progress.' ?>
+          <?php $report = Report::findByID($assessment->reportID); 
+                echo $report->title; ?>
         </td>
       </tr>
     <?php endforeach; ?>

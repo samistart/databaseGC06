@@ -30,8 +30,10 @@
   <!-- Display report -->
   <div class="panel panel-default">
     <div class="panel-body">
-      <h2><?php echo $myReport->title; ?></h2>
-      <p class="lead"><?php echo $myReport->abstract; ?></p>
+      <p><h2><?php echo $myReport->title; ?></h2></p>
+      <br>
+      <p><i><?php echo $myReport->abstract; ?></i></p>
+      <br>
       <p><?php echo $myReport->content; ?></p>
     </div>
   </div>

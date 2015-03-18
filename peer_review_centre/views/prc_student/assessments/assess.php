@@ -26,8 +26,10 @@
 <!-- Report to assess -->
 <div class="panel panel-default">
   <div class="panel-body">
-    <h2><?php echo $report->title; ?></h2>
-    <p class="lead"><?php echo $report->abstract; ?></p>
+    <p><h2><?php echo $report->title; ?></h2></p>
+    <br>
+    <p><i><?php echo $report->abstract; ?></i></p>
+    <br>
     <p><?php echo $report->content; ?></p>
   </div>
 </div>
