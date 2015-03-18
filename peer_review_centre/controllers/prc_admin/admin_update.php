@@ -12,7 +12,7 @@ if (empty($_POST["oldPassword"]) || empty($_POST["newPassword"]) || empty($_POST
 
 
 if ($_POST["newPassword"] != $_POST["confirmPassword"]) {
-    $session->errorrMssage("Passwords do not match.");
+    $session->errorMessage("Passwords do not match.");
     redirectTo("views/prc_admin/admins/update.php");
 }
 

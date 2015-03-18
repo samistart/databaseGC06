@@ -68,7 +68,6 @@ class Admin extends DatabaseObject {
     if (password_verify($password, $newAdmin->password)) {
       return !empty($resultArray) ? array_shift($resultArray) : false;
     } else {
-      echo "passwords don't match";
       return false;
     }
 
