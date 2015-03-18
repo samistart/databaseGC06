@@ -2,12 +2,15 @@
   ini_set('display_errors', 'On');
   error_reporting(E_ALL | E_STRICT);
 
-  require_once('../../../includes/initialise_admin.php');
+  //require_once('../../../includes/initialise_admin.php');
   require_once("../../../controllers/prc_admin/groups.php");
   InitialiseAdmin::checkLoggedIn();
 ?>
 
-<h2><?php echo $group->groupName; ?></h2>
+<h2>
+  <?php echo "Group ".$group->groupID.": ".$group->groupName; ?>
+  <button onclick="javascript:history.back()" class="btn btn-default">Back</button>
+</h2>
 
 <!-- Display all students in group -->
 <div id="group-members" class="panel panel-default">
@@ -25,7 +28,9 @@
     <?php foreach($studentsInGroup as $student): ?>
       <tr>
         <td>
-          <?php echo $student->fullName(); ?>
+          <a href="../students/view_student.php?studentID=<?php echo $student->studentID; ?>">
+            <?php echo $student->fullName(); ?>
+          </a>
         </td>
         <td>
           <?php echo $student->email; ?>

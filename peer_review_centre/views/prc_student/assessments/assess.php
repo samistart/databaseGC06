@@ -35,7 +35,7 @@
 <!-- Grading -->
 <form class="form-vertical" method="POST" action="../../../controllers/prc_student/assessments.php" name="assessment">
   <fieldset>
-  <div style="width: 100%;">
+  <div >
     <div style="float: left; width: 30%;">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -112,10 +112,10 @@
       </div>
     </div>
     <br style="clear: both;" />
-  </div>
+    </div>
     <input type="hidden" name="assessmentID" value="<?php echo $assessment->assessmentID; ?>">
     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-    </div>
+  </div>
   </fieldset>
 </form>
 
