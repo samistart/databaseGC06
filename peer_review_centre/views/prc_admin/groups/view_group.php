@@ -8,7 +8,7 @@
 ?>
 
 <h2>
-  <?php echo "Group ".$group->groupID.": ".$group->groupName; ?>
+  <?php echo "Group ".$group->groupID; ?>
   <button onclick="javascript:history.back()" class="btn btn-default">Back</button>
 </h2>
 

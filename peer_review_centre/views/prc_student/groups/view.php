@@ -4,6 +4,8 @@
   InitialiseStudent::checkLoggedIn();
 ?>
 
+<h2> <?php echo "Group ".$student->groupID; ?> </h2>
+
 <!-- Display all team members and their info -->
 <div id="group-members" class="panel panel-default">
 <div class="panel-body">

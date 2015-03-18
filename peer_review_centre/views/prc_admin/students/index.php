@@ -26,7 +26,7 @@
         </td>
         <td>
           <?php $group = Group::findByID($student->groupID);?>
-          <?php echo "Group ".$student->groupID.": ".$group->groupName; ?>
+          <?php echo "Group ".$student->groupID; ?>
         </td>
       </tr>
     <?php endforeach; ?>

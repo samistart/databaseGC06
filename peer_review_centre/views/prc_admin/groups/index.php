@@ -25,7 +25,7 @@
         </td>
         <td>
           <a href="view_group.php?groupID=<?php echo $group->groupID; ?>">
-            <?php echo "Group ".$group->groupID.": ".$group->groupName; ?>
+            <?php echo "Group ".$group->groupID; ?>
           </a>
         </td>
         <td>

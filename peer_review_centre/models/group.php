@@ -14,12 +14,11 @@ class Group extends DatabaseObject {
 	// Name of the corresponding database table and fields are stored in static variables.
 	// (will be common to every instance of the class)
 	protected static $tableName='groups';
-	protected static $dbFields = array('groupID', 'groupName', 'averageGrade', 'ranking');
+	protected static $dbFields = array('groupID', 'averageGrade', 'ranking');
 
 	// Variables that correspond to the fields of the corresponding table, that will be given values
 	// for each object (creating the corresponding table entry)
 	public $groupID = "NULL";
-	public $groupName;
 	public $averageGrade;
 	public $ranking;
 
