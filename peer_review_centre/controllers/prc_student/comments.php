@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
   if (empty($content)) {
     // Redirect to form and display error message
-    $session->message("Can't post without content.");
+    $session->errorMessage("Can't post without content.");
     redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
   
   } else {
@@ -27,11 +27,12 @@ if (isset($_POST['submit'])) {
 
     if (!($newComment && $newComment->create())) {
   	  // Failed to create comment
-      $session->message("There was an error that prevented your comment from being saved.");
+      $session->errorMessage("There was an error that prevented your comment from being saved.");
       redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);
     } else {
       $thread->lastEdited = "CURRENT_TIMESTAMP";
       $thread->update();
+      $session->message("Your comment was successfully posted.");
     }
   }
   redirectTo("views/prc_student/threads/view.php?threadID=".$thread->threadID);

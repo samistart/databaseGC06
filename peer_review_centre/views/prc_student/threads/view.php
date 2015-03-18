@@ -52,10 +52,15 @@
   </table>
 </div>
 
+<!-- Display possible success message in green box -->
+<?php if (($session->message)) {greenBox($session->message);} ?>
+
 <!-- Form to allow user to create a new post. -->
 <div id="thread-form" style="width:60%;">
   <h4>Reply to thread</h4>
-  <?php echo $session->message; ?>
+  <!-- Display possible error message in red box -->
+  <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
+
   <form class="form-horizontal" method="post" action="../../../controllers/prc_student/comments.php?threadID=<?php echo $thread->threadID;?>" name="newComment">
     <fieldset>
       <div class="form-group">

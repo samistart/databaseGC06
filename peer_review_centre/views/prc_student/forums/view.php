@@ -39,10 +39,14 @@
   </table>
 </div>
 
+<!-- Display possible success message in green box -->
+<?php if (($session->message)) {greenBox($session->message);} ?>
+
 <!-- Form to allow user to create a new thread. -->
 <div id="thread-form" style="width:60%;">
   <h4>Start a new thread</h4>
-  <?php echo $session->message; ?>
+  <!-- Display possible error message in red box -->
+  <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
   <form class="form-horizontal" method="post" action="../../../views/prc_student/forums/view.php" name="newThread">
     <fieldset>
       <div class="form-group">

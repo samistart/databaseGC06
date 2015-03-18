@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 
   if (empty($title) || empty($content)) {
     // Redirect to form and display error message
-    $session->message("Can't create a new thread without a title or content.");
+    $session->errorMessage("Can't create a new thread without a title or content.");
     redirectTo("views/prc_student/forums/view.php");
 
   } else {
@@ -34,9 +34,10 @@ if (isset($_POST['submit'])) {
 
     if (!($newThread && $newThread->create())) {
       // Failed to create thread
-      $session->message("There was an error that prevented your thread from being saved.");
+      $session->errorMessage("There was an error that prevented your thread from being saved.");
       redirectTo("views/prc_student/forums/view.php");
     }
+    $session->message("Your thread was successfully created.");
   }
   redirectTo("views/prc_student/forums/view.php");
 } else {
