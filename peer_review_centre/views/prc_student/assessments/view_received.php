@@ -22,19 +22,22 @@
   }
 ?>
 
-<div id="">
-  <h3>Your report received the following Assessments</h3>
-  <table border="1">
-    <tr>
-      <td colspan="2" rowspan="2"></td>
-      <td colspan="3">Criteria</td>
-    </tr>
-    <tr>
-      <th><?php echo $criteria[0]; ?></th>
-      <th><?php echo $criteria[1]; ?></th>
-      <th><?php echo $criteria[2]; ?></th>
-    </tr>
-    <?php foreach($receivedAssmts as $assmt): ?>
+
+<!-- Bootstrap table for received assessments (Sami) -->
+<div id="assessments">
+  <legend>
+    <h3>Your report received the following assessments</h3>
+  </legend>
+  <table class="table table-striped table-hover">
+    <thead>
+      <th style="width:13%;">From: </th>
+      <th style="width:12%;"> </th>
+      <th style="width:25%;"><?php echo ucwords ($criteria[0]); ?> </th>
+      <th style="width:25%;"><?php echo ucwords ($criteria[1]); ?> </th>
+      <th style="width:25%;"><?php echo ucwords ($criteria[2]); ?> </th>
+    </thead>
+    <tbody>
+        <?php foreach($receivedAssmts as $assmt): ?>
     <tr>
       <td rowspan="2">
         <?php echo "Group $assmt->groupID"; ?>
@@ -66,7 +69,9 @@
       </td>
     </tr>
     <?php endforeach; ?> 
+    </tbody>
   </table>
+<!-- End of received assessments table -->
   <?php if(empty($receivedAssmts)) {echo "No Assessments recieved, yet.";} ?>
 </div>
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

@@ -10,6 +10,10 @@
 ?>
 
 <div class="container">
+<?php 
+    if (!$myReport) {
+      echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
+    } else { ?>
   <legend>
     <ul class='nav nav-pills'>
       <li>Last edited: <?php echo $myReport->lastEdited; ?></li>
@@ -20,8 +24,6 @@
   <p class="lead"><?php echo $myReport->abstract; ?></p>
   <p><?php echo $myReport->content; ?></p>
   <?php
-    if (!$myReport) {
-      echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
     }
   ?>
 </div>
