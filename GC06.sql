@@ -233,7 +233,7 @@ INSERT INTO `GC06`.`forums` (`forumID`, `groupID`) VALUES (NULL, '20');
 -- Seed 57 students
 
 INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
-  VALUES (NULL, 0000001, 'student1', 'last', 'student@school.com', '123', CURRENT_TIMESTAMP, 2);
+  VALUES (NULL, 0000001, 'student1', 'last', 'student@school.com', '123', CURRENT_TIMESTAMP, 1);
 INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
   VALUES (NULL, 0000002, 'student2', 'last', 'student@school.com', '123', CURRENT_TIMESTAMP, 2);
 INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastName`, `email`, `password`, `lastActive`, `groupID`) 
@@ -348,20 +348,18 @@ INSERT INTO `GC06`.`students` (`studentID`, `studentNumber`, `firstName`, `lastN
   VALUES (NULL, 0000057, 'student57', 'last', 'student@school.com', '123', CURRENT_TIMESTAMP, 20);
 
 
-
-
 -- Seed all reports, some of which currently have content.
 
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
-  VALUES (NULL, 'Title for Report1', 'This abstracts Report 1.', 'Here group 1 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 1);
+  VALUES (NULL, '', '', '', NULL, 1);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
-  VALUES (NULL, 'Title for Report2', 'This abstracts Report 2.', 'Here group 2 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 2);
+  VALUES (NULL, '', '', '', NULL, 2);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
-  VALUES (NULL, 'Title for Report3', 'This abstracts Report 3.', 'Here group 3 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 3);
+  VALUES (NULL, '', '', '', NULL, 3);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
-  VALUES (NULL, 'Title for Report4', 'This abstracts Report 4.', 'Here group 4 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 4);
+  VALUES (NULL, '', '', '', NULL, 4);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
-  VALUES (NULL, 'Title for Report5', 'This abstracts Report 5.', 'Here group 5 describes their review in detail a localhost.', CURRENT_TIMESTAMP, 5);
+  VALUES (NULL, '', '', '', NULL, 5);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
   VALUES (NULL, '', '', '', NULL, 6);
 INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastEdited`, `groupID`) 
@@ -395,24 +393,24 @@ INSERT INTO `GC06`.`reports` (`reportID`, `title`, `abstract`, `content`, `lastE
 
 -- Seed assessments already done for groups 1-3
 
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 1, 2, 'Readability', 'Very nice.', '4', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 1, 3, 'Readability', 'Very nice.', '3', 'Content', 'Very nice.', '2', 'Accuracy', 'Very nice.', '2');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 1, 4, 'Readability', 'Very nice.', '2', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 2, 1, 'Readability', 'Very nice.', '4', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 2, 3, 'Readability', 'Very nice.', '5', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '1');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 2, 4, 'Readability', 'Very nice.', '1', 'Content', 'Very nice.', '2', 'Accuracy', 'Very nice.', '1');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 3, 1, 'Readability', 'Very nice.', '2', 'Content', 'Very nice.', '3', 'Accuracy', 'Very nice.', '3');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 3, 4, 'Readability', 'Very nice.', '4', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
-INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
-  VALUES (NULL, 3, 5, 'Readability', 'Very nice.', '3', 'Content', 'Very nice.', '5', 'Accuracy', 'Very nice.', '4');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 1, 2, 'Readability', 'Very nice.', '4', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 1, 3, 'Readability', 'Very nice.', '3', 'Content', 'Very nice.', '2', 'Accuracy', 'Very nice.', '2');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 1, 4, 'Readability', 'Very nice.', '2', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 2, 1, 'Readability', 'Very nice.', '4', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 2, 3, 'Readability', 'Very nice.', '5', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '1');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 2, 4, 'Readability', 'Very nice.', '1', 'Content', 'Very nice.', '2', 'Accuracy', 'Very nice.', '1');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 3, 1, 'Readability', 'Very nice.', '2', 'Content', 'Very nice.', '3', 'Accuracy', 'Very nice.', '3');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 3, 4, 'Readability', 'Very nice.', '4', 'Content', 'Very nice.', '4', 'Accuracy', 'Very nice.', '4');
+-- INSERT INTO `GC06`.`assessments` (assessmentID, groupID, reportID, criteria1, comment1, grade1, criteria2, comment2, grade2, criteria3, comment3, grade3)
+--   VALUES (NULL, 3, 5, 'Readability', 'Very nice.', '3', 'Content', 'Very nice.', '5', 'Accuracy', 'Very nice.', '4');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

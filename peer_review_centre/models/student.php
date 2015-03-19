@@ -68,7 +68,7 @@ class Student extends DatabaseObject {
     if ($resultArray==NULL) {
       global $session;
       require_once('../../includes/initialise_student.php');
-      $session->errorMessage("That email has not been registered for a student account.");
+      $session->errorMessage("Incorrect email or password.");
       redirectTo("views/prc_student/students/login.php");
     }
 
