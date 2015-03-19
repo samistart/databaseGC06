@@ -44,6 +44,8 @@ abstract class DatabaseObject {
 	* Method that takes an id number and returns the corresponding table entry.
 	*/
 	public static function findByID($id=0) {
+		global $database;
+		$cleanID = $database->escapeValue($id);
 		$resultArray = static::findBySQL("SELECT * FROM ".static::$tableName." WHERE ".static::$dbFields[0]."={$id} LIMIT 1");
 		return !empty($resultArray) ? array_shift($resultArray) : false;
 	}

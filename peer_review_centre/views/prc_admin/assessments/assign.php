@@ -20,7 +20,7 @@
   action="../../../controllers/prc_admin/assessments_assign.php" 
   name="neededQuestionMark">
   <fieldset>
-    <legend>Assessment Allocation</legend>
+    <legend>Assessment Assignment</legend>
     
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Assessing Group</label>

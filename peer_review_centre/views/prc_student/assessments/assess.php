@@ -69,6 +69,7 @@
           </div>
         </div>
       </div>
+
       <!-- Box with 2nd criteria -->
       <div class="col-lg-4">
         <div class="panel panel-default">
@@ -95,6 +96,7 @@
           </div>
         </div>
       </div>
+
       <!-- Box with 3rd criteria -->
       <div class="col-lg-4">
         <div class="panel panel-default">
