@@ -20,8 +20,7 @@ if (isset($_POST['submit'])) {
   if ( empty(trim($_POST['grade1'])) || empty(trim($_POST['comment1'])) ||
        empty(trim($_POST['grade2'])) || empty(trim($_POST['comment2'])) ||
        empty(trim($_POST['grade3'])) || empty(trim($_POST['comment3'])) ) {
-    $session->message("There is at least one field missing.");
-    echo $session->message;
+    $session->errorMessage("There is at least one field missing.");
     // nice to have: be able to keep entered values.
     redirectTo("views/prc_student/assessments/assess.php?assessmentID=".$assessment->assessmentID);
   }

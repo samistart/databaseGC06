@@ -44,38 +44,35 @@
   <legend>
     <h3>Your group's performance </h3>
   </legend>
-  <div style="width: 100%;">
-    <div style="float: left; width: 30%;">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Your grade</h3>
-        </div>
-        <div class="panel-body">
-          <?php echo $group->averageGrade; ?> out of 5.
-        </div>
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Your grade</h3>
+      </div>
+      <div class="panel-body">
+        <?php echo $group->averageGrade; ?> out of 5.
       </div>
     </div>
-    <div style="float: right; width: 30%;">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Average grade</h3>
-        </div>
-        <div class="panel-body">
-          The average grade in your class is <?php echo $totalAverage; ?>.
-        </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Average grade</h3>
+      </div>
+      <div class="panel-body">
+        The average grade in your class is <?php echo $totalAverage; ?>.
       </div>
     </div>
-    <div style="margin: auto; width: 30%;">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Ranking</h3>
-        </div>
-        <div class="panel-body">
-          Your group is ranked <?php echo $groupRank; ?> from a total of <?php echo $noGroups; ?> groups.
-        </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Ranking</h3>
+      </div>
+      <div class="panel-body">
+        Your group is ranked <?php echo $groupRank; ?> out of <?php echo $noGroups; ?> groups.
       </div>
     </div>
-    <br style="clear: both;" />
   </div>
 </div>
 </div>
