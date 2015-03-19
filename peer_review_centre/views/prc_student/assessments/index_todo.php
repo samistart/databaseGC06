@@ -16,15 +16,13 @@
 
 <!-- Display possible success message in green box -->
 <?php if (($session->message)) {greenBox($session->message);} ?>
-
 <!-- Display possible error message in red box -->
 <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
 
 <!-- Display all reports to assess. -->
 <div id="assessments">
-  <legend>
-    <h3>Reports to assess</h3>
-  </legend>
+  <legend><h3>Reports to assess</h3></legend>
+
   <table class="table table-striped table-hover">
     <thead>
       <th style="width:10%;">Action </th>
@@ -46,6 +44,7 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+
 </div>
 
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

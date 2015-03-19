@@ -18,14 +18,15 @@
       $assesserID = $_POST['assesser'];
       $assessee1ID = ($_POST['assessee1']) ? $_POST['assessee1'] : false;
       $assessee2ID = ($_POST['assessee2']) ? $_POST['assessee2'] : false;
+      $assessee3ID = ($_POST['assessee3']) ? $_POST['assessee3'] : false;
 
-      if ($assesserID === $assessee1ID || $assesserID === $assessee2ID) {
+      if ($assesserID === $assessee1ID || $assesserID === $assessee2ID
+         || $assesserID === $assessee3ID) {
         $session->errorMessage('A group cannot assess its own report.');
         redirectTo("views/prc_admin/assessments/assign.php");
       }
       // Check if the assignments made already exist. If they do, then end.
       // If they do not, then create them.
-      $msg = 'You need to specify at least one receiving group.';
       $error = true;
 
       if ($assessee1ID) {
@@ -42,7 +43,6 @@
           $result = $assmt->create();
           //$msg1 = ($result) ? 'true ' : 'false ';
         }
-        $msg = 'Assessment(s) allocated successfully.';
         $error = false; 
       }
 
@@ -59,7 +59,22 @@
           $assmt = new Assessment($assesserID, $recGroupReport->reportID);
           $result = $assmt->create();
           //$msg2 = ($result) ? 'true ' : 'false ';
-          $msg = 'Assessment(s) allocated successfully.';
+          $error = false;
+        }
+      } 
+
+      if ($assessee3ID) {
+        // Sql query to check if assessment already exists:
+        $recGroupReport = Report::findByID($assessee3ID);
+        $assmt = Assessment::findByGroupAndReportID($assesserID, $recGroupReport->reportID);
+        if ($assmt) {
+          // Already exists, do nothing or write a message.
+          //$msg2 = 'exists already';
+        } else {
+          // Create the assessment
+          $assmt = new Assessment($assesserID, $recGroupReport->reportID);
+          $result = $assmt->create();
+          //$msg2 = ($result) ? 'true ' : 'false ';
           $error = false;
         }
       } 
@@ -75,9 +90,9 @@
       // }
 
       if ($error) {
-        $session->errorMessage($msg);
+        $session->errorMessage('You need to specify at least one receiving group.');
       } else {
-        $session->message($msg);
+        $session->message('Assessment(s) allocated successfully.');
       }
 
     } else {
