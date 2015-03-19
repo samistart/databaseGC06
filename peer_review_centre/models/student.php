@@ -95,6 +95,8 @@ class Student extends DatabaseObject {
   * Method that returns the students in a given group.
   */
   public static function findStudentsOn($groupID) {
+    global $database;
+    $groupID = $database->escapeValue($groupID);
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE groupID=".$groupID;
     return self::findBySQL($sql);
@@ -104,9 +106,12 @@ class Student extends DatabaseObject {
   * Method that returns the teammates of the current student.
   */
   public function findTeamMates() {
+    global $database;
+    $groupID = $database->escapeValue($this->groupID);
+    $studentID = $database->escapeValue($this->studentID);
     $sql = "SELECT * FROM " .self::$tableName;
-    $sql .= " WHERE groupID=".$this->groupID;
-    $sql .= " AND studentID!=".$this->studentID;
+    $sql .= " WHERE groupID=".$groupID;
+    $sql .= " AND studentID!=".$studentID;
     return self::findBySQL($sql);
   }
 

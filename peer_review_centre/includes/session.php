@@ -16,6 +16,7 @@ class Session {
   public $userID;
   public $message;
   public $errorMessage;
+  public $activeTab; 
   
   function __construct() {
     session_start();

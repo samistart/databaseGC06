@@ -6,7 +6,7 @@
   InitialiseAdmin::checkLoggedIn();
 ?>
 
-<?php $student = Student::findByID($_GET['studentID']);?>
+<?php $student = Student::findByID( $database->escapeValue( (int) trim($_GET['studentID']) ) );?>
 
 <h2>
   <?php echo $student->fullName(); ?>

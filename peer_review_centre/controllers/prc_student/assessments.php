@@ -12,6 +12,8 @@ require_once(SITE_ROOT.DS."includes/initialise_student.php");
 global $session;
 $studentID = $session->userID;
 $assessment = Assessment::findByID($_POST['assessmentID']);
+$report = Report::findByID($assessment->reportID);
+$group = Group::findByID($report->groupID);
 
 
 if (isset($_POST['submit'])) {
@@ -33,8 +35,11 @@ if (isset($_POST['submit'])) {
     $assessment->comment3 = trim($_POST['comment3']);
 
     if (!$assessment->update()) {
-      $session->errorMessage("There was an error that prevented your assessment from being saved.");
+      $session->errorMessage("You didn't make any changes.");
       redirectTo("views/prc_student/assessments/assess.php?assessmentID=".$assessment->assessmentID);
+    }
+    else {
+      $group->updateGrade();
     }
   }
 }

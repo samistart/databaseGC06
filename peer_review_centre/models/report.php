@@ -58,7 +58,7 @@ class Report extends DatabaseObject {
   */
 	public static function findByGroupID($groupID="") {
     global $database;
-    // Clean for sql/html injection
+    // Clean for sql injection
     $groupID = $database->escapeValue($groupID);
 
     // Send sql query to db and get back result array
