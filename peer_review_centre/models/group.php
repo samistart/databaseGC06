@@ -69,11 +69,12 @@ class Group extends DatabaseObject {
 	/**
 	* Gets all assignment grades and updates overall average grade.
 	*/
-	public function updateGrade() {
+	public function updateGrade($reportID) {
 		global $database;
 
 		$sql = "SELECT * FROM assessments";
-		$sql .= " WHERE groupID =$this->groupID";
+ 		$sql .= " WHERE reportID=$reportID";
+
 		$assessments = Assessment::findBySQL($sql);
 		$avgGrade = 0;
 		foreach ($assessments as $assmt) {

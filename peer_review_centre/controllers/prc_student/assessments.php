@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
       redirectTo("views/prc_student/assessments/assess.php?assessmentID=".$assessment->assessmentID);
     }
     else {
-      $group->updateGrade();
+      $group->updateGrade($report->reportID);
     }
   }
 }
