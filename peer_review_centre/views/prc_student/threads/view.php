@@ -17,8 +17,10 @@
     <p class="lead"> <?php echo $thread->content; ?> </p>
   </div>
   <div class="author">
-    Started by <?php $student = Student::findByID($thread->studentID);
-    echo $student->fullName(); ?> on <?php echo $thread->lastEdited; ?>
+    <i>
+      Started by <?php $student = Student::findByID($thread->studentID);
+      echo $student->fullName(); ?>
+    </i>
   </div>
 </div>
 </div>

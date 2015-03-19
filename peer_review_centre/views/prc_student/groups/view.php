@@ -10,7 +10,7 @@
 <div id="group-members" class="panel panel-default">
 <div class="panel-body">
   <legend>
-    <h3>Your group members</h3>
+    <h3>Your teammates</h3>
   </legend>
   <table class="table table-striped">
     <thead>
@@ -24,7 +24,11 @@
       <?php foreach($members as $member): ?>
       <tr>
         <td><?php echo $member->fullName(); ?></td>
-        <td><?php echo $member->email; ?></td>
+        <td>
+          <a href=<?php echo "mailto:".$member->email; ?> >
+            <?php echo $member->email; ?>
+          </a>
+        </td>
         <td><?php echo $member->lastActive; ?></td>
       </tr>
       <?php endforeach; ?>
