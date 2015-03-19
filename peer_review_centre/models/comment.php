@@ -45,6 +45,8 @@ class Comment extends DatabaseObject {
   * the comments it contains, ordered in ascending lastEdited.
   */
   public static function findCommentsOn($threadID) {
+    global $database;
+    $threadID = $database->escapeValue($threadID);
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE threadID=".$threadID;
     $sql .= " ORDER BY lastEdited ASC";

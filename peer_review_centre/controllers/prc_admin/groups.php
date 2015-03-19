@@ -8,7 +8,7 @@
   require_once(SITE_ROOT.DS."includes/initialise_admin.php");
 
   // Store current group in an group object.
-  $group = Group::findByID($_GET['groupID']);
+  $group = Group::findByID( $database->escapeValue( (int) trim($_GET['groupID']) ) );
 
   // Get array of students in current group.
   $studentsInGroup = Student::findStudentsOn($group->groupID);

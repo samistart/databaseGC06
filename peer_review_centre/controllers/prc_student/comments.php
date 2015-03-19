@@ -12,6 +12,15 @@ global $session;
 $studentID = $session->userID;
 $thread = Thread::findByID($_GET['threadID']);
 
+$student = Student::findByID($studentID);
+$group = Group::findByID($student->groupID);
+$forum = Forum::findForumsOn($student->groupID);
+$forum = $forum[0];
+
+if ( $thread->forumID !== $forum->forumID ) {
+  exit();
+}
+
 if (isset($_POST['submit'])) {
 	// Title and content from form
 	$content = trim($_POST['content']);

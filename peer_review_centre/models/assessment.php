@@ -43,6 +43,8 @@ class Assessment extends DatabaseObject {
 	* Find all assessements that a group has to do of other group reports.
 	*/
 	public static function findByGroupID($groupID) {
+    global $database;
+    $groupID = $database->escapeValue($groupID);
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE groupID=".$groupID;
     $sql .= " ORDER BY groupID ASC";
@@ -53,6 +55,8 @@ class Assessment extends DatabaseObject {
   * Find all assessements that a group received from other groups.
   */
   public static function findByReportID($reportID) {
+    global $database;
+    $reportID = $database->escapeValue($reportID);
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE reportID=".$reportID;
     $sql .= " ORDER BY groupID ASC";
@@ -63,6 +67,9 @@ class Assessment extends DatabaseObject {
   * Find all assessements with specific groupID and reportID.
   */
   public static function findByGroupAndReportID($groupID, $reportID) {
+    global $database;
+    $groupID = $database->escapeValue($groupID);
+    $reportID = $database->escapeValue($reportID);
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE groupID=".$groupID;
     $sql .= " AND reportID=".$reportID;

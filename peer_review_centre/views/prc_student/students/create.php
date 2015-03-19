@@ -8,10 +8,6 @@
   // Make absolute file paths
   $action = WEB_ROOT."controllers/prc_student/student_create.php";
   $createAdmin = WEB_ROOT."views/prc_admin/admins/create.php";
-
-
-
-  $lastname = isset($_GET['lastname'])?$_GET['lastname']:'';
 ?>
 
 <legend>
