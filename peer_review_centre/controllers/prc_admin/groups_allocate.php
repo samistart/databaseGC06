@@ -8,7 +8,7 @@
   require_once(SITE_ROOT.DS."includes/initialise_admin.php");
 
   // Get all students
-  $students = Student::findAll();
+  $students = Student::findAllOrdered();
 
   // Get all groups
   $groups = Group::findAll();
@@ -22,19 +22,22 @@
     if ($_POST['group'] != 0) {
       $newGroupID = $_POST['group'];
 
-      $msg = 'You need to specify at least one student.';
+      //$msg = 'You need to specify at least one student.';
+      $error = true;
       if ($_POST['student1'] != 0 ) {
         $student = Student::findByID($_POST['student1']);
         $student->groupID = $newGroupID;
         $result1 = $student->update();
-        $msg1 = ($result1) ? 'true ' : 'false ';
+        //$msg1 = ($result1) ? 'true ' : 'false ';
+        $error = false;
       }
       if ( ($_POST['student2'] != 0)
         && ($_POST['student2'] !== $_POST['student1']) ) {
         $student = Student::findByID($_POST['student2']);
         $student->groupID = $newGroupID;
         $result2 = $student->update();
-        $msg2 = ($result2) ? 'true ' : 'false ';
+        //$msg2 = ($result2) ? 'true ' : 'false ';
+        $error = false;
       }
       if ( ($_POST['student3'] != 0)
         && ($_POST['student3'] !== $_POST['student1'])
@@ -42,17 +45,22 @@
         $student = Student::findByID($_POST['student3']);
         $student->groupID = $newGroupID;
         $result3 = $student->update();
-        $msg3 = ($result3) ? 'true ' : 'false ';
+        //$msg3 = ($result3) ? 'true ' : 'false ';
+        $error = false;
       }
 
-      if (isset($msg1) || isset($msg2) || isset($msg3)) {
-        $msg = 'Allocation result: ';
-        $msg .= (isset($msg1)) ? $msg1 : '-'; $msg .= ' , ';
-        $msg .= (isset($msg2)) ? $msg2 : '-'; $msg .= ' , ';
-        $msg .= (isset($msg3)) ? $msg3 : '-'; $msg .= ' .';
-  
+      // if (isset($msg1) || isset($msg2) || isset($msg3)) {
+      //   $msg = 'Allocation result: ';
+      //   $msg .= (isset($msg1)) ? $msg1 : '-'; $msg .= ' , ';
+      //   $msg .= (isset($msg2)) ? $msg2 : '-'; $msg .= ' , ';
+      //   $msg .= (isset($msg3)) ? $msg3 : '-'; $msg .= ' .';
+      // }
+
+      if($error) {
+        $session->errorMessage('You need to specify at least one student.');
+      } else {
+        $session->message('Students successfully allocated.');
       }
-      $session->message($msg);
     } else {
       $session->errorMessage('You need to specify the group.');
     }

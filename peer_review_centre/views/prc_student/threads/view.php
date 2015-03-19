@@ -27,9 +27,9 @@
 <div id="comments">
   <table class="table table-striped">
     <thead>
-      <th style="width:70%;"></th>
-      <th style="width:15%;"></th>
-      <th></th>
+      <th class="col-lg-8"></th>
+      <th class="col-lg-2"></th>
+      <th class="col-lg-2"></th>
     </thead>
     <!-- Display message if there are no posts. -->
     <?php if(empty($comments)) {echo "There are no replies to this thread.";} ?>

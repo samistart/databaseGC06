@@ -11,8 +11,8 @@
   <h2>Students</h2>
   <table class="table table-striped table-hover">
     <thead>
-      <th style="width:80%;">Full Name </th>
-      <th>Group </th>
+      <th class="col-lg-10">Full Name </th>
+      <th class="col-lg-2">Group </th>
     </thead>
     <!-- Display message if there aren't any students in the database yet -->
     <?php if(empty($students)) {echo "There are currently no student accounts.";} ?>
@@ -21,7 +21,7 @@
       <tr>
         <td>
           <a href="view_student.php?studentID=<?php echo $student->studentID; ?>">
-          <?php echo $student->fullName(); ?>
+          <?php echo $student->reverseFullName(); ?>
           </a>
         </td>
         <td>

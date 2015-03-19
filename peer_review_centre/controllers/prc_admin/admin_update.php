@@ -5,24 +5,31 @@ error_reporting(E_ALL | E_STRICT);
 
 require_once("../../includes/initialise_admin.php");
 
-if ($_POST["newPassword"] == $_POST["confirmPassword"]) {
+if (empty($_POST["oldPassword"]) || empty($_POST["newPassword"]) || empty($_POST["confirmPassword"])) {
+    $session->errorMessage("Please fill out all fields.");
+    redirectTo("views/prc_admin/admins/update.php");
+}
+
+
+if ($_POST["newPassword"] != $_POST["confirmPassword"]) {
+    $session->errorMessage("Passwords do not match.");
+    redirectTo("views/prc_admin/admins/update.php");
+}
+
     $currentAdmin = Admin::findByID("$session->userID");
     $email = $currentAdmin->email;
-    //Use the PHP 5.5 hashing API. To check password use
-    // if (password_verify($password, $hashAndSalt)) {
-    //   // Verified
-    // }
 
     $foundAdmin = Admin::authenticate($email, $_POST["oldPassword"]);  
 
+if ($foundAdmin) {
     $foundAdmin->password = password_hash($_POST["newPassword"], PASSWORD_BCRYPT);
     $foundAdmin->update();
 
     $session->message("Your password was updated successfully.");
     redirectTo("views/prc_admin/admins/index.php");
 } else {
-    $session->errorrMssage("Passwords do not match.");
-    redirectTo("views/prc_admin/admins/create.php");
+    $session->errorMessage("Incorrect password.");
+    redirectTo("views/prc_admin/admins/update.php"); 
 }
 
 ?>

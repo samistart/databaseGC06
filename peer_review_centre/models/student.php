@@ -26,11 +26,18 @@ class Student extends DatabaseObject {
 	public $lastActive = "CURRENT_TIMESTAMP";
 	public $groupID;
 
+  /**
+  * Method that returns a string with the full name of the student.
+  */
+  public function fullName() {
+    return $this->firstName." ".$this->lastName;
+  }
+
 	/**
 	* Method that returns a string with the full name of the student.
 	*/
-	public function fullName() {
-		return $this->firstName." ".$this->lastName;
+	public function reverseFullName() {
+		return $this->lastName.", ".$this->firstName;
 	}
 
 	/**

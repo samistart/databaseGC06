@@ -12,9 +12,9 @@
 <div id="threads">
   <table class="table table-striped table-hover">
     <thead>
-      <th style="width:60%;">Thread title </th>
-      <th style="width:25%;">Author </th>
-      <th>Last Edited </th>
+      <th class="col-lg-7">Thread title </th>
+      <th class="col-lg-3">Author </th>
+      <th class="col-lg-2">Last Edited </th>
     </thead>
     <!-- Display message if there are no threads. -->
     <?php if(empty($threads)) {echo "No threads have been started.";} ?>

@@ -52,6 +52,14 @@
         </select>
         
         <br>
+
+        <select class="form-control" id="assessee3" name="assessee3">
+          <option value="0" selected>select group to be assessed</option>
+          <?php foreach($groups as $group) {
+            echo '<option>'.$group->groupID.'</option>'; } ?>
+        </select>
+        
+        <br>
       </div>
     </div>
 
