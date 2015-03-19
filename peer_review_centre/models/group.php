@@ -74,13 +74,15 @@ class Group extends DatabaseObject {
 
 		$sql = "SELECT * FROM assessments";
 		$sql .= " WHERE groupID =$this->groupID";
-		$assessments = Assessments::findBySQL($sql);
+		$assessments = Assessment::findBySQL($sql);
 		$avgGrade = 0;
 		foreach ($assessments as $assmt) {
 			$avgGrade += ($assmt->grade1 + $assmt->grade2 + $assmt->grade3) / 3;
 		}
-		$this->averageGrade = $avgGrade / sizeof($assessments);
-		$this->update();
+		if (sizeof($assessments) > 0) {
+ 			$this->averageGrade = $avgGrade / sizeof($assessments);
+ 			$this->update();
+ 		}
 	}
 
 	/**
