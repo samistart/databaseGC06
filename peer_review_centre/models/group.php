@@ -67,6 +67,23 @@ class Group extends DatabaseObject {
 	}
 
 	/**
+	* Gets all assignment grades and updates overall average grade.
+	*/
+	public function updateGrade() {
+		global $database;
+
+		$sql = "SELECT * FROM assessments";
+		$sql .= " WHERE groupID =$this->groupID";
+		$assessments = Assessments::findBySQL($sql);
+		$avgGrade = 0;
+		foreach ($assessments as $assmt) {
+			$avgGrade += ($assmt->grade1 + $assmt->grade2 + $assmt->grade3) / 3;
+		}
+		$this->averageGrade = $avgGrade / sizeof($assessments);
+		$this->update();
+	}
+
+	/**
 	* Method that returns the total average grade of all the groups.
 	*/
 	public static function groupsAverageGrade() {
