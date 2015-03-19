@@ -15,9 +15,9 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th style="width:40%;">Name</th>
-        <th style="width:40%;">Email address</th>
-        <th>Last active</th>
+        <th class="col-lg-5">Name</th>
+        <th class="col-lg-5">Email address</th>
+        <th class="col-lg-2">Last active</th>
       </tr>
     </thead>
     <tbody>

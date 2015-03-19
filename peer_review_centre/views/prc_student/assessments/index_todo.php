@@ -25,8 +25,8 @@
 
   <table class="table table-striped table-hover">
     <thead>
-      <th style="width:10%;">Action </th>
-      <th style="width:90%;">Title </th>
+      <th class="col-lg-2">Action </th>
+      <th class="col-lg-10">Title </th>
     </thead>
     <!-- Display message if there are no reports to assess. -->
     <?php if(empty($assessmentsToDo)) {echo "No reports to assess.";} ?>
