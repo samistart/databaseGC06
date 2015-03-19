@@ -11,7 +11,7 @@
 
 <div class="container">
 <?php 
-    if (!$myReport) {
+    if (empty($myReport->title) && empty($myReport->abstract) && empty($myReport->content)) {
       echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
     } else {
 ?>
