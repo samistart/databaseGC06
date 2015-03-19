@@ -25,8 +25,8 @@
       }
       // Check if the assignments made already exist. If they do, then end.
       // If they do not, then create them.
-      $msg = 'You need to specify at least receiving group.';
-      $error = false;
+      $msg = 'You need to specify at least one receiving group.';
+      $error = true;
 
       if ($assessee1ID) {
         // Sql query to check if assessment already exists:
@@ -35,37 +35,44 @@
         $assmt = Assessment::findByGroupAndReportID($assesserID, $recGroupReport->reportID);
         if ($assmt) {
           // Already exists, do nothing or write a message.
-          $msg1 = 'exists already';
+          //$msg1 = 'exists already';
         } else {
           // Create the assessment
           $assmt = new Assessment($assesserID, $recGroupReport->reportID);
           $result = $assmt->create();
-          $msg1 = ($result) ? 'true ' : 'false ';
+          //$msg1 = ($result) ? 'true ' : 'false ';
         }
+        $msg = 'Assessment(s) allocated successfully.';
+        $error = false; 
       }
 
-      if ($assessee2ID && ($assessee1ID !== $assessee2ID)) {
+      //if ($assessee2ID && ($assessee1ID !== $assessee2ID)) {
+      if ($assessee2ID) {
         // Sql query to check if assessment already exists:
         $recGroupReport = Report::findByID($assessee2ID);
         $assmt = Assessment::findByGroupAndReportID($assesserID, $recGroupReport->reportID);
         if ($assmt) {
           // Already exists, do nothing or write a message.
-          $msg2 = 'exists already';
+          //$msg2 = 'exists already';
         } else {
           // Create the assessment
           $assmt = new Assessment($assesserID, $recGroupReport->reportID);
           $result = $assmt->create();
-          $msg2 = ($result) ? 'true ' : 'false ';
+          //$msg2 = ($result) ? 'true ' : 'false ';
+          $msg = 'Assessment(s) allocated successfully.';
+          $error = false;
         }
-      } else {
-        $msg2 = 'Receiving group IDs were identical.';
-      }
+      } 
+      // else {
+      //   $msg = 'Receiving group IDs cannot be identical.';
+      //   $error = true;
+      // }
 
-      if ( isset($msg1) || isset($msg2) ) {
-        $msg = 'Assignment result: ';
-        $msg .= (isset($msg1)) ? $msg1 : '-'; $msg .= ' , ';
-        $msg .= (isset($msg2)) ? $msg2 : '-'; $msg .= ' .';
-      }
+      // if ( isset($msg1) || isset($msg2) ) {
+      //   $msg = 'Assignment result: ';
+      //   $msg .= (isset($msg1)) ? $msg1 : '-'; $msg .= ' , ';
+      //   $msg .= (isset($msg2)) ? $msg2 : '-'; $msg .= ' .';
+      // }
 
       if ($error) {
         $session->errorMessage($msg);
