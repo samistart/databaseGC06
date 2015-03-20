@@ -1,4 +1,5 @@
 <?php
+
   // Initialise student files and verify whether a student user is logged in
   require_once('../../includes/initialise_student.php');
   global $session;
