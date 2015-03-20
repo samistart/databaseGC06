@@ -81,7 +81,7 @@ class Group extends DatabaseObject {
 			$avgGrade += ($assmt->grade1 + $assmt->grade2 + $assmt->grade3) / 3;
 		}
 		if (sizeof($assessments) > 0) {
- 			$this->averageGrade = $avgGrade / sizeof($assessments);
+ 			$this->averageGrade = bcdiv($avgGrade, sizeof($assessments), 2);
  			$this->update();
  		}
 	}
