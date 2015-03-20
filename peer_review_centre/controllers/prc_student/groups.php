@@ -16,9 +16,7 @@
   // Get total average score among all groups
   $totalAverage = Group::groupsAverageGrade();
 
-  // Get group object corresponding to current student, update the rank fields
-  // and return the group's rank.
-  Group::updateRank();
+  // Get group object corresponding to current student and then get its rank.
   $group = Group::findByID($student->groupID);
   $groupRank = $group->ranking;
 

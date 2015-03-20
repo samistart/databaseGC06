@@ -5,9 +5,6 @@ defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'
 
 require_once(SITE_ROOT.DS."includes/initialise_admin.php");
 
-// Update group ranking before displaying.
-Group::updateRank();
-
 // Get all groups ordered by ranking.
 $groupsByRank = Group::groupsByRank();
 

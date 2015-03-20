@@ -12,7 +12,6 @@ $assessment = Assessment::findByID($_POST['assessmentID']);
 $report = Report::findByID($assessment->reportID);
 $group = Group::findByID($report->groupID);
 
-
 if (isset($_POST['submit'])) {
 
   // Check that none is empty:
@@ -35,7 +34,9 @@ if (isset($_POST['submit'])) {
       redirectTo("views/prc_student/assessments/assess.php?assessmentID=".$assessment->assessmentID);
     }
     else {
+      // Update grade for assessed group and ranking for all groups.
       $group->updateGrade($report->reportID);
+      Group::updateRank();
     }
   }
 }
