@@ -43,7 +43,8 @@
   </legend>
   <form class="form-vertical" method="POST" action="../../../controllers/prc_student/assessments.php" name="assessment">
     <fieldset>
-      <!-- Box with 2nd criteria -->
+
+      <!-- Box with 1st criteria -->
       <div class="col-lg-4">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -123,11 +124,13 @@
           </div>
         </div>
       </div>
+
       <!-- Submit button -->
       <div class="col-lg-4">
         <input type="hidden" name="assessmentID" value="<?php echo $assessment->assessmentID; ?>">
         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </div>
+      
     </fieldset>
     </div>
   </form>

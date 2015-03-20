@@ -1,5 +1,5 @@
 <?php
-  require_once('../../../includes/initialise_student.php');
+  // Include controller for this view and verify whether a student user is logged in.
   require_once("../../../controllers/prc_student/groups.php");
   InitialiseStudent::checkLoggedIn();
 ?>
@@ -12,6 +12,8 @@
   <legend>
     <h3>Your teammates</h3>
   </legend>
+
+  <!-- Table containing teammates of current student -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -45,9 +47,12 @@
 <!-- Group performance -->
 <div id="performance" class="panel panel-default">
 <div class="panel-body">
+
   <legend>
     <h3>Your group's performance </h3>
   </legend>
+
+  <!-- Box with current group's average grade -->
   <div class="col-lg-4">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -58,6 +63,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Box with class average grade -->
   <div class="col-lg-4">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -68,6 +75,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Box with current group's ranking -->
   <div class="col-lg-4">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -78,6 +87,7 @@
       </div>
     </div>
   </div>
+
 </div>
 </div>
 

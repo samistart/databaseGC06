@@ -28,6 +28,7 @@
       <th class="col-lg-2">Action </th>
       <th class="col-lg-10">Title </th>
     </thead>
+
     <!-- Display message if there are no reports to assess. -->
     <?php if(empty($assessmentsToDo)) {echo "No reports to assess.";} ?>
     <tbody>
@@ -42,9 +43,9 @@
         </td>
       </tr>
     <?php endforeach; ?>
+    
     </tbody>
   </table>
-
 </div>
 
 <?php include SITE_ROOT.DS.'layouts/footer.php';?>

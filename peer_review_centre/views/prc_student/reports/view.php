@@ -1,8 +1,9 @@
 <?php
+  // Initialise student files and verify whether a student user is logged in.
   require_once('../../../includes/initialise_student.php');
   InitialiseStudent::checkLoggedIn();
 
-  // Get an object of the current student
+  // Get an object containing the current student
   $currentStudent = Student::findByID("$session->userID");
 
   // Get the current student's report by finding it with it's group ID
@@ -10,11 +11,14 @@
 ?>
 
 <div class="container">
-<?php 
-    if (empty($myReport->title) && empty($myReport->abstract) && empty($myReport->content)) {
-      echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
-    } else {
-?>
+  <!-- Display message if no report exists yet -->
+  <?php 
+      if (empty($myReport->title) && empty($myReport->abstract) && empty($myReport->content)) {
+        echo "Your group hasn't created a report yet: <a href='submit.php'>Create report</a>";
+      } else {
+  ?>
+
+  <!-- If a report exists, display the following -->
   <legend>
     <ul class='nav nav-pills'>
       <li>Last edited: <?php echo $myReport->lastEdited; ?></li>
@@ -37,6 +41,7 @@
       <p><?php echo $myReport->content; ?></p>
     </div>
   </div>
+
 <?php } ?>
 </div>
 
