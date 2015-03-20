@@ -1,9 +1,6 @@
 <?php
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-
+  // Include controller for this view and verify whether a student user is logged in.
   require_once('../../../includes/initialise_student.php');
-  //require_once("../../../controllers/prc_student/assessments_todo.php");
   InitialiseStudent::checkLoggedIn();
 
   // Get an object of the current student

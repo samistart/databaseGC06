@@ -1,8 +1,4 @@
 <?php
-  // For debugging only
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-  
   // Initialise student files and verify whether a student user is logged in.
   require_once('../../../includes/initialise_student.php');
   InitialiseStudent::reverseCheckLoggedIn();

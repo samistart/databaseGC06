@@ -1,12 +1,9 @@
 <?php
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-
   defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
   defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
 
+  // Include controller for this view and verify whether a student user is logged in.
   require_once(SITE_ROOT.DS."includes/initialise_student.php");
-  //require_once("../../../controllers/prc_student/assessments_todo.php");
   InitialiseStudent::checkLoggedIn();
 
   // Get an object of the current student
