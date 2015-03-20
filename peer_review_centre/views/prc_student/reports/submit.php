@@ -78,20 +78,26 @@
 <br>
 
 <!-- Instructions for writing the XML file -->
-Your XML file should have the following format: <br>
-<div style="margin-left: 1em;">
-  &lt;?xml version="1.0"?> <br>
-  <font color="blue"> &lt;report> <br> </font>
-  <font color="blue"> &nbsp&nbsp &lt;title></font>
-    Title of your report
-  <font color="blue"> &lt;/title> </font> <br>
-  <font color="blue"> &nbsp&nbsp &lt;abstract></font>
-    Abstract of your report
-  <font color="blue"> &lt;/abstract> </font> <br>
-  <font color="blue"> &nbsp&nbsp &lt;content> </font>
-    Content of your report
-  <font color="blue"> &lt;/content> </font> <br>
-  <font color="blue"> &lt;/report>" </font> <br>
+<div class="col-lg-5">
+  <b> Your XML file should have the following format: </b> <br>
+  <div id="instructions-xml" class="panel panel-default">
+  <div class="panel-body">
+    <div style="margin-left: 1em;">
+      &lt;?xml version="1.0"?> <br>
+      <font color="blue"> &lt;report> <br> </font>
+      <font color="blue"> &nbsp&nbsp &lt;title></font>
+        Title of your report
+      <font color="blue"> &lt;/title> </font> <br>
+      <font color="blue"> &nbsp&nbsp &lt;abstract></font>
+        Abstract of your report
+      <font color="blue"> &lt;/abstract> </font> <br>
+      <font color="blue"> &nbsp&nbsp &lt;content> </font>
+        Content of your report
+      <font color="blue"> &lt;/content> </font> <br>
+      <font color="blue"> &lt;/report> </font> <br>
+    </div>
+  </div>
+  </div>
 </div>
 
 <br></br>
