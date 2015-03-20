@@ -15,8 +15,10 @@
       <th class="col-lg-8">Group </th>
       <th class="col-lg-2">Grade </th>
     </thead>
+
     <!-- Display message if groups haven't been allocated yet -->
     <?php if(empty($groupsByRank)) {echo "Group allocation has not been made yet.";} ?>
+    
     <tbody>
     <?php foreach($groupsByRank as $group): ?>
       <tr>

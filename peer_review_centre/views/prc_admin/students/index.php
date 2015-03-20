@@ -1,7 +1,5 @@
 <?php
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-  //require_once('../../../includes/initialise_admin.php');
+  // Include controller for this view and verify whether an admin user is logged in.
   require_once("../../../controllers/prc_admin/students.php");
   InitialiseAdmin::checkLoggedIn();
 ?>
@@ -10,12 +8,16 @@
 <div id="student-list">
   <h2>Students</h2>
   <table class="table table-striped table-hover">
+
     <thead>
       <th class="col-lg-10">Full Name </th>
       <th class="col-lg-2">Group </th>
     </thead>
+
     <!-- Display message if there aren't any students in the database yet -->
     <?php if(empty($students)) {echo "There are currently no student accounts.";} ?>
+
+    <!-- Loop through all the students in the class and write them to the table -->
     <tbody>
     <?php foreach($students as $student): ?>
       <tr>
@@ -31,6 +33,7 @@
       </tr>
     <?php endforeach; ?>
     </tbody>
+
   </table>
 </div>
 
