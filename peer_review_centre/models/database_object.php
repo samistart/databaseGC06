@@ -102,6 +102,7 @@ abstract class DatabaseObject {
 	*/
 	public function create() {
 		global $database;
+		
 		// Construct the create query.
 		$sql = "INSERT INTO ".static::$tableName." (";
 		$sql .= join(", ", array_keys($this->cleanAttributes()));

@@ -1,10 +1,8 @@
 <?php
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-
   defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
   defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'databaseGC06'.DS.'peer_review_centre');
 
+  // Include controller for this view and verify whether an admin user is logged in.
   require_once(SITE_ROOT.DS."controllers/prc_admin/assessments_assign.php");
   InitialiseAdmin::checkLoggedIn();
 
@@ -12,10 +10,10 @@
 
 <!-- Display possible success message in green box -->
 <?php if (($session->message)) {greenBox($session->message);} ?>
-
 <!-- Display possible error message in red box -->
 <?php if (($session->errorMessage)) {redBox($session->errorMessage);} ?>
 
+<!-- Form for assessment assingment -->
 <form class="form-horizontal" method="post" 
   action="../../../controllers/prc_admin/assessments_assign.php" 
   name="neededQuestionMark">

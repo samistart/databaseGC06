@@ -1,7 +1,5 @@
 <?php
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-  require_once('../../../includes/initialise_admin.php');
+  // Include controller for this view and verify whether an admin user is logged in.
   require_once("../../../controllers/prc_admin/rankings.php");
   InitialiseAdmin::checkLoggedIn();
 ?>
