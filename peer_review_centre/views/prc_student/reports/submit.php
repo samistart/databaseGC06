@@ -67,5 +67,37 @@
 
   </fieldset>
 </form>
-<?php include SITE_ROOT.DS.'layouts/footer.php';?>
 
+<br>
+
+<!-- Form to upload XML files -->
+<form action="../../../controllers/prc_student/upload_file.php" method="post" enctype="multipart/form-data">
+  <legend>You can also import your report from an XML file.</legend>
+  <label for="file">Select a file from your computer:</label>
+  <input type="file" name="file" id="file" />
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br>
+
+<!-- Instructions for writing the XML file -->
+Your XML file should have the following format: <br>
+<div style="margin-left: 1em;">
+  &lt;?xml version="1.0"?> <br>
+  <font color="blue"> &lt;report> <br> </font>
+  <font color="blue"> &nbsp&nbsp &lt;title></font>
+    Title of your report
+  <font color="blue"> &lt;/title> </font> <br>
+  <font color="blue"> &nbsp&nbsp &lt;abstract></font>
+    Abstract of your report
+  <font color="blue"> &lt;/abstract> </font> <br>
+  <font color="blue"> &nbsp&nbsp &lt;content> </font>
+    Content of your report
+  <font color="blue"> &lt;/content> </font> <br>
+  <font color="blue"> &lt;/report>" </font> <br>
+</div>
+
+<br></br>
+
+<?php include SITE_ROOT.DS.'layouts/footer.php';?>

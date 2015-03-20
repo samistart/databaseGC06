@@ -1,8 +1,5 @@
 <?php
-  //Author Sami Start
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-
+  // Initialise student files and verify whether a student user is logged in
   require_once('../../includes/initialise_student.php');
   global $session;
 
@@ -12,7 +9,7 @@
   // Get the current student's report by finding it with it's group ID
   $report = Report::findByGroupID("$currentStudent->groupID");
 
-  // If the report exists already, update it's conent, otherwise create a new object
+  // If the report exists already, update it's content, otherwise create a new object
   // to contain it.
   if ($report) {
     $report->title = $_POST["title"];
