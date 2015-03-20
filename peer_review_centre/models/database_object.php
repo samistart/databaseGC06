@@ -37,7 +37,7 @@ abstract class DatabaseObject {
 	* Method that returns all the entries of the table.
 	*/
 	public static function findAll() {
-		return static::findBySQL("SELECT * FROM ".static::$tableName."");
+		return static::findBySQL("SELECT * FROM ".static::$tableName.";");
 	}
 
 	/**
@@ -46,7 +46,7 @@ abstract class DatabaseObject {
 	public static function findByID($id=0) {
 		global $database;
 		$id = $database->escapeValue($id);
-		$resultArray = static::findBySQL("SELECT * FROM ".static::$tableName." WHERE ".static::$dbFields[0]."={$id} LIMIT 1");
+		$resultArray = static::findBySQL("SELECT * FROM ".static::$tableName." WHERE ".static::$dbFields[0]."={$id} LIMIT 1;");
 		return !empty($resultArray) ? array_shift($resultArray) : false;
 	}
 
@@ -137,7 +137,7 @@ abstract class DatabaseObject {
 		}
 		// Joins the string/value pair strings and adds them to the query
 		$sql .= join(", ", $attributePairs);
-		$sql .= " WHERE ".static::$dbFields[0]."=" . $this->getPk();
+		$sql .= " WHERE ".static::$dbFields[0]."=" . $this->getPk() . ";";
 		// Delete single quotes around CURRENT_TIMESTAMP values
 		$sql = str_replace("'CURRENT_TIMESTAMP'","CURRENT_TIMESTAMP", $sql);
 		// Send query to database
@@ -153,7 +153,7 @@ abstract class DatabaseObject {
 		global $database;
 		// Construct the delete query.
 		$sql = 	"DELETE FROM ".static::$tableName." ";
-		$sql .= "WHERE ".static::$dbFields[0]."=". $this->getPk();
+		$sql .= "WHERE ".static::$dbFields[0]."=". $this->getPk() . ";";
 		$sql .= " LIMIT 1";
 		// Send query to database
 		$database->query($sql);

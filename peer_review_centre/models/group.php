@@ -51,7 +51,7 @@ class Group extends DatabaseObject {
 	public static function groupsByRank() {
 		global $database;
 		$sql = "SELECT * FROM ".static::$tableName;
-		$sql .= " ORDER BY ranking ASC";
+		$sql .= " ORDER BY ranking ASC;";
 		return static::findBySQL($sql);
 	}
 
@@ -73,7 +73,7 @@ class Group extends DatabaseObject {
 		global $database;
 
 		$sql = "SELECT * FROM assessments";
- 		$sql .= " WHERE reportID=$reportID";
+ 		$sql .= " WHERE reportID=$reportID;";
 
 		$assessments = Assessment::findBySQL($sql);
 		$avgGrade = 0;

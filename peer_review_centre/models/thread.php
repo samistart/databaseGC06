@@ -52,7 +52,7 @@ class Thread extends DatabaseObject {
     $database->escapeValue($forumID);
     $sql = "SELECT * FROM " .self::$tableName;
     $sql .= " WHERE forumID=".$forumID;
-    $sql .= " ORDER BY lastEdited DESC";
+    $sql .= " ORDER BY lastEdited DESC;";
     return self::findBySQL($sql);
   }
 

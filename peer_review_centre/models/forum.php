@@ -38,11 +38,11 @@ class Forum extends DatabaseObject {
   * Method that takes a groupID as an argument and returns the result to the query for finding
   * the forum associated to it.
   */
-  public static function findForumsOn($groupID) {
+  public static function findForumOn($groupID) {
     global $database;
     $groupID = $database->escapeValue($groupID);
     $sql = "SELECT * FROM " .self::$tableName;
-    $sql .= " WHERE groupID=".$groupID;
+    $sql .= " WHERE groupID=".$groupID." LIMIT 1;";
     return self::findBySQL($sql);
   }
 

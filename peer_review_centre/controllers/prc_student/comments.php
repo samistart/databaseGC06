@@ -14,7 +14,7 @@ $thread = Thread::findByID($_GET['threadID']);
 
 $student = Student::findByID($studentID);
 $group = Group::findByID($student->groupID);
-$forum = Forum::findForumsOn($student->groupID);
+$forum = Forum::findForumOn($student->groupID);
 $forum = $forum[0];
 
 if ( $thread->forumID !== $forum->forumID ) {

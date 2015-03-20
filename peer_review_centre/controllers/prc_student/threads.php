@@ -12,9 +12,9 @@ global $session;
 $studentID = $session->userID;
 $student = Student::findByID($studentID);
 
-// Since forum-group have a one to one relationship, findForumsOn() will only
+// Since forum-group have a one to one relationship, findForumOn() will only
 // return one result which will be the corresponding forum.
-$forums = Forum::findForumsOn($student->groupID);
+$forums = Forum::findForumOn($student->groupID);
 $forum = $forums[0];
 $forumID = $forum->forumID;
 
