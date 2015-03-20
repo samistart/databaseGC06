@@ -17,8 +17,6 @@ if (isset($_POST['email']) & isset($_POST['password'])) { // Form has been submi
     // Check database to see if studentname/password exist.
     $foundStudent = Student::authenticate($email, $password);
     if ($foundStudent) {
-      //$studentSession is an object that is constructed at the end
-      //of the student_session include
       $session->login($foundStudent, false);
       redirectTo("views/prc_student/students/index.php");
     } else {

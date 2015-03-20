@@ -1,7 +1,4 @@
 <?php
-// Author: Sami Start
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
 
 require_once("../../includes/initialise_admin.php");
 
@@ -9,7 +6,6 @@ if (empty($_POST["oldPassword"]) || empty($_POST["newPassword"]) || empty($_POST
     $session->errorMessage("Please fill out all fields.");
     redirectTo("views/prc_admin/admins/update.php");
 }
-
 
 if ($_POST["newPassword"] != $_POST["confirmPassword"]) {
     $session->errorMessage("Passwords do not match.");
