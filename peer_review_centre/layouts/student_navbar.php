@@ -1,3 +1,5 @@
+<!-- Navbar for student users -->
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,10 +26,6 @@
             <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/view_received.php">Received</a></li>
             <li class="divider"></li>
             <li><a href="<?php echo WEB_ROOT; ?>views/prc_student/assessments/index_todo.php">To Do</a></li>
-            <!-- <li><a href="#">Something else here</a></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li> -->
           </ul>
         </li>
       </ul>

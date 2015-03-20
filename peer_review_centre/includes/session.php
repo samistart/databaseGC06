@@ -1,14 +1,8 @@
 <?php
 
-// Author Sami Start
-// Reference: based on http://www.lynda.com/MySQL-tutorials/Creating-Session-class/653/47385-4.html
-
-// A class to help work with Sessions
-// In our case, primarily to manage logging students and admins in and out
-
-// Keep in mind that it is generally inadvisable to store
-// DB - related objects in sessions (data might become outdated or take up too much space)
-
+/**
+* A class to help work with Sessions.
+*/
 class Session {
   
   private $loggedIn = false;
@@ -48,9 +42,6 @@ class Session {
       $this->isAdmin = $_SESSION['isAdmin'] = $isAdmin;
       $this->loggedIn = true;
       }
-
-    // Database should find student based on studentname/password
-    
   }
   
   public function logout() {

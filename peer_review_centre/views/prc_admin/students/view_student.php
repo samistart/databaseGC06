@@ -1,5 +1,5 @@
 <?php
-  // Initialise admin files and verify whether an admin user is logged in
+  // Initialise admin files and verify whether an admin user is logged in.
   require_once('../../../includes/initialise_admin.php');
   InitialiseAdmin::checkLoggedIn();
 ?>

@@ -5,6 +5,7 @@
   </div>
 </footer>
 </body></html>
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="./test_files/ie10-viewport-bug-workaround.js"></script> 
 

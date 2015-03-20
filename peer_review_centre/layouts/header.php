@@ -19,12 +19,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT; ?>includes/bootstrap/css/extra_css.css">
     <script src="<?php echo WEB_ROOT; ?>includes/bootstrap/js/bootstrap.min.js"></script>
 
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style type="text/css"></style></head>
 
 <body hola-ext-player="1">
